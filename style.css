@@ -8,7 +8,7 @@
 }
 
 body{
-    background-color: white;
+    background-color: #9DBC98;
     height: 100vh;
 }
 
@@ -21,11 +21,12 @@ body{
     display: flex;
 }
 
-.btn-contato button{
+.btn-Registre-se button{
     padding: 10px 40px;
     font-size: 10px;
     font-weight: 600;
-    background-color: #9DBC98;
+    background-color: #638889;
+    color: #ffffff;
     border: 0;
     border-radius: 30px;
     cursor: pointer;
@@ -39,12 +40,13 @@ h2.título{
 }
 
 h2.título span{
-    color: #9DBC98;
+    color: #638889;
 }
 
 /* Estilo do Header */
 header{
-    padding: 40px 4%;
+    padding: 10px 4%;
+    background-color: #ffffff;
 }
 
 header > .interface{
@@ -61,8 +63,8 @@ header a{
 }
 
 header a:hover{
-    color: #2e2b2b;
-    transform: scale(1.05);
+    color: #638889;
+    transform: scale(1.10);
 }
 
 header nav ul{
@@ -74,8 +76,8 @@ header nav ul li{
     padding: 0 40px;
 }
 
-.btn-contato button:hover{
-    box-shadow: 0px 0px 8px #9DBC98;
+.btn-Registre-se button:hover{
+    box-shadow: 0px 0px 8px #638889;
     transform: scale(1.05);
 }
 
@@ -98,7 +100,7 @@ section.topo-do-site .flex{
 }
 
 .topo-do-site .txt-topo-site h1 span{
-    color: #9DBC98;
+    color: #638889;
 }
 
 .topo-do-site .txt-topo-site p{
@@ -150,4 +152,8 @@ section.especialidades .flex{
 .especialidades .especialidades-box h3{
     font-size: 28px;
     margin: 15px 0;
+}
+
+img{
+    border-radius: 0%;
 }
