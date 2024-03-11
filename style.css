@@ -49,6 +49,10 @@ header{
     background-color: #ffffff;
 }
 
+.interface .logo img{ 
+    border-radius: 50px;
+}
+
 header > .interface{
     display: flex;
     align-items: center;
@@ -77,7 +81,7 @@ header nav ul li{
 }
 
 .btn-Registre-se button:hover{
-    box-shadow: 0px 0px 8px #638889;
+    box-shadow: 0px 0px 8px ;
     transform: scale(1.05);
 }
 
@@ -85,6 +89,7 @@ header nav ul li{
 
 section.topo-do-site{
     padding: 40px 4%;
+    background-color: #9DBC98;
 }
 
 section.topo-do-site .flex{
@@ -94,19 +99,27 @@ section.topo-do-site .flex{
 }
 
 .topo-do-site h1{
-    color: black;
-    font-size: 38px;
+    font-family: "Shrikhand", serif;
+    color: #ffffff;
+    font-size: 200px;
     line-height: 40px;
+    text-shadow: #5c5c5c;
+}
+
+.topo-do-site h2{
+    padding: 80px;
+    font-family: "Shrikhand", serif;
+    color: #ffffff;
+    font-size: 200px;
+    line-height: 40px;
+    text-shadow: #5c5c5c;
 }
 
 .topo-do-site .txt-topo-site h1 span{
     color: #638889;
 }
 
-.topo-do-site .txt-topo-site p{
-    color: black;
-    margin: 40px 0;
-}
+
 
 .topo-do-site .img-topo-site img{
     position: relative;
@@ -125,6 +138,7 @@ section.topo-do-site .flex{
 
 section.especialidades{
     padding: 40px 4%;
+    background-color: #ffffff;
 }
 
 section.especialidades .flex{
