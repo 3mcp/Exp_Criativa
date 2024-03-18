@@ -56,7 +56,6 @@ header{
 header > .interface{
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 header a{
@@ -77,7 +76,11 @@ header nav ul{
 
 header nav ul li{
     display: inline-block;
-    padding: 0 40px;
+    padding: 0 30px;
+}
+
+.btn-Registre-se{
+    margin-left: auto;
 }
 
 .btn-Registre-se button:hover{
