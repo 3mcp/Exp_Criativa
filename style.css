@@ -103,7 +103,7 @@ section.topo-do-site .flex{
     color: #ffffff;
     font-size: 200px;
     line-height: 40px;
-    text-shadow: #5c5c5c;
+    text-shadow: 0.1em 0.1em #628888;
 }
 
 .topo-do-site h2{
@@ -111,8 +111,8 @@ section.topo-do-site .flex{
     font-family: "Shrikhand", serif;
     color: #ffffff;
     font-size: 200px;
-    line-height: 40px;
-    text-shadow: #5c5c5c;
+    line-height: 80px;
+    text-shadow: 0.1em 0.1em #628888;
 }
 
 .topo-do-site .txt-topo-site h1 span{
