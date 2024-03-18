@@ -25,9 +25,9 @@
 
             <nav class="menu-desktop">
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Restaurante</a></li>
+                    <li><a href="Restaurantes.php">Restaurante</a></li>
                     <li><a href="#">Forúm</a></li>
                     <li><a href="#">FAQ</a></li>
                 </ul>
