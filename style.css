@@ -59,7 +59,7 @@ header > .interface{
 }
 
 header a{
-    color: #5c5c5c;
+    color: #638889;
     text-decoration: none;
     display: inline-block;
     transition: .2s;
@@ -149,6 +149,7 @@ section.especialidades .flex{
 }
 
 .especialidades .especialidades-box{
+    background-color: #5c5c5c;
     color: black;
     padding: 30px;
     border-radius: 20px;
