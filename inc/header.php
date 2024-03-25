@@ -36,7 +36,7 @@
             <div class="btn-Registre-se">
                 <a href="#">Login</a>
                 <a href="#">
-                    <button>Registre-se</button>
+                    <button><a href= "/usuarioTeste.php">Registre-se</a></button>
                 </a>
             </div>
         </div>
