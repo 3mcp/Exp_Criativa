@@ -1,6 +1,5 @@
 <?php include("inc/header.php") ?>
 
-<!-- parte principal da página-->
 
     <main>
         <section class="topo-do-site">
