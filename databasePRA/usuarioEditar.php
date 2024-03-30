@@ -1,5 +1,5 @@
 <?php
-include("dbconnection/functions.php");
+include("../dbconnection/functions.php");
 
 $usuarioID   = $conn->real_escape_string($_SESSION['ID']); 
 $usuarioNomeNovo   = $conn->real_escape_string($_POST['usuarioNomeNovo']); 
