@@ -128,6 +128,7 @@ section.topo-do-site .flex{
     position: relative;
     animation: flutuar 2s ease-in-out infinite alternate;
 }
+
 @keyframes flutuar {
     0%{
         top:0;
@@ -149,7 +150,7 @@ section.especialidades .flex{
 }
 
 .especialidades .especialidades-box{
-    background-color: #5c5c5c;
+    background-color: #d0dbdc;
     color: black;
     padding: 30px;
     border-radius: 20px;
@@ -160,11 +161,6 @@ section.especialidades .flex{
 .especialidades .especialidades-box:hover{
     transform: scale(1.05);
     box-shadow: 0 0 8px #ffffff78;
-}
-
-.especialidades .especialidades-box i{
-    font-size: 70px;
-    color: #9DBC98;
 }
 
 .especialidades .especialidades-box h3{
