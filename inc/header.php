@@ -9,32 +9,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Shrikhand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Safe dish</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/homepage.css">
 </head>
 <body>
     <header>
-        <div class= "interface">
-            <div class="logo">
-                <a href="#">
-                    <img src="img/logo.png" alt="Logo" height="100px" border-radius="90px">
-                </a>
+        <nav>
+            <div class="nav-links">
+                <img src="img/logo2.png" alt="Logo">
+                <a href="" class='navLink'>Home</a>
+                <a href="" class='navLink'>Sobre</a>
+                <a href="" class='navLink'>Restaurantes</a>
+                <a href="" class='navLink'>Forúm</a>
+                <a href="" class='navLink'>FAQ</a>
             </div>
-
-            <nav class="menu-desktop">
-                <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="Restaurantes.php">Restaurante</a></li>
-                    <li><a href="#">Forúm</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </nav>
-
-            <div class="btn-Registre-se">
-                <a href="#">Login</a>
-                <a href="#">
-                    <button><a href= "/usuarioTeste.php">Registre-se</a></button>
-                </a>
+            <div class="signUpIn">
+                <a href="" class='btnLogar'>Login</a>
+                <a href="" class='btnRegistrar'>Registre-se</a>
             </div>
-        </div>
+        </nav>
     </header>
