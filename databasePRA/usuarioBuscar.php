@@ -1,5 +1,5 @@
 <?php
-include("dbconnection/functions.php"); 
+include("../dbconnection/functions.php"); 
 if(isset($_SESSION["ID"])){
     // Mostrar todos os usuários cadastrados
     $tabela = "p_r_a_";

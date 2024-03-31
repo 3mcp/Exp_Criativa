@@ -1,5 +1,5 @@
 <?php 
-include("dbconnection/functions.php");
+include("../dbconnection/functions.php");
 
 $usuarioNome   = $conn->real_escape_string($_POST['usuarioNome']);   // prepara a string recebida para ser utilizada em comando SQL
 $usuarioEmail = $conn->real_escape_string($_POST['usuarioEmail']); // prepara a string recebida para ser utilizada em comando SQL
