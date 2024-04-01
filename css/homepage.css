@@ -1,5 +1,5 @@
 
-.container {
+.homepage {
     margin-top: 20px;
     height: 500px;
     background-color: #9DBC98;
@@ -36,40 +36,47 @@
 
 
 .container_vocesabia {
-    background-color: rgb(98, 136, 136, 0.3);
-    width: 1000px;
-    height: 500px;
-    margin-top: 200px;
-    padding: 50px 0 0 50px;
-    border-radius: 30px;
-    border: 2px solid #628888;
-    box-shadow: 1px 1px 10px #628888;
-    margin-left: 200px;
+    width: 100vw;
+    margin-top: 9vh;
+    margin-left: 8vw;
     position: relative;
 }
 
-.container_vocesabia > div > h2 {
+.textoVoceSabia{
+    background-color: rgb(98, 136, 136, 0.3);
+    padding: 2.5vw 0 0 2.5vw;
+    width: 50vw;
+    border-radius: 30px;
+    border: 2px solid #628888;
+    box-shadow: 1px 1px 10px #628888;
+    min-height: 35vh;
+    height: fit-content;
+}
+
+.textoVoceSabia > div > h2 {
     color: #628888;
     font-size: 35px;
 }
 
-.container_vocesabia > div {
+.textoVoceSabia > div {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.container_vocesabia > p {
+.textoVoceSabia > p {
     color: #628888;
     font-size: 20px;
-    width: 900px;
+    width: 88%;
     text-align: left;
     margin-top: 30px;
 }
 
 .container_vocesabia > img {
-    position: absolute;
-    top: 130px;
-    left: 870px;
+    position: relative;
+    top: -20vh;
+    left: 45vw;
+    width: 42vw;
+    height: auto;
 }
 
