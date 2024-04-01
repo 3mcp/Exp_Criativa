@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/estiloFooter.css">
+    <link rel="stylesheet" href="css/Restaurantes.css">
 </head>
 
 <body>
@@ -21,9 +22,9 @@
         <nav>
             <div class="nav-links">
                 <img src="img/logo2.png" alt="Logo">
-                <a href="" class='navLink'>Home</a>
+                <a href="index.php" class='navLink'>Home</a>
                 <a href="" class='navLink'>Sobre</a>
-                <a href="" class='navLink'>Restaurantes</a>
+                <a href="Restaurantes.php" class='navLink'>Restaurantes</a>
                 <a href="" class='navLink'>Forúm</a>
                 <a href="" class='navLink'>FAQ</a>
             </div>
