@@ -75,3 +75,18 @@ nav {
 transform-origin: left;
 transform: scaleX(1);
 }
+
+.signUpIn > .dropdown > button{
+    color: white;
+    background-color: #638889;
+    font-family: "Poppins", sans-serif;
+}
+
+.signUpIn > .dropdown > button:hover{
+    color: #638889;
+    background-color: white;
+}
+
+.signUpIn > .dropdown > .dropdown-menu > li > a{
+    color: #638889;
+}

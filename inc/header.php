@@ -1,5 +1,6 @@
 <html lang="pt-br">
-
+<?php session_start(); 
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +29,15 @@
             </div>
             <?php if (isset($_SESSION['ID'])) { ?>
                 <div class="signUpIn">
-                    <a href="inc/logout.php" class='btnLogar'>Logout</a>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Bem vindo, <?php echo $_SESSION['NOME'] ?>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li><a class="dropdown-item" href="./logout.php">Sair</a></li>
+                        </ul>
+                    </div>
                 </div>
             <?php } else { ?>
                 <div class="signUpIn">
