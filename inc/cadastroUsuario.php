@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/cadastro.css">
-    <title>Document</title>
+    <title>Cadastro</title>
 </head>
 <body>
    
@@ -17,7 +17,7 @@
     <form id="cadastroForm">
         <div class="button-wrapper">
             <button class="userBtn" type="button">Usuario</button>
-            <button class="restaurantButton" type="button">Restaurante</button>
+            <button class="restaurantBtn" type="button">Restaurante</button>
         </div>
         <div>
             <h1>Cadastre-se</h1>
@@ -35,25 +35,7 @@
             <p id="inputPasswordLabel">Senha: </p>
             <input type="text" id="inputPassword">
         </div>
-        <div class="enderecoInputs" id="enderecoWrapper">
-
-            <div class="input-wrapper" id="cepWrapper">
-                <p id="inputCepLabel">CEP:</p>
-                <input type="text" id='inputCep'>
-            </div>
-            <div class="input-wrapper" id="ruaWrapper">
-                <p id="inputRuaLabel">Rua:</p>
-                <input type="text" id='inputRua'>
-            </div>
-            <div class="input-wrapper" id="numeroWrapper">
-                <p id="inputNumeroLabel">Número:</p>
-                <input type="text" id='inputNumero'>
-            </div>
-            <div class="input-wrapper" id="cnpjWrapper">
-                <p id="inputCNPJLabel">CNPJ:</p>
-                <input type="text" id='inputCNPJ'>
-            </div>
-        </div>
+        
             
         <button class="signUpBtn">Cadastrar</button>
         <button class="goBackBtn" type="button">Voltar</button>
