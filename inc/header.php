@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/estiloFooter.css">
+    <link rel="stylesheet" href="css/estiloFooter.css">
 </head>
 <body>
     <header>

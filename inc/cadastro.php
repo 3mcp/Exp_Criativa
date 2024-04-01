@@ -17,31 +17,31 @@
         </div>
     </div>
     <form>
-        <div>
-            <p>Nome completo: </p>
-            <input type="text" for="nome">
+        <div class="button-wrapper">
+            <button class="userBtn" type="button">Usuario</button>
+            <button class="restaurantButton" type="button">Restaurante</button>
         </div>
         <div>
-            <p>Email: </p>
-            <input type="text" for="nome">
+            <h1>Cadastre-se</h1>
+            <p>Faça parte da nossa família</p>
         </div>
-        <div>
-            <p>Confirme o e-mail: </p>
-            <input type="text" for="nome">
+        <div class="input-wrapper">
+            <p id="inputNomeLabel">Nome completo: </p>
+            <input type="text"  id="inputNome">
         </div>
-        <div>
-            <p>Senha: </p>
-            <input type="text" for="nome">
+        <div class="input-wrapper">
+            <p id="inputEmailLabel">Email: </p>
+            <input type="text" id="inputEmail">
         </div>
+        <div class="input-wrapper"s>
+            <p id="inputPasswordLabel">Senha: </p>
+            <input type="text"  id="inputPassword">
+        </div>
+        <button class="signUpBtn">Cadastrar</button>
+        <button class="goBackBtn">Voltar</button>
     </form>
 
-    <script>
-
-
-
-
-
-    </script>
+    <script src="../js/cadastro.js"></script>
 
 
 </body>
