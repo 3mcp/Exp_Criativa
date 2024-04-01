@@ -7,14 +7,15 @@
     <title>Cadastro</title>
 </head>
 <body>
-   
+    <?php include("../databasePRA/usuarioCadastro.php")?>
+
     <div class="elipse">
         <div class="interiorElipse">
             <h1>Safe</h1>
             <h2>Dish</h2>
         </div>
     </div>
-    <form id="cadastroForm">
+    <form id="cadastroForm" action="../databasePRA/usuarioCadastro.php" method="post">
         <div class="button-wrapper">
             <button class="userBtn" type="button">Usuario</button>
             <button class="restaurantBtn" type="button">Restaurante</button>
@@ -25,16 +26,19 @@
         </div>
         <div class="input-wrapper" id="nomeWrapper">
             <p id="inputNomeLabel">Nome completo: </p>
-            <input type="text" id="inputNome">
+            <input type="text" id="inputNome" name = "usuarioNome">
         </div>
         <div class="input-wrapper" id="emailWrapper">
             <p id="inputEmailLabel">Email: </p>
-            <input type="text" id="inputEmail">
+            <input type="text" id="inputEmail" name = "usuarioEmail">
         </div>
         <div class="input-wrapper" id="senhaWrapper">
             <p id="inputPasswordLabel">Senha: </p>
-            <input type="text" id="inputPassword">
+            <input type="text" id="inputPassword" name = "usuarioSenha">
         </div>
+        <?php 
+            echo($_SESSION["erroCadastro"])
+        ?>
         
             
         <button class="signUpBtn">Cadastrar</button>
