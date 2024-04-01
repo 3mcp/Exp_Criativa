@@ -70,7 +70,7 @@ body {
   cursor: pointer;
 }
 
-.restaurantButton {
+.restaurantBtn {
   width: 100%;
   height: 40px;
   border: none;
@@ -127,17 +127,6 @@ input {
 
 .enderecoInputs > div > input {
   width: 200px;
-}
-
-#inputCepLabel,
-#inputCep,
-#inputRuaLabel,
-#inputRua,
-#inputNumero,
-#inputNumeroLabel,
-#inputCNPJ,
-#inputCNPJLabel {
-  display: none;
 }
 
 .signUpBtn {
