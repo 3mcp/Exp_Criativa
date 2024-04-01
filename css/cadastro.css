@@ -119,6 +119,27 @@ input {
   color: grey;
 }
 
+.enderecoInputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.enderecoInputs > div > input {
+  width: 200px;
+}
+
+#inputCepLabel,
+#inputCep,
+#inputRuaLabel,
+#inputRua,
+#inputNumero,
+#inputNumeroLabel,
+#inputCNPJ,
+#inputCNPJLabel {
+  display: none;
+}
+
 .signUpBtn {
   width: 124px;
   height: 40px;
