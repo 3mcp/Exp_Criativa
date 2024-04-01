@@ -43,7 +43,7 @@
             <?php } else { ?>
                 <div class="signUpIn">
                     <a href="inc/entrar.php" class='btnLogar'>Entrar</a>
-                    <a href="inc/cadastro.php" class='btnRegistrar'>Registre-se</a>
+                    <a href="inc/cadastroUsuario.php" class='btnRegistrar'>Registre-se</a>
                 </div>
             <?php } ?>
         </nav>
