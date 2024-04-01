@@ -28,3 +28,48 @@
     width: 500px;
     margin-top: 30px;
 }
+
+.main-wrapper {
+    display: flex;
+}
+
+
+
+.container_vocesabia {
+    background-color: rgb(98, 136, 136, 0.3);
+    width: 1000px;
+    height: 500px;
+    margin-top: 200px;
+    padding: 50px 0 0 50px;
+    border-radius: 30px;
+    border: 2px solid #628888;
+    box-shadow: 1px 1px 10px #628888;
+    margin-left: 200px;
+    position: relative;
+}
+
+.container_vocesabia > div > h2 {
+    color: #628888;
+    font-size: 35px;
+}
+
+.container_vocesabia > div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.container_vocesabia > p {
+    color: #628888;
+    font-size: 20px;
+    width: 900px;
+    text-align: left;
+    margin-top: 30px;
+}
+
+.container_vocesabia > img {
+    position: absolute;
+    top: 130px;
+    left: 870px;
+}
+

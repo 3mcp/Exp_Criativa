@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: #9DBC98;
+    position: relative;
+}
+
+.elipse {
+    width: 1000px;
+    height: 1000px;
+    clip-path: circle(74.2% at 80% 25%);
+    background-color: rgb(99, 136, 137, 0.64);
+    margin-left: auto;
+    position: absolute;
+    right: 0;
+}
+
+.interiorElipse {
+    width: 900px;
+    height: 900px;
+    clip-path: circle(74.2% at 80% 25%);
+    background-color: rgb(158, 189, 153, 0.64);
+    position: absolute;
+    right: 0;
+
+}
+
+.interiorElipse > h1 {
+    font-family: "Shrikhand", serif;
+    color: #ffffff;
+    font-size: 170px;
+    text-align: center;
+    position: absolute;
+    text-align: center;
+    left: 20%;
+    top: 20%;
+    text-shadow: 0.1em 0.1em #628888;
+}
+
+.interiorElipse > h2 {
+    font-family: "Shrikhand", serif;
+    color: #ffffff;
+    font-size: 170px;
+    position: absolute;
+    left: 25%;
+    top: 40%;
+    margin-left: 200px;
+    text-shadow: 0.1em 0.1em #628888;
+}
+
+form {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+}
