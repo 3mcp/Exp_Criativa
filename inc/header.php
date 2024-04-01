@@ -41,7 +41,7 @@
                 </div>
             <?php } else { ?>
                 <div class="signUpIn">
-                    <a href="" class='btnLogar'>Login</a>
+                    <a href="inc/entrar.php" class='btnLogar'>Entrar</a>
                     <a href="inc/cadastro.php" class='btnRegistrar'>Registre-se</a>
                 </div>
             <?php } ?>
