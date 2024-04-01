@@ -1,4 +1,5 @@
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +8,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Safe dish</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/estiloFooter.css">
 </head>
+
 <body>
     <header>
         <nav>
             <div class="nav-links">
                 <img src="img/logo2.png" alt="Logo">
                 <a href="" class='navLink'>Home</a>
-                <a href="" class='navLink' >Sobre</a>
+                <a href="" class='navLink'>Sobre</a>
                 <a href="" class='navLink'>Restaurantes</a>
                 <a href="" class='navLink'>Forúm</a>
                 <a href="" class='navLink'>FAQ</a>
             </div>
-            <div class="signUpIn">
-                <a href="" class='btnLogar'>Login</a>
-                <a href="inc/cadastro.php" class='btnRegistrar'>Registre-se</a>
-            </div>
+            <?php if (isset($_SESSION['ID'])) { ?>
+                <div class="signUpIn">
+                    <a href="inc/logout.php" class='btnLogar'>Logout</a>
+                </div>
+            <?php } else { ?>
+                <div class="signUpIn">
+                    <a href="" class='btnLogar'>Login</a>
+                    <a href="inc/cadastro.php" class='btnRegistrar'>Registre-se</a>
+                </div>
+            <?php } ?>
         </nav>
     </header>

@@ -1,8 +1,8 @@
 <?php
 include("../dbconnection/functions.php");
 
-$email = $conn->real_escape_string($_POST['usuarioEmail']); // prepara a string recebida para ser utilizada em comando SQL
-$senha   = $conn->real_escape_string($_POST['usuarioSenha']); // prepara a string recebida para ser utilizada em comando SQL
+$email = $conn->real_escape_string(trim($_POST['usuarioEmail'])); // prepara a string recebida para ser utilizada em comando SQL
+$senha   = $conn->real_escape_string(trim($_POST['usuarioSenha'])); // prepara a string recebida para ser utilizada em comando SQL
 
 $tabela = "p_r_a_";
     $aCampos = ["IdPRA","EmailPRA","SenhaPRA"];
@@ -12,6 +12,7 @@ $tabela = "p_r_a_";
     foreach($usuarios as $usuario){
         session_start();
         $_SESSION["ID"] = $usuario["IdPRA"];
+        $_SESSION["TYPE"] = "pra";
     }
 
 if(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])){

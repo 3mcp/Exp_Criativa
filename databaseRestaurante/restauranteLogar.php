@@ -12,6 +12,7 @@ $tabela = "restaurante";
     foreach($usuarios as $usuario){
         session_start();
         $_SESSION["ID"] = $usuario["IdRestaurante"];
+        $_SESSION["TYPE"] = "restaurante";
     }
 
 if(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])){
