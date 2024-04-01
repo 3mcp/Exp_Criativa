@@ -8,6 +8,8 @@ if(isset($_POST['usuarioNome'], $_POST['usuarioEmail'], $_POST['usuarioSenha']))
     $usuarioNome   = $conn->real_escape_string($_POST['usuarioNome']);
     $usuarioEmail = $conn->real_escape_string($_POST['usuarioEmail']);
     $usuarioSenha  = $conn->real_escape_string($_POST['usuarioSenha']);
+    $_SESSION["NOME"] = $usuarioNome;
+    $_SESSION["TYPE"] = "pra";
 
     //Criptografa Senha
     $md5Senha = md5($usuarioSenha);
