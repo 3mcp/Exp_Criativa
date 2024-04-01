@@ -3,7 +3,6 @@ include("../dbconnection/functions.php");
 
 // Verifica se os campos necessários estão definidos em $_POST
 if(isset($_POST['usuarioNome'], $_POST['usuarioEmail'], $_POST['usuarioSenha'])) {
-    $conn = connect(); // Assumindo que a função 'connect()' está definida em functions.php
     
     $usuarioNome   = $conn->real_escape_string($_POST['usuarioNome']);
     $usuarioEmail = $conn->real_escape_string($_POST['usuarioEmail']);
