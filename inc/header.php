@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/estiloFooter.css">
     <link rel="stylesheet" href="css/Restaurantes.css">
+    <link rel="stylesheet" href="css/faq.css">
+    <link rel="stylesheet" href="css/meuPerfil.css">
 </head>
 
 <body>
@@ -26,7 +28,7 @@
                 <a href="" class='navLink'>Sobre</a>
                 <a href="Restaurantes.php" class='navLink'>Restaurantes</a>
                 <a href="" class='navLink'>Forúm</a>
-                <a href="" class='navLink'>FAQ</a>
+                <a href="faq.php" class='navLink'>FAQ</a>
             </div>
             <?php if (isset($_SESSION['ID'])) { ?>
                 <div class="signUpIn">

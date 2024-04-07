@@ -7,9 +7,6 @@
     font-family: "Poppins", sans-serif;
 }
 
-body {
-    min-height: 2000px;
-}
 
 nav {
     display: flex;

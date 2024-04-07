@@ -63,10 +63,9 @@ body {
 .userBtn {
   height: 40px;
   border: none;
-  background-color: #ffffff;
+  background-color: #d9dbd8;
   border-radius: 20px;
-  font-weight: bold;
-  color: #9dbc98;
+  color: white;
   padding: 10px 60px;
   cursor: pointer;
 }
