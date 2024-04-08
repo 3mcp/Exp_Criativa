@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/Restaurantes.css">
     <link rel="stylesheet" href="css/faq.css">
     <link rel="stylesheet" href="css/meuPerfil.css">
+    <link rel="stylesheet" href="css/editarPerfil.css">
 </head>
 
 <body>
