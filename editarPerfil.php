@@ -31,5 +31,9 @@
             </form>                
         </div>
     </div>
+    <button>Deletar conta</button>
+    <button>Atualizar conta</button>
+
+
 
 </main>

@@ -42,13 +42,13 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
   gap: 20px;
 }
 
 input {
   border: none;
   background-color: rgb(217, 217, 217, 0.4);
+  padding: 15px 40%;
 }
 
 .inputWrapper {
