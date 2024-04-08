@@ -31,9 +31,11 @@
             </form>                
         </div>
     </div>
-    <button>Deletar conta</button>
+    <button onclick="confirmarExcluir()">Deletar conta</button>
     <button>Atualizar conta</button>
 
+    <p id='demo'></p>
 
+    <script src="./js/editar.js"></script>
 
 </main>
