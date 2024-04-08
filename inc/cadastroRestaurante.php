@@ -48,7 +48,7 @@
 
             <div class="input-wrapper" id="cepWrapper">
                 <p id="inputCepLabel">CEP:</p>
-                <input type="text" id='inputCep' name="restauranteCEP">
+                <input type="text" id='inputCep' name="restauranteCEP" maxlength='9' onkeyup="handleZipCode(event)" class="ls-mask-cep">
             </div>
             <div class="input-wrapper" id="ruaWrapper">
                 <p id="inputRuaLabel">Rua:</p>
@@ -60,7 +60,7 @@
             </div>
             <div class="input-wrapper" id="cnpjWrapper">
                 <p id="inputCNPJLabel">CNPJ:</p>
-                <input type="text" id='inputCNPJ' name="restauranteCNPJ">
+                <input type="text" id='inputCNPJ' name="restauranteCNPJ" onkeyup="handleCnpj(event)" maxlength='18'>
             </div>
         </div>
         <button class="signUpBtn">Cadastrar</button>
@@ -68,6 +68,6 @@
     </form>
 
     <script src="../js/cadastroRestaurante.js"></script>
-    <script src="../js/mascaras.js"></script>
+    <script src="../js/mascarasRestaurante.js"></script>
 </body>
 </html>

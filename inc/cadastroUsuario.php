@@ -33,7 +33,7 @@
         </div>
         <div class="input-wrapper" id="senhaWrapper">
             <p id="inputPasswordLabel">Senha: </p>
-            <input type="password" id="inputPassword" name = "usuarioSenha">
+            <input type="password" id="inputPassword" name ="usuarioSenha">
         </div>
         <?php 
             if (isset($_SESSION["erroCadastro"])){
@@ -47,5 +47,6 @@
     </form>
 
     <script src="../js/cadastro.js"></script>
+    <script src="../js/mascarasUsuarios.js"></script>
 </body>
 </html>
