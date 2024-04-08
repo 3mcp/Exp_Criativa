@@ -5,7 +5,7 @@
 
     <div class='mainButtons'>
         <h1>Configurações</h1>
-        <button>Voltar</button>
+        <button type='button' class='goBackBtn'>Voltar</button>
     </div>
     <hr>
     <div class='container-form'>
@@ -29,10 +29,12 @@
                     <input type="password" id="password" name="password">
                 </div>
             </form>                
+            <div class='formButtons'>
+                <button onclick="confirmarExcluir()" class='delButton'>Deletar conta</button>
+                <button class='updateButton'>Atualizar conta</button>
+            </div>
         </div>
     </div>
-    <button onclick="confirmarExcluir()">Deletar conta</button>
-    <button>Atualizar conta</button>
 
     <p id='demo'></p>
 

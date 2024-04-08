@@ -48,15 +48,39 @@ form {
 input {
   border: none;
   background-color: rgb(217, 217, 217, 0.4);
-  padding: 15px 40%;
+  padding: 15px 40% 0 0;
+  border-radius: 10px;
+  padding-left: 10px;
 }
 
-.inputWrapper {
-  display: flex;
-  align-items: center;
+input:focus {
+  outline: none;
 }
 
 .inputWrapper > p {
   font-size: 20px;
   color: grey;
+}
+
+.formButtons {
+  display: flex;
+  margin-top: 5%;
+  gap: 2%;
+}
+
+.delButton {
+  color: red;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.updateButton {
+  background-color: #638889;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
