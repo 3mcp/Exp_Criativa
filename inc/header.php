@@ -1,6 +1,7 @@
 <html lang="pt-br">
-<?php session_start(); 
+<?php session_start();
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,14 +33,21 @@
             </div>
             <?php if (isset($_SESSION['ID'])) { ?>
                 <div class="signUpIn">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Bem vindo, <?php echo $_SESSION['NOME'] ?>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
-                            <li><a class="dropdown-item" href="./logout.php">Sair</a></li>
-                        </ul>
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <a href="" class="profile-link"><i class="bi bi-house-door fs-4"></i></a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="./logout.php" class="profile-link"><i class="bi bi-box-arrow-right fs-4"></i></a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="./meuPerfil.php" class="profile-link"><i class="bi bi-gear fs-4"></i></a>
+                        </div>
+                        <div class="col-auto"><img src="img/logo2.png" alt="Avatar do usuario" class="profile-avatar"></div>
+                        <div class="col-auto">
+                            <p class="mb-0 profile-text"><?php echo $_SESSION['NOME'] ?></p>
+                            <p class="mb-0 profile-text"><?php echo $_SESSION['TYPE'] ?></p>
+                        </div>
                     </div>
                 </div>
             <?php } else { ?>

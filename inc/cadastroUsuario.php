@@ -7,7 +7,6 @@
     <title>Cadastro</title>
 </head>
 <body>
-    <?php include("../databasePRA/usuarioCadastro.php")?>
 
     <div class="elipse">
         <div class="interiorElipse">
