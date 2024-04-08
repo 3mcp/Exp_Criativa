@@ -1,10 +1,9 @@
- .site-footer
-{
-  background-color:#638889;
-  padding:45px 10px 30px;
-  font-size:15px;
-  line-height:24px;
-  color:#9CAFAA;
+.site-footer {
+  background-color: #638889;
+  padding: 45px 10px 30px;
+  font-size: 15px;
+  line-height: 24px;
+  color: #9cafaa;
   bottom: 0px;
   position: relative;
   z-index: 9999;
@@ -59,6 +58,6 @@
 .teste1 {
   padding-left: 90px;
 }
-.teste2{
-  padding-left:90px;
-} 
+.teste2 {
+  padding-left: 90px;
+}

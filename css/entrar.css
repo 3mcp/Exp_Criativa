@@ -81,7 +81,7 @@ body {
   cursor: pointer;
 }
 
-.entrarForm{
+.entrarForm {
   width: 500px;
   display: flex;
   flex-direction: column;
@@ -147,7 +147,7 @@ input {
 #inputNumeroLabel,
 #inputCNPJ,
 #inputCNPJLabel,
-#inputSite, 
+#inputSite,
 #inputSiteLab {
   display: none;
 }
@@ -174,11 +174,11 @@ input {
   color: red !important;
 }
 
-#pra{
+#pra {
   transition: 1s;
 }
 
-#restaurante{
+#restaurante {
   display: none;
   transition: 1s;
 }

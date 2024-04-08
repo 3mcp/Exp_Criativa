@@ -1,82 +1,82 @@
+.homepageWrapper {
+  overflow: hidden;
+}
 
 .homepage {
-    margin-top: 20px;
-    height: 500px;
-    background-color: #9DBC98;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  margin-top: 20px;
+  height: 500px;
+  background-color: #9dbc98;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.nomeDoSite h1{
-    font-family: "Shrikhand", serif;
-    color: #ffffff;
-    margin-top: 50px;
-    font-size: 170px;
-    line-height: 50px;
-    text-shadow: 0.1em 0.1em #628888;
+.nomeDoSite h1 {
+  font-family: "Shrikhand", serif;
+  color: #ffffff;
+  margin-top: 50px;
+  font-size: 170px;
+  line-height: 50px;
+  text-shadow: 0.1em 0.1em #628888;
 }
-.nomeDoSite h2{
-    font-family: "Shrikhand", serif;
-    color: #ffffff;
-    margin-left: 50px;
-    font-size: 200px;
-    text-shadow: 0.1em 0.1em #628888;
+.nomeDoSite h2 {
+  font-family: "Shrikhand", serif;
+  color: #ffffff;
+  margin-left: 50px;
+  font-size: 200px;
+  text-shadow: 0.1em 0.1em #628888;
 }
 
 .vetor {
-    width: 500px;
-    margin-top: 30px;
+  width: 500px;
+  margin-top: 30px;
 }
 
 .main-wrapper {
-    display: flex;
+  display: flex;
 }
-
-
 
 .container_vocesabia {
-    width: 92vw;
-    margin-top: 9vh;
-    margin-left: 8vw;
-    position: relative;
+  width: 92vw;
+  margin-top: 9vh;
+  margin-left: 8vw;
+  position: relative;
 }
 
-.textoVoceSabia{
-    background-color: rgb(98, 136, 136, 0.3);
-    padding: 2.5vw 0 0 2.5vw;
-    width: 50vw;
-    border-radius: 30px;
-    border: 2px solid #628888;
-    box-shadow: 1px 1px 10px #628888;
-    min-height: 35vh;
-    height: fit-content;
+.textoVoceSabia {
+  background-color: rgb(98, 136, 136, 0.3);
+  padding: 2.5vw 0 0 2.5vw;
+  width: 50vw;
+  border-radius: 30px;
+  border: 2px solid #628888;
+  box-shadow: 1px 1px 10px #628888;
+  min-height: 35vh;
+  height: fit-content;
 }
 
 .textoVoceSabia > div > h2 {
-    color: #628888;
-    font-size: 35px;
+  color: #628888;
+  font-size: 35px;
 }
 
 .textoVoceSabia > div {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .textoVoceSabia > p {
-    color: #628888;
-    font-size: 20px;
-    width: 88%;
-    text-align: left;
-    margin-top: 30px;
+  color: #628888;
+  font-size: 20px;
+  width: 88%;
+  text-align: left;
+  margin-top: 30px;
 }
 
 .container_vocesabia > img {
-    position: relative;
-    top: -20vh;
-    left: 45vw;
-    width: 42vw;
-    height: auto;
+  position: relative;
+  top: -20vh;
+  left: 42vw;
+  width: 42vw;
+  height: auto;
 }
-

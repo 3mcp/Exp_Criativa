@@ -68,5 +68,6 @@
     </form>
 
     <script src="../js/cadastroRestaurante.js"></script>
+    <script src="../js/mascaras.js"></script>
 </body>
 </html>

@@ -1,117 +1,113 @@
-
-main {
-    margin: 0 60px;
+.containerPrincipal {
+  padding: 0 3%;
 }
 
 .container-banner {
-    background-image: url("../img/banner.png");
-    height: 600px;
-    border-radius: 50px;
-    overflow: hidden;
-    position: relative; /* Adicionando posicionamento relativo */
+  background-image: url("../img/banner.png");
+  height: 600px;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative; /* Adicionando posicionamento relativo */
 }
 
 .container-info {
-    background-color: rgb(255, 255, 255, 0.9);
-    height: 100px;
-    margin-top: 20px; 
-    position: absolute;
-    bottom: 0;
-    left: 0; 
-    width: 100%; 
-    padding: 10px 0 0 10px;
+  background-color: rgb(255, 255, 255, 0.9);
+  height: 100px;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0 0 10px;
 }
 
 .container-info > div {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-
 .container-info-content {
-    margin-left: 10rem;
-
+  margin-left: 10rem;
 }
 
 .profileTitle {
-    font-size: 24px;
-    color: #638889;
+  font-size: 24px;
+  color: #638889;
 }
 
-
 .profilePic {
-    width: 120px;
-    position: absolute;
-    bottom: 20px;
-    height: 120px;
+  width: 120px;
+  position: absolute;
+  bottom: 20px;
+  height: 120px;
 }
 
 .container-sobre {
-    width: 400px;
+  width: 400px;
 }
 
 .container-sobre > h1 {
-    font-size: 24px;
-    color: #638889;
-    margin-bottom: 20px;
-    font-weight: bold;
+  font-size: 24px;
+  color: #638889;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .sobre-info {
-     color: #959895;
+  color: #959895;
 }
 
 .sobre-info > p > span {
-    color: #638889;
+  color: #638889;
 }
 
-.wrapper-profile { 
-    display: flex;
-    justify-content: space-between;
-    margin-top: 100px;
+.wrapper-profile {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
 }
 
-.container-reviews { 
-    width: 800px;
-    margin-right: 10%;
+.container-reviews {
+  width: 800px;
+  margin-right: 10%;
 }
 
 .container-reviews > h1 {
-    font-size: 24px;
-    color: #638889;
-    font-weight: bold;
+  font-size: 24px;
+  color: #638889;
+  font-weight: bold;
 }
 
-.review { 
-    margin-bottom: 10%;
+.review {
+  margin-bottom: 10%;
 }
 
 .review > div {
-    display: flex;
-    gap: 20px;
-    align-items: center;
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
 .review-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .profilePicReview {
-    width: 80px;
-    height: 80px;
+  width: 80px;
+  height: 80px;
 }
 
 .review-info > h2 {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .review-info > p {
-    color: #638889;
+  color: #638889;
 }
 
 .review > p {
-    margin-top: 20px;
-    color: #959895;
+  margin-top: 20px;
+  color: #959895;
 }
