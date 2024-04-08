@@ -5,9 +5,11 @@
             <h1>Restaurantes</h1>
         </div>
 
+        <a href="inc/cadastroRestaurante.php" class='btnRegistrar'>Registre seu restaurante</a>
+
         <form class="search-container">
-            <input type="text" id="search-bar" placeholder="Busca">
-            <a href="#"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+            <input type="text" id="search-bar" placeholder="Pesquise por restaurantes, pratos...">
+            <button class="search-button">Pesquisar</button>
         </form>
     
         
@@ -16,15 +18,25 @@
                 <img src="img/fachada (teste).jpg" alt="">
                 <p>Swadisht</p>
                 <h5>Restaurante indiano elegante que combina pratos e vinho, com destaque para o chana masala e as samosas.</h5>
-                <button>Ver mais</button>
-                <i class="bi bi-shop"></i>
+                <button class='btn-vermais'>Ver mais</button>
             </div>
             <div class="restaurante">
                 <img src="img/fachada2 (teste).jpg" alt="">
                 <p>Zapata</p>
                 <h5>Bar colorido e animado com comida e música mexicanas e pista de dança aberta para iniciantes e profissionais.</h5>
-                <button>Ver mais</button>
-                <i class="bi bi-shop"></i>
+                <button class='btn-vermais'>Ver mais</button>
+            </div>
+            <div class="restaurante">
+                <img src="img/fachada2 (teste).jpg" alt="">
+                <p>Zapata</p>
+                <h5>Bar colorido e animado com comida e música mexicanas e pista de dança aberta para iniciantes e profissionais.</h5>
+                <button class='btn-vermais'>Ver mais</button>
+            </div>
+            <div class="restaurante">
+                <img src="img/fachada2 (teste).jpg" alt="">
+                <p>Zapata</p>
+                <h5>Bar colorido e animado com comida e música mexicanas e pista de dança aberta para iniciantes e profissionais.</h5>
+                <button class='btn-vermais'>Ver mais</button>
             </div>
         </section>
     </div>
