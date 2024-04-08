@@ -1,5 +1,6 @@
 <?php include("inc/header.php") ?>
 <main>
+    <script src="js/restaurante.js"></script>
     <div class="Restaurantes-pg">
         <div class='Restaurante-txt'>
             <h1>Restaurantes</h1>
@@ -14,17 +15,17 @@
     
         
         <section class="Restaurantes">
-            <div class="restaurante">
+        <div class="restaurante" id="restaurante-1">
                 <img src="img/fachada (teste).jpg" alt="">
                 <p>Swadisht</p>
                 <h5>Restaurante indiano elegante que combina pratos e vinho, com destaque para o chana masala e as samosas.</h5>
-                <button class='btn-vermais'>Ver mais</button>
+                <a href="https://www.swadisht.com.br/" class="btn-vermais" target="_blank">Ver mais</a>
             </div>
-            <div class="restaurante">
+            <div class="restaurante" id="restaurante-1">
                 <img src="img/fachada2 (teste).jpg" alt="">
                 <p>Zapata</p>
                 <h5>Bar colorido e animado com comida e música mexicanas e pista de dança aberta para iniciantes e profissionais.</h5>
-                <button class='btn-vermais'>Ver mais</button>
+                <a href="https://zapatabrasil.com.br/" class="btn-vermais" target="_blank">Ver mais</a>
             </div>
             <div class="restaurante">
                 <img src="img/fachada2 (teste).jpg" alt="">
