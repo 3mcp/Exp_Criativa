@@ -7,7 +7,7 @@
         <div>
             <img src="img/profilepic.png" alt="" class='profilePic'>
             <div class='container-info-content'>
-                <h1 class='profileTitle'>Nome de perfil</h1>
+                <h1 class='profileTitle'>Nome do Usuário</h1>
                 <p class='profileLocation'>
                     <img src="img/location.svg" alt="">
                     Cidade, Estado

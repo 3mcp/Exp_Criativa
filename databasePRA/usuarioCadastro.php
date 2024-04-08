@@ -7,8 +7,6 @@ if(isset($_POST['usuarioNome'], $_POST['usuarioEmail'], $_POST['usuarioSenha']))
     $usuarioNome   = $conn->real_escape_string($_POST['usuarioNome']);
     $usuarioEmail = $conn->real_escape_string($_POST['usuarioEmail']);
     $usuarioSenha  = $conn->real_escape_string($_POST['usuarioSenha']);
-    $_SESSION["NOME"] = $usuarioNome;
-    $_SESSION["TYPE"] = "pra";
 
     //Criptografa Senha
     $md5Senha = md5($usuarioSenha);
@@ -26,15 +24,16 @@ if(isset($_POST['usuarioNome'], $_POST['usuarioEmail'], $_POST['usuarioSenha']))
     if($result == "Registro inserido com sucesso.") {
         session_start();
         $_SESSION["ID"] = $conn->insert_id;
+        $_SESSION["NOME"] = $usuarioNome;
+        $_SESSION["TYPE"] = "pra";
+        header('Location: ../index.php');
+    }else {
+        $_SESSION["erroCadastro"] = $result;
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
     $conn->close();
 
-    if(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])){
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-    } else {
-        header('Location: usuarioTeste.php');
-    }
 } else {
     $_SESSION["erroCadastro"] = "Campos obrigatórios não foram preenchidos.";
 }

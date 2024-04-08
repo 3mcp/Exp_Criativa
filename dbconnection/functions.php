@@ -20,12 +20,19 @@
         $campos = implode(',', $aCampos);
         $valores = "'" . implode("','", $aValores) . "'";
         $consulta = "INSERT INTO $tabela ($campos) VALUES ($valores)";
-      
+        try {
         if($conn->query($consulta) === TRUE) {
             return "Registro inserido com sucesso.";
         } else {
             return "Erro ao inserir registro: " . $conn->error;
         }
+    } catch (Exception $e) {
+        if ($conn->errno == 1062) { // Check for MySQL duplicate entry error
+            return "Erro ao inserir registro: Entrada duplicada.";
+        } else {
+            return "Erro ao inserir registro: " . $e->getMessage();
+        }
+}
     }
 
     function update($conn, $tabela, $aSet, $condicao) {
