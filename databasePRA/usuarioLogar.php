@@ -13,7 +13,7 @@ foreach ($usuarios as $usuario) {
     session_start();
     $_SESSION["ID"] = $usuario["IdPRA"];
     $_SESSION["NOME"] = $usuario["NomePRA"];
-    $_SESSION["TYPE"] = "pra";
+    $_SESSION["TYPE"] = "P.R.A.";
     header('Location: ../index.php');
 }
 

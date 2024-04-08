@@ -39,7 +39,7 @@
                             <a href="./meuPerfil.php" class="profile-link"><i class="bi bi-house-door fs-4"></i></a>
                         </div>
                         <div class="col-auto">
-                            <a href="" class="profile-link"><i class="bi bi-gear fs-4"></i></a>
+                            <a href="./editarPerfil.php" class="profile-link"><i class="bi bi-gear fs-4"></i></a>
                         </div>
                         <div class="col-auto">
                             <a href="./logout.php" class="profile-link"><i class="bi bi-box-arrow-right fs-4"></i></a>

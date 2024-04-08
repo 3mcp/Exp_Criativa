@@ -21,9 +21,8 @@ $aValores = array("$restauranteCNPJ", "$restauranteNumero", "$restauranteEmail",
 $tabela = "restaurante";
 
 $result = create($conn, $aCampos, $aValores, $tabela);
-
+session_start();
 if($result == "Registro inserido com sucesso.") {
-    session_start();
     $_SESSION["ID"] = $conn->insert_id;
     $_SESSION["NOME"] = $usuarioNome;
     $_SESSION["TYPE"] = "Restaurante";

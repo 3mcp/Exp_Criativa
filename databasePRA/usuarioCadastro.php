@@ -25,7 +25,7 @@ if(isset($_POST['usuarioNome'], $_POST['usuarioEmail'], $_POST['usuarioSenha']))
         session_start();
         $_SESSION["ID"] = $conn->insert_id;
         $_SESSION["NOME"] = $usuarioNome;
-        $_SESSION["TYPE"] = "pra";
+        $_SESSION["TYPE"] = "P.R.A.";
         header('Location: ../index.php');
     }else {
         $_SESSION["erroCadastro"] = $result;
