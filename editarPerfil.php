@@ -41,3 +41,5 @@
     <script src="./js/editar.js"></script>
 
 </main>
+
+<?php include("inc/footer.php") ?>

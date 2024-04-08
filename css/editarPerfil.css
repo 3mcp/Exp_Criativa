@@ -1,3 +1,8 @@
+main {
+  padding: 0 20%;
+  margin-bottom: 5%;
+}
+
 .mainButtons {
   display: flex;
   justify-content: space-between;
@@ -28,11 +33,12 @@
   display: flex;
   align-items: flex-start;
   gap: 30%;
+  justify-content: space-between;
 }
 
 .dataButton {
   background-color: rgb(217, 217, 217, 0.4);
-  padding: 0.5% 3%;
+  padding: 0.5% 7%;
   border: none;
   border-radius: 20px;
 }
@@ -48,7 +54,7 @@ form {
 input {
   border: none;
   background-color: rgb(217, 217, 217, 0.4);
-  padding: 15px 40% 0 0;
+  padding: 15px 50% 0 0;
   border-radius: 10px;
   padding-left: 10px;
 }
@@ -64,7 +70,7 @@ input:focus {
 
 .formButtons {
   display: flex;
-  margin-top: 5%;
+  margin-top: 10%;
   gap: 2%;
 }
 
