@@ -7,9 +7,6 @@ $tabela = "restaurante";
 $condicao = "IdRestaurante = ".$restauranteID;
 
 echo deleteByCondition($conn, $tabela, $condicao);
-
-if(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])){
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-} else {
-    header('Location:');
-}
+session_start();
+session_destroy();
+header('Location: ../index.php');

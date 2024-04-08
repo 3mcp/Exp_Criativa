@@ -59,8 +59,10 @@
             return "Erro ao deletar registro(s): " . $conn->error;
         }
   }
-
+  if (session_status() === PHP_SESSION_NONE) {
+    // Start the session
     session_start();
+}
 
     $s_name = session_name();
 

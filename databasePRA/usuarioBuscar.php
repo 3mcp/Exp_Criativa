@@ -1,15 +1,16 @@
 <?php
-include("../dbconnection/functions.php"); 
+include("dbconnection/functions.php"); 
 if(isset($_SESSION["ID"])){
-    // Mostrar todos os usuários cadastrados
     $tabela = "p_r_a_";
     $aCampos = "*";
-    $condicao = "IdPRA = ".$_SESSION["ID"]; // Nenhuma condição, queremos todos os usuários
-
+    $condicao = "IdPRA = ".$_SESSION["ID"]; 
     $usuarios = select($conn, $aCampos, $tabela, $condicao);
+    $dados;
     foreach ($usuarios as $usuario) {
+        $dados = $usuario;
         foreach($usuario as $campo => $valor){
             echo $campo.": " . $valor."<br>";
+            
         }
     }
 
