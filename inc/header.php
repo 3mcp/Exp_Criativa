@@ -35,13 +35,13 @@
                 <div class="signUpIn">
                     <div class="row align-items-center">
                         <div class="col-auto">
-                            <a href="" class="profile-link"><i class="bi bi-house-door fs-4"></i></a>
+                            <a href="./meuPerfil.php" class="profile-link"><i class="bi bi-house-door fs-4"></i></a>
+                        </div>
+                        <div class="col-auto">
+                            <a href="" class="profile-link"><i class="bi bi-gear fs-4"></i></a>
                         </div>
                         <div class="col-auto">
                             <a href="./logout.php" class="profile-link"><i class="bi bi-box-arrow-right fs-4"></i></a>
-                        </div>
-                        <div class="col-auto">
-                            <a href="./meuPerfil.php" class="profile-link"><i class="bi bi-gear fs-4"></i></a>
                         </div>
                         <div class="col-auto"><img src="img/logo2.png" alt="Avatar do usuario" class="profile-avatar"></div>
                         <div class="col-auto">

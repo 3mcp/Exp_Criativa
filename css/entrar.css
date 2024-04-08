@@ -146,7 +146,9 @@ input {
 #inputNumero,
 #inputNumeroLabel,
 #inputCNPJ,
-#inputCNPJLabel {
+#inputCNPJLabel,
+#inputSite, 
+#inputSiteLab {
   display: none;
 }
 

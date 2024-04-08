@@ -33,10 +33,12 @@
         </div>
         <div class="input-wrapper" id="senhaWrapper">
             <p id="inputPasswordLabel">Senha: </p>
-            <input type="text" id="inputPassword" name = "usuarioSenha">
+            <input type="password" id="inputPassword" name = "usuarioSenha">
         </div>
         <?php 
-            echo($_SESSION["erroCadastro"])
+            if (isset($_SESSION["erroCadastro"])){
+            echo($_SESSION["erroCadastro"]);
+            }
         ?>
         
             

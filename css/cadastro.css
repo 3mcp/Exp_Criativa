@@ -147,6 +147,10 @@ input {
   background-color: transparent;
 }
 
+.alert-danger {
+  color: red !important;
+}
+
 @media (max-width: 768px) {
   .elipse {
     display: none;
