@@ -28,7 +28,8 @@ if(isset($_POST['usuarioNome'], $_POST['usuarioEmail'], $_POST['usuarioSenha']))
         $_SESSION["TYPE"] = "P.R.A.";
         header('Location: ../index.php');
     }else {
-        $_SESSION["erroCadastro"] = $result;
+        session_start();
+        $_SESSION["erro"] = $result;
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 

@@ -28,7 +28,7 @@ if($result == "Registro inserido com sucesso.") {
     $_SESSION["TYPE"] = "Restaurante";
     header('Location: ../index.php');
 }else {
-    $_SESSION['erro'] = "Erro ao cadastrar";
+    $_SESSION['erro'] = $result;
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 

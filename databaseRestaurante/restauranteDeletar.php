@@ -9,4 +9,4 @@ $condicao = "IdRestaurante = ".$restauranteID;
 echo deleteByCondition($conn, $tabela, $condicao);
 session_start();
 session_destroy();
-header('Location: ../index.php');
+header('Location: index.php');
