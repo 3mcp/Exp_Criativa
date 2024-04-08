@@ -21,20 +21,22 @@
 }
 
 .search-container{
-    width: 800px;
-    display: flex;
+    width: 700px;
+    display: inline-block;
     margin: 0 auto;
-    align-items: center;
+    justify-content: center;
 }
   
 input#search-bar{
-    flex: 1;
+    flex: auto;
     margin: 0 auto;
     height: 45px;
+    width: 550px;
     padding: 0 20px;
     font-size: 1rem;
     border: 1px solid #D0CFCE;
     outline: none;
+    background-color: #ffffff;
 }
   
 .search-button{

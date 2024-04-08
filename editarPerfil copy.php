@@ -6,7 +6,7 @@ if(!isset($_SESSION["ID"])){
 ?>
 <main>
 
-    <div class="mainContainer">
+
     <div class='mainButtons'>
         <h1>Configurações</h1>
         <button type='button' class='goBackBtn'>Voltar</button>
@@ -64,10 +64,10 @@ if(!isset($_SESSION["ID"])){
             <?php } ?>
         </div>
     </div>
-    </div>
+    
+
+    <p id='demo'></p>
 
     <script src="./js/editar.js"></script>
 
 </main>
-
-<?php include("inc/footer.php") ?>

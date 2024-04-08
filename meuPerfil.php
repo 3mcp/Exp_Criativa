@@ -1,4 +1,8 @@
-<?php include("inc/header.php") ?>
+<?php include("inc/header.php");
+if(!isset($_SESSION["ID"])){
+    header('Location: index.php');
+}
+?>
 
 <main>
 
