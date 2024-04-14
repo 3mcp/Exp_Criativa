@@ -3,13 +3,13 @@
         <div class="row">
           <div class="col-sm-12 col-md-6">
             <div class="teste2">
-            <h6>sobre nós</h6>
-            <p class="text-justify">Somos uma equipe de engenharia de software, que se inspirou em criar um site que ajude pessoas com restrições alimentares a achar lugares seguros para comer. Sendo nossa inspiração pessoas celíacas que tem extrema dificuldade em encontrar locais bons e confiavéis.</p>
+            <h6>Nossa inspiração</h6>
+            <p class="text-justify">Somos uma equipe de engenharia de software, que se inspirou em criar um site que ajude pessoas com restrições alimentares a achar lugares seguros para comer. Sendo nossa inspiração pessoas celíacas que tem extrema dificuldade em encontrar locais bons e confiavéis para deliciar uma prato.</p>
           </div>
          </div>
         <div class="col-xs-6 col-md-3">
            <div class="teste">
-            <h6>contate-nos</h6>
+            <h6>Fale Conosco</h6>
             <ul class="footer-links">
               <li><a href="mailto:helenacarvalhoferreira05@gmail.com">Helena</a></li>
               <li><a href="mailto:kakaubial@gmail.com">Karen</a></li>
