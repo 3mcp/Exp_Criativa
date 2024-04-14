@@ -1,15 +1,15 @@
 .site-footer {
-  background-color: #638889;
+  background-color: #759697;
   padding: 45px 10px 30px;
   font-size: 15px;
   line-height: 24px;
-  color: #9cafaa;
+  color: #7d9379;
   bottom: 0px;
   position: relative;
   z-index: 9999;
 }
 .site-footer hr {
-  border-top-color: #ffffff;
+  border-top-color: #d9dbd8;
   opacity: 0.5;
 }
 .site-footer h6 {
@@ -20,10 +20,10 @@
   letter-spacing: 5px;
 }
 .site-footer a {
-  color: #9cafaa;
+  color: #7d9379;
 }
 .site-footer a:hover {
-  color: #9dbc98;
+  color: #d0decd;
   text-decoration: none;
 }
 .footer-links {
@@ -36,7 +36,7 @@
 .footer-links a:active,
 .footer-links a:focus,
 .footer-links a:hover {
-  color: #9dbc98;
+  color: #d0decd;
   text-decoration: underline;
 }
 .site-footer .social-icons a {
