@@ -31,12 +31,12 @@
   list-style: none;
 }
 .footer-links a {
-  color: #9cafaa;
+  color: #d0decd;
 }
 .footer-links a:active,
 .footer-links a:focus,
 .footer-links a:hover {
-  color: #d0decd;
+  color: #9cafaa;
   text-decoration: underline;
 }
 .site-footer .social-icons a {
@@ -46,7 +46,7 @@
   margin-left: 6px;
   margin-right: 0;
   border-radius: 100%;
-  background-color: #9cafaa;
+  background-color: #d0decd;
 }
 .copyright-text {
   margin: 0px;
@@ -56,7 +56,7 @@
   padding-left: 90px;
 }
 .teste1 {
-  padding-left: 70px;
+  padding-left: 120px;
 }
 .teste2 {
   padding-left: 90px;
