@@ -24,7 +24,7 @@ $result = create($conn, $aCampos, $aValores, $tabela);
 session_start();
 if($result == "Registro inserido com sucesso.") {
     $_SESSION["ID"] = $conn->insert_id;
-    $_SESSION["NOME"] = $usuarioNome;
+    $_SESSION["NOME"] = $restauranteNome;
     $_SESSION["TYPE"] = "Restaurante";
     header('Location: ../index.php');
 }else {
