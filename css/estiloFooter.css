@@ -1,9 +1,9 @@
 .site-footer {
-  background-color: #759697;
+  background-color: #7d9379;
   padding: 45px 10px 30px;
   font-size: 15px;
   line-height: 24px;
-  color: #7d9379;
+  color: #d9dbd8;
   bottom: 0px;
   position: relative;
   z-index: 9999;
@@ -20,10 +20,10 @@
   letter-spacing: 5px;
 }
 .site-footer a {
-  color: #7d9379;
+  color: #d0decd;
 }
 .site-footer a:hover {
-  color: #d0decd;
+  color: #D2E9CD;
   text-decoration: none;
 }
 .footer-links {
