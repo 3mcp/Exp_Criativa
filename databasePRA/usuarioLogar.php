@@ -13,6 +13,7 @@ foreach ($usuarios as $usuario) {
     session_start();
     $_SESSION["ID"] = $usuario["IdPRA"];
     $_SESSION["NOME"] = $usuario["NomePRA"];
+    $_SESSION["SENHA"] = md5($senha);
     $_SESSION["TYPE"] = "P.R.A.";
     header('Location: ../index.php');
 }
@@ -20,6 +21,7 @@ foreach ($usuarios as $usuario) {
 if ($usuarios == null) {
     session_start();
     $_SESSION['erro'] = "Email ou senha incorretos!";
+    $_SESSION['erroLogin'] = "pra";
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 } else {
     header('Location: ../index.php');

@@ -25,6 +25,7 @@ $result = create($conn, $aCampos, $aValores, $tabela);
 if($result == "Registro inserido com sucesso.") {
     $_SESSION["ID"] = $conn->insert_id;
     $_SESSION["NOME"] = $restauranteNome;
+    $_SESSION["SENHA"] = $md5Senha;
     $_SESSION["TYPE"] = "Restaurante";
     header('Location: ../index.php');
 } else {

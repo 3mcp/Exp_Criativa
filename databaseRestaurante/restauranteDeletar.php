@@ -1,12 +1,12 @@
 <?php
-include("dbconnection/functions.php");
+include("../dbconnection/functions.php");
 
 $usuarioID   = $conn->real_escape_string($_SESSION['ID']); 
 
 $tabela = "restaurante";
-$condicao = "IdRestaurante = ".$restauranteID;
+$condicao = "IdRestaurante = ".$usuarioID;
 
 echo deleteByCondition($conn, $tabela, $condicao);
 session_start();
 session_destroy();
-header('Location: index.php');
+header('Location: ../index.php');

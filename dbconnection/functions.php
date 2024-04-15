@@ -2,6 +2,7 @@
     require("connection.php");
     
     function select($conn,$aCampos,$tabela,$condicao){
+        $_SESSION['LAST_ACTIVITY'] = time();
         if ($aCampos == "*") {
           $consulta = "SELECT * FROM ".$tabela."";
         } else {
@@ -17,6 +18,7 @@
     }
 
     function create($conn, $aCampos, $aValores, $tabela){
+        $_SESSION['LAST_ACTIVITY'] = time();
         $campos = implode(',', $aCampos);
         $valores = "'" . implode("','", $aValores) . "'";
         $consulta = "INSERT INTO $tabela ($campos) VALUES ($valores)";
@@ -36,6 +38,7 @@
     }
 
     function update($conn, $tabela, $aSet, $condicao) {
+        $_SESSION['LAST_ACTIVITY'] = time();
         $sets = [];
         foreach ($aSet as $campo => $valor) {
             $sets[] = "$campo = '$valor'";
@@ -68,8 +71,10 @@
 
     if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
         session_unset();     
-        session_destroy();   
-        echo "Session is expired at " .  gmdate("H:i:s", time()) .  "<br/>";
+        session_destroy();
+        //Exibindo um alerta de sessão expirada
+        echo "<script>alert('Sessão expirada!')</script>";
+        header('Location: index.php');
     }
     $_SESSION['LAST_ACTIVITY'] = time(); 
     // echo "Session is created for $s_name, at " . gmdate("H:i:s", time()) .  "<br/>";

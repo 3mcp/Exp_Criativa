@@ -1,19 +1,13 @@
 function confirmarExcluirRestaurante() {
-  let text = "Confirme para a excluir a conta\nOK ou Cancel";
+  let text = "Tem certeza que deseja excluir sua conta?";
   if (confirm(text) == true) {
     window.location.href = 'databaseRestaurante/restauranteDeletar.php';
-  } else {
-    text = "Voce cancelou";
   }
-  document.getElementById("demo").innerHTML = text;
 }
 
 function confirmarExcluirPRA() {
-  let text = "Confirme para a excluir a conta\nOK ou Cancel";
+  let text = "Tem certeza que deseja excluir sua conta?";
   if (confirm(text) == true) {
     window.location.href = 'databasePRA/usuarioDeletar.php';
-  } else {
-    text = "Voce cancelou";
   }
-  document.getElementById("demo").innerHTML = text;
 }

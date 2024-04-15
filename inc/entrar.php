@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start();?>
+<?php session_start(); ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,6 +28,7 @@
             </div>
         <?php
             unset($_SESSION['erro']);
+            unset($_SESSION['erroLogin']);
         } ?>
         <form id="pra" action="../databasePRA/usuarioLogar.php" method="post">
             <div>
@@ -64,6 +66,16 @@
 
 
     <script src="../js/entrar.js"></script>
+    <?php
+    if(isset($_SESSION['erroLogin'])){
+        if ($_SESSION['erroLogin'] == "pra") {
+            echo "<script>document.getElementById('userButton').click();</script>";
+        } else {
+            echo "<script>document.getElementById('restaurantButton').click();</script>";
+        }
+        unset($_SESSION['erroLogin']);
+    }
+     ?>
 </body>
 
 </html>

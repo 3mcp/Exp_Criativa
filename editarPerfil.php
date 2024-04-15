@@ -3,6 +3,7 @@ include("inc/header.php");
 if (!isset($_SESSION["ID"])) {
     header('Location: index.php');
 }
+
 ?>
 <main>
 
@@ -35,11 +36,15 @@ if (!isset($_SESSION["ID"])) {
                                     <input type="email" id="email" name="usuarioEmailNovo" required value="<?php echo $usuario["EmailPRA"] ?>">
                                 </div>
                                 <div class='inputWrapper'>
-                                    <p>Senha</p>
-                                    <input type="password" id="password" name="usuarioSenhaNovo" required value="<?php echo $usuario["SenhaPRA"] ?>">
+                                    <p>Senha Antiga</p>
+                                    <input type="password" name="usuarioSenhaAntiga">
+                                </div>
+                                <div class='inputWrapper'>
+                                    <p>Senha Nova</p>
+                                    <input type="password" name="usuarioSenhaNovo">
                                 </div>
                                 <div class="formButtons">
-                                    <button onclick="confirmarExcluirPRA()" class="delButton">Deletar conta</button>
+                                    <button onclick="confirmarExcluirPRA()" class="delButton" type="button">Deletar conta</button>
                                     <button class="updateButton" type="submit">Atualizar conta</button>
                                 </div>
                             </form>
@@ -58,18 +63,42 @@ if (!isset($_SESSION["ID"])) {
                             <form action="databaseRestaurante/restauranteEditar.php" method="post">
                                 <div class='inputWrapper'>
                                     <p>Nome</p>
-                                    <input type="text" id="nome" name="restauranteNomeNovo" required value="<?php echo $usuario["NomeRestaurante"] ?>">
+                                    <input type="text" name="restauranteNomeNovo" required value="<?php echo $usuario["NomeRestaurante"] ?>">
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Email</p>
-                                    <input type="email" id="email" name="restauranteEmailNovo" required value="<?php echo $usuario["EmailRestaurante"] ?>">
+                                    <input type="email" name="restauranteEmailNovo" required value="<?php echo $usuario["EmailRestaurante"] ?>">
                                 </div>
                                 <div class='inputWrapper'>
-                                    <p>Senha</p>
-                                    <input type="password" id="password" name="restauranteSenhaNovo" required value="<?php echo $usuario["SenhaRestaurante"] ?>">
+                                    <p>Senha Antiga</p>
+                                    <input type="password" name="restauranteSenhaAntiga">
+                                </div>
+                                <div class='inputWrapper'>
+                                    <p>Senha Nova</p>
+                                    <input type="password" name="restauranteSenhaNovo">
+                                </div>
+                                <div class='inputWrapper'>
+                                    <p>CNPJ</p>
+                                    <input type="text" name="restauranteCNPJNovo" required value="<?php echo $usuario["CNPJRestaurante"] ?>">
+                                </div>
+                                <div class='inputWrapper'>
+                                    <p>CEP</p>
+                                    <input type="text" name="restauranteCEPNovo" required value="<?php echo $usuario["CEPRestaurante"] ?>">
+                                </div>
+                                <div class='inputWrapper'>
+                                    <p>Rua</p>
+                                    <input type="text" name="restauranteRuaNovo" required value="<?php echo $usuario["RuaRestaurante"] ?>">
+                                </div>
+                                <div class='inputWrapper'>
+                                    <p>Número</p>
+                                    <input type="text" name="restauranteNumeroNovo" required value="<?php echo $usuario["Numero_Restaurante"] ?>">
+                                </div>
+                                <div class='inputWrapper'>
+                                    <p>Site</p>
+                                    <input type="text" name="restauranteSiteNovo" value="<?php echo $usuario["SiteRestaurante"] ?>">
                                 </div>
                                 <div class="formButtons">
-                                    <button onclick="confirmarExcluirRestaurante()" class="delButton">Deletar conta</button>
+                                    <button onclick="confirmarExcluirRestaurante()" class="delButton" type="button">Deletar conta</button>
                                     <button class="updateButton" type="submit">Atualizar conta</button>
                                 </div>
                             </form>
@@ -84,4 +113,8 @@ if (!isset($_SESSION["ID"])) {
 
 </main>
 
-<?php include("inc/footer.php") ?>
+<?php include("inc/footer.php");
+if(isset($_SESSION['erro'])){
+    echo "<script>alert('".$_SESSION['erro']."');</script>";
+    unset($_SESSION['erro']);
+} ?>
