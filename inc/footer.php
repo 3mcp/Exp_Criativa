@@ -4,7 +4,7 @@
           <div class="col-sm-12 col-md-6">
             <div class="teste2">
             <h6>Nossa inspiração</h6>
-            <p class="text-justify">Somos uma equipe de engenharia de software, que se inspirou em criar um site que ajude pessoas com restrições alimentares a achar lugares seguros para comer. Sendo nossa inspiração pessoas celíacas que tem extrema dificuldade em encontrar locais bons e confiavéis para deliciar uma prato.</p>
+            <p class="text-justify">Somos uma equipe de engenharia de software, que se inspirou em criar um site que ajude pessoas com restrições alimentares a achar lugares seguros para comer. Sendo nossa inspiração pessoas celíacas que tem extrema dificuldade em encontrar locais bons e confiavéis para saborear um prato.</p>
           </div>
          </div>
         <div class="col-xs-6 col-md-3">

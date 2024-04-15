@@ -1,9 +1,12 @@
 const nome = document.getElementById("inputNome");
-
 const cep = document.getElementById("inputCep");
 const street = document.getElementById("inputRua");
 const numero = document.getElementById("inputNumero");
 const cnpj = document.getElementById("inputCNPJ");
+const email = document.getElementById("inputEmail");
+const emailError = document.getElementById("emailError");
+const password = document.getElementById("inputPassword");
+const passwordError = document.getElementById("passwordError");
 
 const handleZipCode = (event) => {
   let input = event.target;
@@ -12,8 +15,11 @@ const handleZipCode = (event) => {
 
 const handleCnpj = (event) => {
   let input = event.target;
-  input.value = cnpjMask(input.value);
+  if (input.value.length >= 14) {
+      input.value = cnpjMask(input.value);
+  }
 };
+
 
 const cnpjMask = (value) => {
   if (!value) return "";
@@ -51,3 +57,4 @@ nome.addEventListener("input", function () {
 numero.addEventListener("input", function () {
   this.value = this.value.replace(/\D/g, "");
 });
+

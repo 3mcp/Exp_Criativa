@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include("../dbconnection/functions.php");
 
 $restauranteNome   = $conn->real_escape_string(trim($_POST['restauranteNome']));   // prepara a string recebida para ser utilizada em comando SQL
@@ -12,8 +13,7 @@ $restauranteSite  = NULL;  // prepara a string recebida para ser utilizada em co
 $restauranteFoto = NULL;
 //addslashes(file_get_contents($_FILES['Imagem']['tmp_name'])); // Prepara para salvar em BD
 
-
-//Criptografa Senha
+$restauranteNome = ucwords(strtolower($restauranteNome)); 
 $md5Senha = md5($restauranteSenha);
 
 $aCampos = array("CNPJRestaurante", "Numero_Restaurante", "EmailRestaurante", "FotoRestaurante", "SiteRestaurante", "SenhaRestaurante", "NomeRestaurante", "RuaRestaurante", "CEPRestaurante");
@@ -21,19 +21,16 @@ $aValores = array("$restauranteCNPJ", "$restauranteNumero", "$restauranteEmail",
 $tabela = "restaurante";
 
 $result = create($conn, $aCampos, $aValores, $tabela);
-session_start();
+
 if($result == "Registro inserido com sucesso.") {
     $_SESSION["ID"] = $conn->insert_id;
     $_SESSION["NOME"] = $restauranteNome;
     $_SESSION["TYPE"] = "Restaurante";
     header('Location: ../index.php');
-}else {
+} else {
     $_SESSION['erro'] = $result;
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
 
 $conn->close();
-
-?>
-
 

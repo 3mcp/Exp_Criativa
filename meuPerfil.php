@@ -83,7 +83,6 @@ if(!isset($_SESSION["ID"])){
                         <?php echo $usuario['RuaRestaurante'] ?>, <?php echo $usuario['Numero_Restaurante'] ?>, <?php echo $usuario['CEPRestaurante'] ?>
                     </p>
                 </div>
-    
             </div>
           </div>
         </div>
