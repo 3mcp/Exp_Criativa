@@ -48,7 +48,7 @@ street.addEventListener("input", function () {
 });
 
 nome.addEventListener("input", function () {
-  this.value = this.value.replace(/[^a-zA-Z\s]/g, "");
+  this.value = this.value.replace(/[^a-zA-ZÀ-ú\s]/g, "");
 });
 
 numero.addEventListener("input", function () {

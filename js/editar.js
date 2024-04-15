@@ -67,12 +67,10 @@ function trim(str) {
   return str.replace(/^\s+|\s+$/g, '');
 }
 
-function validateForm() {
-    var nameuserValue = document.getElementById("inputNome").value.trim();
+function validateuserForm() {
+    var nameuserValue = document.getElementById("inputuserNome").value.trim();
     var nameuserError = document.getElementById("nameuserError");
     var emailuserValue = document.getElementById("inputEmail").value;
-    alert(emailuserValue)
-
     var passwordPRAValue = document.getElementById("inputSenha").value;
     var emailuserError = document.getElementById("emailuserError");
     var passworduserError = document.getElementById("passworduserError");
@@ -104,3 +102,86 @@ function validateForm() {
 
     return true; 
 }
+
+function validaterestaurantForm() {
+    var restaurantValue = document.getElementById("inputNome").value.trim();
+    var restauranteError = document.getElementById("nomeRestauranteErro");
+    var emailrestauranteValue = document.getElementById("inputuserEmail").value;
+    var passwordrestauranteValue = document.getElementById("senhaRestaurante").value;
+    var emailrestauranteError = document.getElementById("emailRestauranteErro");
+    var passwordrestauranteError = document.getElementById("senhaRestauranteErro");
+    var cepValue = document.getElementById("inputCep").value;
+    var cepError = document.getElementById("cepError");
+    var ruaValue = document.getElementById("inputRua").value;
+    var ruaError = document.getElementById("ruaError");
+    var numeroValue = document.getElementById("inputNumero").value;
+    var numeroError = document.getElementById("numeroError");
+    var cnpjValue = document.getElementById("inputCNPJ").value;
+    var cnpjError = document.getElementById("cnpjError");
+    var siteUrlValue = document.getElementById("inputSiteUrl").value;
+    var siteUrlError = document.getElementById("siteUrlError");
+
+    if (restaurantValue.split(' ').length < 2) {
+      restauranteError.textContent = "Insira seu nome completo";
+        return false;
+    } else {
+      restauranteError.textContent = "";
+    }
+
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(emailrestauranteValue)) {
+      emailrestauranteError.textContent = "Por favor, insira um email válido.";
+        return false; 
+    } else {
+      emailrestauranteError.textContent = ""; 
+    }
+
+    var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (!passwordPattern.test(passwordrestauranteValue) && passwordrestauranteValue != "") {
+      passwordrestauranteError.innerHTML = "A senha deve ter no mínimo:<br>* 8 caracteres<br>* Uma letra maiúscula<br>* Um número<br>* Um caractere especial (@, $, !, %, *, ?, &).";
+        return false; 
+    } else {
+      passwordrestauranteError.textContent = ""; 
+    }
+
+    if (cepValue.length < 9) {
+        cepError.textContent = "Insira um CEP válido";
+        return false;
+    } else {
+        cepError.textContent = "";
+    }
+
+    if (ruaValue.length < 1) {
+        ruaError.textContent = "Insira o nome da rua";
+        return false;
+    } else {
+        ruaError.textContent = "";
+    }
+
+    if (numeroValue.length < 1) {
+        numeroError.textContent = "Insira o número do endereço";
+        return false;
+    } else {
+        numeroError.textContent = "";
+    }
+
+    if (cnpjValue.length < 14) {
+        cnpjError.textContent = "Insira um CNPJ válido";
+        return false;
+    } else {
+        cnpjError.textContent = "";
+    }
+
+    var urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+
+    if (!urlPattern.test(siteUrlValue)) {
+        siteUrlError.textContent = "Insira um URL de site válido (link completo)";
+        return false;
+    } else {
+        siteUrlError.textContent = "";
+    }
+
+    return true; 
+  }

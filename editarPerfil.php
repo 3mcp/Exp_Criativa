@@ -26,10 +26,10 @@ if (!isset($_SESSION["ID"])) {
                         $dados;
                         foreach ($usuarios as $usuario) {
                 ?>
-                            <form action="databasePRA/usuarioEditar.php" method="post" onsubmit="return validateForm()">
+                            <form action="databasePRA/usuarioEditar.php" method="post" onsubmit="return validateuserForm()">
                                 <div class='inputWrapper'>
                                     <p>Nome</p>
-                                    <input type="text" id="inputNome" name="usuarioNomeNovo" required value="<?php echo $usuario["NomePRA"] ?>">
+                                    <input type="text" id="inputuserNome" name="usuarioNomeNovo" required value="<?php echo $usuario["NomePRA"] ?>">
                                     <p id="nameuserError" style="color: red;"></p>
                                 </div>
                                 <div class='inputWrapper'>
@@ -63,7 +63,7 @@ if (!isset($_SESSION["ID"])) {
                         $usuarios = select($conn, $aCampos, $tabela, $condicao);
                         foreach ($usuarios as $usuario) {
                 ?>
-                            <form action="databaseRestaurante/restauranteEditar.php" method="post" enctype="multipart/form-data">
+                            <form action="databaseRestaurante/restauranteEditar.php" method="post" enctype="multipart/form-data" onsubmit="return validaterestaurantForm()">
                                 <div class='inputWrapper'>
                                     <label for="formFile" class="form-label">Imagem:</label>
                                     <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
@@ -72,11 +72,13 @@ if (!isset($_SESSION["ID"])) {
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Nome</p>
-                                    <input type="text" id ="a" name="restauranteNomeNovo" required value="<?php echo $usuario["NomeRestaurante"] ?>">
+                                    <input type="text" id ="inputNome" name="restauranteNomeNovo" required value="<?php echo $usuario["NomeRestaurante"] ?>">
+                                    <p id="nomeRestauranteErro" style="color: red;"></p>
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Email</p>
-                                    <input type="email"  id ="b" name="restauranteEmailNovo" required value="<?php echo $usuario["EmailRestaurante"] ?>">
+                                    <input type="email"  id ="inputuserEmail" name="restauranteEmailNovo" required value="<?php echo $usuario["EmailRestaurante"] ?>">
+                                    <p id="emailRestauranteErro" style="color: red;"></p>
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Senha Antiga</p>
@@ -84,27 +86,39 @@ if (!isset($_SESSION["ID"])) {
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Senha Nova</p>
-                                    <input type="password" id ="c"  name="restauranteSenhaNovo">
+                                    <input type="password" id ="senhaRestaurante"  name="restauranteSenhaNovo">
+                                    <p id="senhaRestauranteErro" style="color: red;"></p>
+    
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>CNPJ</p>
-                                    <input type="text" name="restauranteCNPJNovo" required value="<?php echo $usuario["CNPJRestaurante"] ?>">
+                                    <input type="text" id="inputCNPJ" name="restauranteCNPJNovo"  onkeyup="handleCnpj(event)" maxlength='18' required value="<?php echo $usuario["CNPJRestaurante"] ?>">
+                                    <p id="cnpjError" style="color: red;"></p>
+                                
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>CEP</p>
-                                    <input type="text" name="restauranteCEPNovo" required value="<?php echo $usuario["CEPRestaurante"] ?>">
+                                    <input type="text" id="inputCep" name="restauranteCEPNovo" maxlength='9' onkeyup="handleZipCode(event)" class="ls-mask-cep" required value="<?php echo $usuario["CEPRestaurante"] ?>">
+                                    <p id="cepError" style="color: red;"></p>
+                                
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Rua</p>
-                                    <input type="text" name="restauranteRuaNovo" required value="<?php echo $usuario["RuaRestaurante"] ?>">
+                                    <input type="text" id="inputRua" name="restauranteRuaNovo" required value="<?php echo $usuario["RuaRestaurante"] ?>">
+                                    <p id="ruaError" style="color: red;"></p>
+                                
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Número</p>
-                                    <input type="text" name="restauranteNumeroNovo" required value="<?php echo $usuario["Numero_Restaurante"] ?>">
+                                    <input type="text" id="inputNumero" name="restauranteNumeroNovo" required value="<?php echo $usuario["Numero_Restaurante"] ?>">
+                                    <p id="numeroError" style="color: red;"></p>
+                                
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Site</p>
-                                    <input type="text" name="restauranteSiteNovo" value="<?php echo $usuario["SiteRestaurante"] ?>">
+                                    <input type="text" id="inputSiteUrl" name="restauranteSiteNovo" value="<?php echo $usuario["SiteRestaurante"] ?>">
+                                    <p id="siteUrlError" style="color: red;"></p>
+                                
                                 </div>
                                 <div class="formButtons">
                                     <button onclick="confirmarExcluirRestaurante()" class="delButton" type="button">Deletar conta</button>
@@ -119,7 +133,7 @@ if (!isset($_SESSION["ID"])) {
     </div>
 
     <script src="./js/editar.js"></script>
-    
+    <script src="./js/mascarasRestaurante.js"></script>
 
 </main>
 
