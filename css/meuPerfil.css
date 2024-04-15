@@ -111,3 +111,10 @@
   margin-top: 20px;
   color: #959895;
 }
+
+.edit-profile-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: inline-block;
+}

@@ -44,7 +44,17 @@
                         <div class="col-auto">
                             <a href="./logout.php" class="profile-link"><i class="bi bi-box-arrow-right fs-4"></i></a>
                         </div>
-                        <div class="col-auto"><img src="img/logo2.png" alt="Avatar do usuario" class="profile-avatar"></div>
+                        <div class="col-auto">
+                            <?php if (isset($_SESSION['FOTO'])) { ?>
+                                <img class="profile-avatar" src="data:image/png;base64,<?= base64_encode($_SESSION['FOTO']) ?>" />
+                            <?php
+                            } else {
+                            ?>
+                                <img src="img/logo2.png" alt="Avatar do usuario" class="profile-avatar">
+                            <?php
+                            } ?>
+                            
+                        </div>
                         <div class="col-auto">
                             <p class="mb-0 profile-text fw-bold"><?php echo $_SESSION['NOME'] ?></p>
                             <p class="mb-0 profile-text"><?php echo $_SESSION['TYPE'] ?></p>

@@ -60,7 +60,13 @@ if (!isset($_SESSION["ID"])) {
                         $usuarios = select($conn, $aCampos, $tabela, $condicao);
                         foreach ($usuarios as $usuario) {
                 ?>
-                            <form action="databaseRestaurante/restauranteEditar.php" method="post">
+                            <form action="databaseRestaurante/restauranteEditar.php" method="post" enctype="multipart/form-data">
+                                <div class='inputWrapper'>
+                                    <label for="formFile" class="form-label">Imagem:</label>
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
+                                    <input type="file" id="Imagem" class="form-control" name="Imagem" accept="imagem/*" onchange="validaImagem(this);">
+                                    <img src="img/logo2.png"  id="imagemSelecionada" class="edit-profile-avatar">
+                                </div>
                                 <div class='inputWrapper'>
                                     <p>Nome</p>
                                     <input type="text" name="restauranteNomeNovo" required value="<?php echo $usuario["NomeRestaurante"] ?>">
@@ -114,7 +120,7 @@ if (!isset($_SESSION["ID"])) {
 </main>
 
 <?php include("inc/footer.php");
-if(isset($_SESSION['erro'])){
-    echo "<script>alert('".$_SESSION['erro']."');</script>";
+if (isset($_SESSION['erro'])) {
+    echo "<script>alert('" . $_SESSION['erro'] . "');</script>";
     unset($_SESSION['erro']);
 } ?>

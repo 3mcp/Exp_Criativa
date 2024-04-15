@@ -36,7 +36,12 @@ if ($restauranteSenhaNovo != "") {
     $aSet['SenhaRestaurante'] = "$restauranteSenhaNovo";
 }
 
-
+if (isset($_FILES['Imagem']))
+    if ($_FILES['Imagem']['tmp_name'] != "") {
+        $imagem = addslashes(file_get_contents($_FILES['Imagem']['tmp_name']));
+        $aSet['FotoRestaurante'] = $imagem;
+        echo "Imagem adicionada";
+    }
 
 $tabela = "restaurante";
 $condicao = "IdRestaurante = " . $restauranteID;
@@ -44,6 +49,8 @@ echo update($conn, $tabela, $aSet, $condicao);
 $_SESSION["NOME"] = $restauranteNomeNovo;
 if ($restauranteSenhaNovo != "")
     $_SESSION["SENHA"] = $restauranteSenhaNovo;
+if (isset($imagem))
+    $_SESSION["FOTO"] = file_get_contents($_FILES['Imagem']['tmp_name']);
 if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 } else {

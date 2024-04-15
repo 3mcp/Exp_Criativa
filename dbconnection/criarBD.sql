@@ -16,7 +16,7 @@ CREATE TABLE Restaurante (
     CNPJRestaurante VARCHAR(50) NOT NULL UNIQUE,
     Numero_Restaurante INT NOT NULL,
     EmailRestaurante VARCHAR(200) NOT NULL UNIQUE,
-    FotoRestaurante BLOB,
+    FotoRestaurante MEDIUMBLOB,
     SiteRestaurante VARCHAR(200),
     SenhaRestaurante VARCHAR(200) NOT NULL,
     NomeRestaurante VARCHAR(200) NOT NULL UNIQUE,

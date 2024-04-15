@@ -104,6 +104,7 @@ input#search-bar{
     background-color: #D0CFCE;
     color: #628888;
     border: none;
+    text-decoration: none;
     padding: 10px 20px;
     border-radius: 10px;
     margin: 20px;
@@ -112,3 +113,13 @@ input#search-bar{
     margin-left: 220px;
 }
 
+.btn-vermais:hover,.btn-vermais > a:hover{
+    background-color: #628888;
+    color: #ffffff;
+}
+
+.btn-vermais > a{
+    transition: 0.3s;
+    color: #628888;
+    text-decoration: none;
+}
