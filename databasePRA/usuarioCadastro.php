@@ -49,7 +49,7 @@ if (isset($_POST['usuarioNome'], $_POST['usuarioEmail'], $_POST['usuarioSenha'])
             header('Location: ../index.php');
         } else {
             session_start();
-            $_SESSION["erroCadastro"] = "Erro ao cadastrar.";
+            $_SESSION["erroCadastro"] = $result;
             header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
     } else {
