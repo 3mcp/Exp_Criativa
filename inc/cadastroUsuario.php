@@ -38,7 +38,7 @@
         <div class="input-wrapper" id="emailWrapper">
             <p id="inputEmailLabel">Email: </p>
             <input type="email" id="inputEmail" name="usuarioEmail" required>
-            <p id="emailPRAValue" style="color: red;"></p>
+            <p id="emailPRAError" style="color: red;"></p>
             <?php 
             if (isset($_SESSION["erroEmail"])){
                 echo('<p style="color: red;">' . $_SESSION["erroEmail"] . '</p>');
