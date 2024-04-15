@@ -40,8 +40,7 @@ if (!isset($_SESSION["ID"])) {
                         <h1>Reviews mais recentes</h1>
                         
                         <hr>
-                        <p>Você não tem reviews recentes</p>
-                        <!-- <div class='review'>
+                        <div class='review'>
                             <div>
                                 <img src="img/profilepic.png" alt="" class='profilePicReview'>
                                 <div class='review-info'>
@@ -60,7 +59,7 @@ if (!isset($_SESSION["ID"])) {
                                 </div>
                             </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.</p>
-                        </div> -->
+                        </div>
                     </div>
 
 
