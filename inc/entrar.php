@@ -44,7 +44,7 @@
                 <input type="password" name="usuarioSenha">
             </div>
             <button class="signUpBtn" type="submit">Entrar</button>
-            <button class="goBackBtn" type="button"><a href="../index.php" style="text-decoration: none;">Voltar</a></button>
+            <button class="goBackBtn" type="button"><a href="../index.php">Voltar</a></button>
         </form>
         <form id="restaurante" action="../databaseRestaurante/restauranteLogar.php" method="post">
             <div>
@@ -60,7 +60,7 @@
                 <input type="password" name="SenhaRestaurante" required>
             </div>
             <button class="signUpBtn" type="submit">Entrar</button>
-            <button class="goBackBtn" type="button"><a href="../index.php" style="text-decoration: none;">Voltar</a></button>
+            <button class="goBackBtn" type="button"><a href="../index.php">Voltar</a></button>
         </form>
     </div>
 

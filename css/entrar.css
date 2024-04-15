@@ -163,11 +163,13 @@ input {
   cursor: pointer;
 }
 
-.goBackBtn {
+.goBackBtn , .goBackBtn > a{
   color: white;
   border: none;
   cursor: pointer;
   background-color: transparent;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .alert-danger {

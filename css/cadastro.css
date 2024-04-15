@@ -10,7 +10,7 @@
 body {
   background-color: rgb(157, 188, 152, 0.7);
   position: relative;
-  overflow: hidden;
+  
 }
 
 .elipse {
@@ -145,6 +145,7 @@ input {
   border: none;
   cursor: pointer;
   background-color: transparent;
+  font-weight: bold;
 }
 
 .alert-danger {
