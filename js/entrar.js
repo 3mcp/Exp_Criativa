@@ -2,7 +2,7 @@ const userBtn = document.getElementById("userButton");
 const restauranteBtn = document.getElementById("restaurantButton");
 const userForm = document.getElementById("pra");
 const restauranteForm = document.getElementById("restaurante");
-const goBackBtn = document.querySelector('.goBackBtn')
+
 
 userBtn.addEventListener("click", function () {
   formularioUsuario();
@@ -10,10 +10,6 @@ userBtn.addEventListener("click", function () {
 
 restauranteBtn.addEventListener("click", function () {
   formularioRestaurante();
-});
-
-goBackBtn.addEventListener("click", function () {
-  window.location.href = "../index.php";
 });
 
 const formularioUsuario = () => {
