@@ -26,14 +26,16 @@ if (!isset($_SESSION["ID"])) {
                         $dados;
                         foreach ($usuarios as $usuario) {
                 ?>
-                            <form action="databasePRA/usuarioEditar.php" method="post">
+                            <form action="databasePRA/usuarioEditar.php" method="post" onsubmit="return validateForm()">
                                 <div class='inputWrapper'>
                                     <p>Nome</p>
-                                    <input type="text" id="nome" name="usuarioNomeNovo" required value="<?php echo $usuario["NomePRA"] ?>">
+                                    <input type="text" id="inputNome" name="usuarioNomeNovo" required value="<?php echo $usuario["NomePRA"] ?>">
+                                    <p id="nameuserError" style="color: red;"></p>
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Email</p>
-                                    <input type="email" id="email" name="usuarioEmailNovo" required value="<?php echo $usuario["EmailPRA"] ?>">
+                                    <input type="email" id="inputEmail" name="usuarioEmailNovo" required value="<?php echo $usuario["EmailPRA"] ?>">
+                                    <p id="emailuserError" style="color: red;"></p>
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Senha Antiga</p>
@@ -41,7 +43,8 @@ if (!isset($_SESSION["ID"])) {
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Senha Nova</p>
-                                    <input type="password" name="usuarioSenhaNovo">
+                                    <input type="password" id="inputSenha" name="usuarioSenhaNovo">
+                                    <p id="passworduserError" style="color: red;"></p>
                                 </div>
                                 <div class="formButtons">
                                     <button onclick="confirmarExcluirPRA()" class="delButton" type="button">Deletar conta</button>
@@ -69,11 +72,11 @@ if (!isset($_SESSION["ID"])) {
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Nome</p>
-                                    <input type="text" name="restauranteNomeNovo" required value="<?php echo $usuario["NomeRestaurante"] ?>">
+                                    <input type="text" id ="a" name="restauranteNomeNovo" required value="<?php echo $usuario["NomeRestaurante"] ?>">
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Email</p>
-                                    <input type="email" name="restauranteEmailNovo" required value="<?php echo $usuario["EmailRestaurante"] ?>">
+                                    <input type="email"  id ="b" name="restauranteEmailNovo" required value="<?php echo $usuario["EmailRestaurante"] ?>">
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Senha Antiga</p>
@@ -81,7 +84,7 @@ if (!isset($_SESSION["ID"])) {
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Senha Nova</p>
-                                    <input type="password" name="restauranteSenhaNovo">
+                                    <input type="password" id ="c"  name="restauranteSenhaNovo">
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>CNPJ</p>
@@ -116,6 +119,7 @@ if (!isset($_SESSION["ID"])) {
     </div>
 
     <script src="./js/editar.js"></script>
+    
 
 </main>
 
