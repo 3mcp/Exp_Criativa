@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php session_start() ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/cadastro.css">
@@ -67,8 +68,12 @@
     <script src="../js/mascarasUsuarios.js"></script>
 
     <script>
+        function trim(str) {
+            return str.replace(/^\s+|\s+$/g, '');
+        }
+
         function validateForm() {
-            var namePRAValue = document.getElementById("inputNome").value;
+            var namePRAValue = document.getElementById("inputNome").value.trim();
             var namePRAError = document.getElementById("namePRAError");
             var emailPRAValue = document.getElementById("inputEmail").value;
             var passwordPRAValue = document.getElementById("inputPassword").value;

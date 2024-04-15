@@ -47,7 +47,7 @@ $restauranteNomeNovo = ucwords(strtolower($restauranteNomeNovo));
 
 $tabela = "restaurante";
 $condicao = "IdRestaurante = " . $restauranteID;
-echo update($conn, $tabela, $aSet, $condicao);
+$return = update($conn, $tabela, $aSet, $condicao);
 $_SESSION["NOME"] = $restauranteNomeNovo;
 if ($restauranteSenhaNovo != "")
     $_SESSION["SENHA"] = $restauranteSenhaNovo;

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php session_start() ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/cadastro.css">
@@ -62,6 +63,13 @@
                 <p id="cnpjError" style="color: red;"></p>
             </div>
         </div>
+        <?php 
+            if (isset($_SESSION["erroCadastro"])){
+                echo('<p style="color: red;">' . $_SESSION["erroCadastro"] . '</p>');
+                unset($_SESSION["erroCadastro"]);
+                
+            }
+        ?>
         <button class="signUpBtn" type="submit">Cadastrar</button>
         <button class="goBackBtn" type="button">Voltar</button>
     </form>
@@ -70,8 +78,13 @@
     <script src="../js/mascarasRestaurante.js"></script>
 
     <script>
+
+        function trim(str) {
+        return str.replace(/^\s+|\s+$/g, '');
+        }
+
         function validateForm() {
-            var nameValue = document.getElementById("inputNome").value;
+            var nameValue = document.getElementById("inputNome").value.trim();
             var nameError = document.getElementById("nameError");
             var emailValue = document.getElementById("inputEmail").value;
             var passwordValue = document.getElementById("inputPassword").value;

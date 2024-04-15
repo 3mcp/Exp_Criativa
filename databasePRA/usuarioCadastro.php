@@ -3,27 +3,9 @@ include("../dbconnection/functions.php");
 
 if (isset($_POST['usuarioNome'], $_POST['usuarioEmail'], $_POST['usuarioSenha'])) {
 
-    $usuarioNome   = $conn->real_escape_string($_POST['usuarioNome']);
-    $usuarioEmail = $conn->real_escape_string($_POST['usuarioEmail']);
-    $usuarioSenha  = $conn->real_escape_string($_POST['usuarioSenha']);
-
-    $sql = "SELECT NomePRA FROM p_r_a_ WHERE NomePRA = '$usuarioNome'";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        session_start();
-        $_SESSION["erroNome"] = "Este nome já está em uso.";
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit();
-    }
-
-    $sql = "SELECT EmailPRA FROM p_r_a_ WHERE EmailPRA = '$usuarioEmail'";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        session_start();
-        $_SESSION["erroEmail"] = "Este e-mail já está em uso.";
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit();
-    }
+    $usuarioNome   = trim($conn->real_escape_string($_POST['usuarioNome']));
+    $usuarioEmail = trim($conn->real_escape_string($_POST['usuarioEmail']));
+    $usuarioSenha  = trim($conn->real_escape_string($_POST['usuarioSenha']));
 
     $usuarioNome = ucwords(strtolower($usuarioNome));
 
@@ -40,15 +22,13 @@ if (isset($_POST['usuarioNome'], $_POST['usuarioEmail'], $_POST['usuarioSenha'])
     }
 
     if ($result == "Registro inserido com sucesso.") {
-        session_start();
         $_SESSION["ID"] = $conn->insert_id;
         $_SESSION["NOME"] = $usuarioNome;
         $_SESSION["SENHA"] = $md5Senha;
         $_SESSION["TYPE"] = "P.R.A.";
         header('Location: ../index.php');
     } else {
-        session_start();
-        $_SESSION["erroCadastro"] = "Erro ao cadastrar.";
+        $_SESSION["erroCadastro"] = $result;
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
