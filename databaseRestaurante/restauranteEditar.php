@@ -43,6 +43,8 @@ if (isset($_FILES['Imagem']))
         echo "Imagem adicionada";
     }
 
+$restauranteNomeNovo = ucwords(strtolower($restauranteNomeNovo));
+
 $tabela = "restaurante";
 $condicao = "IdRestaurante = " . $restauranteID;
 echo update($conn, $tabela, $aSet, $condicao);

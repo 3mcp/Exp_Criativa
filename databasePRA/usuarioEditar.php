@@ -7,6 +7,7 @@ $usuarioEmailNovo   = $conn->real_escape_string($_POST['usuarioEmailNovo']);
 $usuarioSenhaAntiga   = md5($conn->real_escape_string($_POST['usuarioSenhaAntiga']));
 $usuarioSenhaNovo   = $conn->real_escape_string($_POST['usuarioSenhaNovo']);
 
+$usuarioNomeNovo = ucwords(strtolower($usuarioNomeNovo));
 $tabela = "p_r_a_";
 $aSet = array("NomePRA" => "$usuarioNomeNovo", "EmailPRA" => "$usuarioEmailNovo");
 $condicao = "IdPRA = ".$usuarioID;
