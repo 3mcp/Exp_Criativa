@@ -14,7 +14,7 @@
             <h2>Dish</h2>
         </div>
     </div>
-    <form id="cadastroForm" action="../databaseRestaurante/restauranteCadastro.php" method="post">
+    <form id="cadastroForm" action="../databaseRestaurante/restauranteCadastro.php" method="post" onsubmit="return validateForm()">
         <div class="button-wrapper">
             <button class="userBtn" type="button">Usuario</button>
             <button class="restaurantBtn" type="button">Restaurante</button>
