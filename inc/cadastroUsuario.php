@@ -25,8 +25,8 @@
         </div>
         <div class="input-wrapper" id="nomeWrapper">
             <p id="inputNomeLabel">Nome completo: </p>
-            <input type="text" id="inputNome" name="usuarioNome">
-            <p id="nameError" style="color: red;"></p>
+            <input type="text" id="inputNome" name="usuarioNome" required>
+            <p id="namePRAError" style="color: red;"></p>
             <?php 
             if (isset($_SESSION["erroNome"])){
                 echo('<p style="color: red;">' . $_SESSION["erroNome"] . '</p>');
@@ -37,8 +37,8 @@
         </div>
         <div class="input-wrapper" id="emailWrapper">
             <p id="inputEmailLabel">Email: </p>
-            <input type="email" id="inputEmail" name="usuarioEmail">
-            <p id="emailError" style="color: red;"></p>
+            <input type="email" id="inputEmail" name="usuarioEmail" required>
+            <p id="emailPRAValue" style="color: red;"></p>
             <?php 
             if (isset($_SESSION["erroEmail"])){
                 echo('<p style="color: red;">' . $_SESSION["erroEmail"] . '</p>');
@@ -49,8 +49,8 @@
         </div>
         <div class="input-wrapper" id="senhaWrapper">
             <p id="inputPasswordLabel">Senha: </p>
-            <input type="password" id="inputPassword" name="usuarioSenha">
-            <p id="passwordError" style="color: red;"></p>
+            <input type="password" id="inputPassword" name="usuarioSenha" required>
+            <p id="passwordPRAError" style="color: red;"></p>
         </div>
         <?php 
             if (isset($_SESSION["erroCadastro"])){
@@ -68,36 +68,36 @@
 
     <script>
         function validateForm() {
-            var nameValue = document.getElementById("inputNome").value;
-            var nameError = document.getElementById("nameError");
-            var emailValue = document.getElementById("inputEmail").value;
-            var passwordValue = document.getElementById("inputPassword").value;
-            var emailError = document.getElementById("emailError");
-            var passwordError = document.getElementById("passwordError");
+            var namePRAValue = document.getElementById("inputNome").value;
+            var namePRAError = document.getElementById("namePRAError");
+            var emailPRAValue = document.getElementById("inputEmail").value;
+            var passwordPRAValue = document.getElementById("inputPassword").value;
+            var emailPRAError = document.getElementById("emailPRAError");
+            var passwordPRAError = document.getElementById("passwordPRAError");
 
-            if (nameValue.split(' ').length < 2) {
-                nameError.textContent = "Insira seu nome completo";
+            if (namePRAValue.split(' ').length < 2) {
+                namePRAError.textContent = "Insira seu nome completo";
                 return false;
             } else {
-                nomeError.textContent = "";
+                namePRAError.textContent = "";
             }
 
             var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            if (!emailPattern.test(emailValue)) {
-                emailError.textContent = "Por favor, insira um email válido.";
+            if (!emailPattern.test(emailPRAValue)) {
+                emailPRAError.textContent = "Por favor, insira um email válido.";
                 return false; 
             } else {
-                emailError.textContent = ""; 
+                emailPRAError.textContent = ""; 
             }
 
             var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-            if (!passwordPattern.test(passwordValue)) {
-                passwordError.innerHTML = "A senha deve ter no mínimo:<br>* 8 caracteres<br>* Uma letra maiúscula<br>* Um número<br>* Um caractere especial (@, $, !, %, *, ?, &).";
+            if (!passwordPattern.test(passwordPRAValue)) {
+                passwordPRAError.innerHTML = "A senha deve ter no mínimo:<br>* 8 caracteres<br>* Uma letra maiúscula<br>* Um número<br>* Um caractere especial (@, $, !, %, *, ?, &).";
                 return false; 
             } else {
-                passwordError.textContent = ""; 
+                passwordPRAError.textContent = ""; 
             }
 
             return true; 
