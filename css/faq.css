@@ -9,7 +9,7 @@
 
 .faq-pg{
   margin-top: 20px;
-  height: 1800px;
+  height: auto;
   background-color: #9DBC98;
   justify-content: flex-start;
   align-items: center;
@@ -21,7 +21,7 @@
 .topico{
   background-color: #628888;
   width: 800px;
-  height: 80px;
+  height: auto;
   cursor: pointer;
   gap: 150px;
   margin-top: 10px;
