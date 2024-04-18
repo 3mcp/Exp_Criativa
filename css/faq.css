@@ -19,12 +19,14 @@
 }
 
 .topico{
-  background-color: #628888;
+  background-color: #4d6b6b;
+  color: #d9dbd8;
   width: 800px;
   height: auto;
   cursor: pointer;
   gap: 150px;
   margin-top: 10px;
+  border-radius: 10px;
 }
 
 .topico h1{
