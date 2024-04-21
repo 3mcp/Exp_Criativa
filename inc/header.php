@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/faq.css">
     <link rel="stylesheet" href="css/meuPerfil.css">
     <link rel="stylesheet" href="css/editarPerfil.css">
+    <link rel="stylesheet" href="css/sobre.css">
 </head>
 
 <body>
@@ -28,7 +29,7 @@
             <div class="nav-links">
                 <img src="img/logo2.png" alt="Logo">
                 <a href="index.php" class='navLink'>Home</a>
-                <a href="" class='navLink'>Sobre</a>
+                <a href="sobre.php" class='navLink'>Sobre</a>
                 <a href="Restaurantes.php" class='navLink'>Restaurantes</a>
                 <a href="" class='navLink'>Forúm</a>
                 <a href="faq.php" class='navLink'>FAQ</a>
