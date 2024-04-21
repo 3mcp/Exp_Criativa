@@ -31,7 +31,6 @@
                 <a href="index.php" class='navLink'>Home</a>
                 <a href="sobre.php" class='navLink'>Sobre</a>
                 <a href="Restaurantes.php" class='navLink'>Restaurantes</a>
-                <a href="" class='navLink'>Forúm</a>
                 <a href="faq.php" class='navLink'>FAQ</a>
             </div>
             <?php if (isset($_SESSION['ID'])) { ?>
