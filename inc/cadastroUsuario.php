@@ -17,8 +17,8 @@
     </div>
     <form id="cadastroForm" action="../databasePRA/usuarioCadastro.php" method="post" onsubmit="return validateForm()">
         <div class="button-wrapper">
-            <button class="userBtn" type="button">Usuario</button>
-            <button class="restaurantBtn" type="button">Restaurante</button>
+            <button class="userBtn typeBtn selectedTypeBtn" type="button">Usuario</button>
+            <button class="restaurantBtn typeBtn" type="button">Restaurante</button>
         </div>
         <div>
             <h1>Cadastre-se</h1>
