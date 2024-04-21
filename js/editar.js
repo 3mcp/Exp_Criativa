@@ -49,9 +49,9 @@ function validaImagem(input) {
     if (arquivoTam < 16) {
       var reader = new FileReader();
       reader.onload = function (e) {
-        document
-          .getElementById("imagemSelecionada")
-          .setAttribute("src", e.target.result);
+        let imagem = document.getElementById("imagemSelecionada");
+        imagem.setAttribute("src", e.target.result);
+        imagem.classList.add("edit-profile-avatar");
       };
       reader.readAsDataURL(input.files[0]);
     } else {

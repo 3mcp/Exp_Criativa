@@ -51,11 +51,6 @@ CREATE TABLE Prato (
     fk_Restaurante_IdRestaurante INT
 );
 
-CREATE TABLE Ingrediente (
-    IdIngrediente INT PRIMARY KEY AUTO_INCREMENT,
-    NomeIngrediente VARCHAR(200) NOT NULL UNIQUE
-);
-
 CREATE TABLE Categoria (
     IdCategoria INT PRIMARY KEY AUTO_INCREMENT,
     NomeCategoria VARCHAR(200) NOT NULL UNIQUE,
@@ -68,12 +63,6 @@ CREATE TABLE Horario (
     AbreTime VARCHAR(10) NOT NULL,
     FechaTime VARCHAR(10) NOT NULL,
     fk_Restaurante_IdRestaurante INT
-);
-
-CREATE TABLE Prato_Ingrediente (
-	IdPratoIngrediente INT PRIMARY KEY AUTO_INCREMENT,
-    fk_Prato_IdPrato INT,
-    fk_Ingrediente_IdIngrediente INT
 );
 
 CREATE TABLE Prato_Categoria (
@@ -111,16 +100,6 @@ ALTER TABLE Prato ADD CONSTRAINT FK_Prato_2
 ALTER TABLE Horario ADD CONSTRAINT FK_Horario_2
     FOREIGN KEY (fk_Restaurante_IdRestaurante)
     REFERENCES Restaurante (IdRestaurante)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE Prato_Ingrediente ADD CONSTRAINT FK_Prato_Ingrediente_1
-    FOREIGN KEY (fk_Prato_IdPrato)
-    REFERENCES Prato (IdPrato)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE Prato_Ingrediente ADD CONSTRAINT FK_Prato_Ingrediente_2
-    FOREIGN KEY (fk_Ingrediente_IdIngrediente)
-    REFERENCES Ingrediente (IdIngrediente)
     ON DELETE RESTRICT;
  
 ALTER TABLE Prato_Categoria ADD CONSTRAINT FK_Prato_Categoria_1
