@@ -64,5 +64,6 @@
 
         </div>
     </div>
+    <script src="js/faq.js"></script>
 </main>
 <?php include("inc/footer.php") ?>
