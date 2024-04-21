@@ -28,6 +28,17 @@ function create($conn, $aCampos, $aValores, $tabela)
         if ($conn->query($consulta) === TRUE) {
             return "Registro inserido com sucesso.";
         } else {
+            if ($conn->errno == 1062) { // Check for MySQL duplicate entry error
+                $errorMessage = $conn->error;
+            preg_match("/Duplicate entry '.*' for key '([^']+)'/", $errorMessage, $matches);
+            $duplicateColumn = $matches[1]; // Retrieve the column causing the duplication
+                $duplicateColumn = str_replace("p_r_a_.","",$duplicateColumn);
+                $duplicateColumn = str_replace("PRA","",$duplicateColumn);
+                $duplicateColumn = str_replace("restaurante.","",$duplicateColumn);
+                $duplicateColumn = str_replace("Restaurante","",$duplicateColumn);
+                $duplicateColumn = strtolower($duplicateColumn);
+                return "Já existe uma conta com esse ".$duplicateColumn;
+            }
             return "Erro ao inserir registro: " . $conn->error;
         }
     } catch (Exception $e) {
