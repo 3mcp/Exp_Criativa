@@ -75,7 +75,7 @@ function validateuserForm() {
   var emailuserError = document.getElementById("emailuserError");
   var passworduserError = document.getElementById("passworduserError");
 
-  if (nameuserValue.split(" ").length < 2) {
+  if (nameuserValue.length <= 2) {
     nameuserError.textContent = "Insira seu nome completo";
     return false;
   } else {
