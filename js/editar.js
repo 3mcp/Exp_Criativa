@@ -75,7 +75,7 @@ function validateuserForm() {
   var emailuserError = document.getElementById("emailuserError");
   var passworduserError = document.getElementById("passworduserError");
 
-  if (nameuserValue.length <= 2) {
+  if (nameuserValue.split(" ").length < 2) {
     nameuserError.textContent = "Insira seu nome completo";
     return false;
   } else {
@@ -126,7 +126,7 @@ function validaterestaurantForm() {
   var siteUrlValue = document.getElementById("inputSiteUrl").value;
   var siteUrlError = document.getElementById("siteUrlError");
 
-  if (restaurantValue.split(" ").length < 2) {
+  if (restaurantValue.length < 2) {
     restauranteError.textContent = "Insira seu nome completo";
     return false;
   } else {
