@@ -39,6 +39,7 @@ nav {
   text-decoration: none;
   margin-right: 20px;
   font-size: 20px;
+  transition: 0.3s;
 }
 .signUpIn {
   margin-top: 1rem;
@@ -51,6 +52,14 @@ nav {
   padding: 1rem 2rem;
   font-size: 20px;
   border-radius: 20px;
+  transition: 0.3s;
+}
+
+.btnRegistrar:hover {
+  background-color: #4d6d6d;
+}
+.btnLogar:hover {
+  color: #4d6d6d;
 }
 .navLink {
   position: relative;
