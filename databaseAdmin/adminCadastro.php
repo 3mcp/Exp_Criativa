@@ -9,7 +9,7 @@ $adminSenha  = $conn->real_escape_string($_POST['adminSenha']);  // prepara a st
 $md5Senha = md5($adminSenha);
 
 $aCampos = array("NomeAdmin", "EmailAdmin", "SenhaAdmin");
-$aValores = array("$usuarioNome", "$usuarioEmail","$md5Senha");
+$aValores = array("$adminNome", "$adminEmail","$md5Senha");
 $tabela = "admin";
 
 $result = create($conn, $aCampos, $aValores, $tabela);

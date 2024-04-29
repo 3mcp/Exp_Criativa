@@ -146,7 +146,7 @@ if (!isset($_SESSION["ID"])) {
                         $dados;
                         foreach ($usuarios as $usuario) {
                 ?>
-                            <form action="databasePRA/adminCadastro.php" method="post" onsubmit="return validateAdminForm()">
+                            <form action="databaseAdmin/adminCadastro.php" method="post" onsubmit="return validateAdminForm()">
                                 <h2>Cadastro de Novo Admin</h2>
                                 <div class='inputWrapper'>
                                     <p>Nome</p>
