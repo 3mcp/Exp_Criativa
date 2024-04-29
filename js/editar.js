@@ -12,6 +12,13 @@ function confirmarExcluirPRA() {
   }
 }
 
+function confirmarExcluirAdmin() {
+  let text = "Tem certeza que deseja excluir sua conta?";
+  if (confirm(text) == true) {
+    window.location.href = "databaseAdmin/adminDeletar.php";
+  }
+}
+
 function validaImagem(input) {
   var caminho = input.value;
 

@@ -14,13 +14,7 @@ if (!isset($_SESSION["ID"])) {
         </div>
         <hr>
         <div class='container-form' style="display: table-cell">
-            <button class='dataButton' style="margin-right: 500px; padding: 15px; margin-bottom: 10px">Dados</button>
-            <?php if ($_SESSION["TYPE"] == "ADMIN") {
-            ?>
-            <button onclick="confirmarExcluirRestaurante()" class="delButton" type="button">Deletar conta</button>
-            <?php
-        }
-            ?>
+            <button class='dataButton' style="margin-right: 500px;margin-bottom: 10px">Dados</button>
         </div>
 
             <div class='container-form' style="display: table-cell">
@@ -136,41 +130,8 @@ if (!isset($_SESSION["ID"])) {
                             </form>
                 <?php }
                     }
-                } else if ($_SESSION["TYPE"] == "ADMIN") {
-                    include("dbconnection/functions.php");
-                    if (isset($_SESSION["ID"])) {
-                        $tabela = "admin";
-                        $aCampos = "*";
-                        $condicao = "IdAdmin = " . $_SESSION["ID"];
-                        $usuarios = select($conn, $aCampos, $tabela, $condicao);
-                        $dados;
-                        foreach ($usuarios as $usuario) {
+                } 
                 ?>
-                            <form action="databaseAdmin/adminCadastro.php" method="post" onsubmit="return validateAdminForm()">
-                                <h2>Cadastro de Novo Admin</h2>
-                                <div class='inputWrapper'>
-                                    <p>Nome</p>
-                                    <input type="text" id="adminN" name="adminNome" required placeholder="Admin 2">
-                                    <p id="adminNomeErro" style="color: red;"></p>
-                                </div>
-                                <div class='inputWrapper'>
-                                    <p>Email</p>
-                                    <input type="email" id="adminE" name="adminEmail" required placeholder="admin@teste.com">
-                                    <p id="adminEmailErro" style="color: red;"></p>
-                                </div>
-                                <div class='inputWrapper'>
-                                    <p>Senha</p>
-                                    <input type="password" id="adminS" name="adminSenha" required placeholder="Senha12!">
-                                    <p id="adminSenhaErro" style="color: red;"></p>
-                                </div>
-                                <div class="formButtons">
-                                    <button class="updateButton" type="submit">Criar conta</button>
-                                </div>
-                            </form>
-                <?php }
-                    }
-                } ?>
-
             </div>
         </div>
     </div>
