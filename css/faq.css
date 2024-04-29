@@ -16,10 +16,11 @@
   display: flex; 
   flex-direction: column;  
   gap: 50px;
+  padding-bottom: 2%;
 }
 
 .topico{
-  background-color: #4d6b6b;
+  background-color: rgb(249, 246, 238, 0.5);
   color: #d9dbd8;
   width: 800px;
   height: auto;
@@ -27,15 +28,29 @@
   gap: 150px;
   margin-top: 10px;
   border-radius: 10px;
+  padding: 10px;
+  
 }
 
 .topico h1{
-  color: #ffffff;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #628888;
+  font-weight: 500;
+  font-family: Poppins;
   font-size: 30px;
   margin-left: 10px;
 }
 
 .topico p {
   margin-left: 10px;
+  color: #628888;
+}
+
+.topico:hover {
+  background-color: rgb(249, 246, 238, 0.8);
+
+}
+
+
+.resposta {
+  display: none;
 }

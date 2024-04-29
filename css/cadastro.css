@@ -139,6 +139,11 @@ input {
   color: white;
   padding: 10px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.signUpBtn:hover {
+  background-color: hsl(180, 16%, 36%);
 }
 
 .goBackBtn {
@@ -147,6 +152,11 @@ input {
   cursor: pointer;
   background-color: transparent;
   font-weight: bold;
+  transition: 0.3s;
+}
+
+.goBackBtn > a:hover {
+  color: hsl(0, 0%, 90%);
 }
 
 .alert-danger {

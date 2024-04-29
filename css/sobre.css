@@ -23,9 +23,12 @@
 }
 
 .Sobre-txt h3{
-    font-family: Popins;
-    background-color: #ffffff;
-    color: #638889;
+    font-family: Poppins;
+    font-weight: 300;
+    background-color: #F9F6EE;
+    padding: 20px;
+    border-radius: 20px;
+    color: #9DBC98;
     font-size: 30px;
     margin: 120px 220px 0px 220px
 }
