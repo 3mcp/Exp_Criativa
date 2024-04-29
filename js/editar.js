@@ -195,3 +195,42 @@ function validaterestaurantForm() {
 
   return true;
 }
+
+
+function validateAdminForm() {
+  var adminNome = document.getElementById("adminN").value.trim();
+  var adminENome = document.getElementById("adminNomeErro");
+  var adminEmail = document.getElementById("adminE").value;
+  var adminEErro = document.getElementById("adminEmailErro").value;
+  var adminSenha = document.getElementById("adminS");
+  var adminSErro = document.getElementById("adminSenhaErro");
+
+  // if (adminNome.split(" ").length < 2) {
+  //   adminENome.textContent = "Insira seu nome completo";
+  //   return false;
+  // } else {
+  //   adminENome.textContent = "";
+  // }
+
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailPattern.test(adminEmail)) {
+    adminEErro.textContent = "Por favor, insira um email válido.";
+    return false;
+  } else {
+    adminEErro.textContent = "";
+  }
+
+  var passwordPattern =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+  if (!passwordPattern.test(adminSenha) && adminSenha != "") {
+    adminSErro.innerHTML =
+      "A senha deve ter no mínimo:<br>* 8 caracteres<br>* Uma letra maiúscula<br>* Um número<br>* Um caractere especial (@, $, !, %, *, ?, &).";
+    return false;
+  } else {
+    adminSErro.textContent = "";
+  }
+
+  return true;
+}
