@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="css/meuPerfil.css">
     <link rel="stylesheet" href="css/editarPerfil.css">
     <link rel="stylesheet" href="css/sobre.css">
+    <link rel="stylesheet" href="css/star.css">
+    <link rel="stylesheet" thref="path/to/star-rating-svg.css">
+
 </head>
 
 <body>

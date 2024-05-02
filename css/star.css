@@ -1,0 +1,25 @@
+.card {
+    max-width: 33rem;
+    background: #fff;
+    margin: 0 1rem;
+    display: flex;
+    gap: 2px;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    border: none;
+  }
+   
+  .star {
+    font-size: 3vh;
+    cursor: pointer;
+  }
+
+  #output {
+    color: #638889;
+    font-size: 2vh;
+  }
+   
+  .starColor {
+    color: #FFC100;
+  }
