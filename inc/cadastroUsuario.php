@@ -36,6 +36,18 @@
             ?>
 
         </div>
+        <div class="input-wrapper" id="nomeWrapper">
+            <p id="inputNomeLabel">Username (visível para os outros): </p>
+            <input type="text" id="inputUsername" name="userName" required>
+            <p id="userNamePRAerror" style="color: red;"></p>
+            <?php 
+            if (isset($_SESSION["erroNome"])){
+                echo('<p style="color: red;">' . $_SESSION["erroNome"] . '</p>');
+                unset($_SESSION["erroNome"]);
+            }
+            ?>
+
+        </div>
         <div class="input-wrapper" id="emailWrapper">
             <p id="inputEmailLabel">Email: </p>
             <input type="email" id="inputEmail" name="usuarioEmail" required>

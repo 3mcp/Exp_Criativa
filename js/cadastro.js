@@ -17,6 +17,8 @@ function trim(str) {
 
 function validateForm() {
   var namePRAValue = document.getElementById("inputNome").value.trim();
+  var usernamePRAValue = document.getElementById("inputUsername").value.trim();
+  var usernamePRAError = document.getElementById("userNamePRAerror").value;
   var namePRAError = document.getElementById("namePRAError");
   var emailPRAValue = document.getElementById("inputEmail").value;
   var passwordPRAValue = document.getElementById("inputPassword").value;
@@ -28,6 +30,13 @@ function validateForm() {
       return false;
   } else {
       namePRAError.textContent = "";
+  }
+
+  if (usernamePRAValue.length > 10) {
+    usernamePRAError.textContent = "Nomes de usuário de até 10 caracteres";
+    return false;
+  } else {
+    usernamePRAError.textContent = "";
   }
 
   var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
