@@ -36,6 +36,18 @@
             ?>
 
         </div>
+        <div class="input-wrapper" id="nomeWrapper">
+            <p id="inputNomeLabel">Username (visível para os outros): </p>
+            <input type="text" id="inputUsername" name="userName" required>
+            <p id="userNamePRAerror" style="color: red;"></p>
+            <?php 
+            if (isset($_SESSION["erroNome"])){
+                echo('<p style="color: red;">' . $_SESSION["erroNome"] . '</p>');
+                unset($_SESSION["erroNome"]);
+            }
+            ?>
+
+        </div>
         <div class="input-wrapper" id="emailWrapper">
             <p id="inputEmailLabel">Email: </p>
             <input type="email" id="inputEmail" name="usuarioEmail" required>
@@ -66,47 +78,5 @@
 
     <script src="../js/cadastro.js"></script>
     <script src="../js/mascarasUsuarios.js"></script>
-
-    <script>
-        function trim(str) {
-            return str.replace(/^\s+|\s+$/g, '');
-        }
-
-        function validateForm() {
-            var namePRAValue = document.getElementById("inputNome").value.trim();
-            var namePRAError = document.getElementById("namePRAError");
-            var emailPRAValue = document.getElementById("inputEmail").value;
-            var passwordPRAValue = document.getElementById("inputPassword").value;
-            var emailPRAError = document.getElementById("emailPRAError");
-            var passwordPRAError = document.getElementById("passwordPRAError");
-
-            if (namePRAValue.split(' ').length < 2) {
-                namePRAError.textContent = "Insira seu nome completo";
-                return false;
-            } else {
-                namePRAError.textContent = "";
-            }
-
-            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            if (!emailPattern.test(emailPRAValue)) {
-                emailPRAError.textContent = "Por favor, insira um email válido.";
-                return false; 
-            } else {
-                emailPRAError.textContent = ""; 
-            }
-
-            var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-            if (!passwordPattern.test(passwordPRAValue)) {
-                passwordPRAError.innerHTML = "A senha deve ter no mínimo:<br>* 8 caracteres<br>* Uma letra maiúscula<br>* Um número<br>* Um caractere especial (@, $, !, %, *, ?, &).";
-                return false; 
-            } else {
-                passwordPRAError.textContent = ""; 
-            }
-
-            return true; 
-        }
-    </script>
 </body>
 </html>

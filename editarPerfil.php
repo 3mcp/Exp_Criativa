@@ -13,9 +13,11 @@ if (!isset($_SESSION["ID"])) {
             <button type='button' class='goBackBtn' onclick="window.history.back();">Voltar</button>
         </div>
         <hr>
-        <div class='container-form'>
-            <button class='dataButton'>Dados</button>
-            <div>
+        <div class='container-form' style="display: table-cell">
+            <button class='dataButton' style="margin-right: 500px;margin-bottom: 10px">Dados</button>
+        </div>
+
+            <div class='container-form' style="display: table-cell">
                 <?php if ($_SESSION["TYPE"] == "P.R.A.") {
                     include("dbconnection/functions.php");
                     if (isset($_SESSION["ID"])) {
@@ -53,8 +55,7 @@ if (!isset($_SESSION["ID"])) {
                             </form>
                 <?php }
                     }
-                } ?>
-                <?php if ($_SESSION["TYPE"] == "Restaurante") {
+                } else if ($_SESSION["TYPE"] == "Restaurante") {
                     include("dbconnection/functions.php");
                     if (isset($_SESSION["ID"])) {
                         $tabela = "restaurante";
@@ -129,7 +130,8 @@ if (!isset($_SESSION["ID"])) {
                             </form>
                 <?php }
                     }
-                } ?>
+                } 
+                ?>
             </div>
         </div>
     </div>

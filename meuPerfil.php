@@ -139,7 +139,70 @@ if (!isset($_SESSION["ID"])) {
                     </div>
                 </div>
         <?php }
-        } ?>
+       } else if ($_SESSION["TYPE"] == "ADMIN") {
+        include("dbconnection/functions.php");
+        $tabela = "Admin";
+        $aCampos = "*";
+        $condicao = "IdAdmin = " . $_SESSION["ID"];
+        $usuarios = select($conn, $aCampos, $tabela, $condicao);
+        $dados;
+        foreach ($usuarios as $usuario) {
+            foreach ($usuario as $key => $value) {
+                if($key == "FotoRestaurante"){
+                    echo "<script>console.log('" . $value . "')</script>";
+                }
+                
+            }
+        ?>
+        <div class='container-banner'>
+            <div class='container-info'>
+                <div>
+                    <img src="img/admin.png" alt="" class='profilePic'>
+                    <div class='container-info-content'>
+                        <h1 class='profileTitle'><?php echo $usuario['NomeAdmin'] ?></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='wrapper-profile'>
+            <div class='container-sobre'>
+                <h1>Sobre</h1>
+                <hr>
+                <div class='sobre-info'>
+                    <p>Email: <span><?php echo $usuario['EmailAdmin'] ?></span></p>
+                </div>
+            </div>
+            <div class="container-reviews">
+                <h1>Denúncias para Avaliar</h1>
+                <hr>
+                <div class='review'>
+                    <div>
+                        <img src="img/profilepic.png" alt="" class='profilePicReview'>
+                        <div class='review-info'>
+                            <h2>Nome do usuário</h2>
+                            <p>Comentou no restaurante: </p>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.</p>
+                </div>
+                <div class='review'>
+                    <div>
+                        <img src="img/profilepic.png" alt="" class='profilePicReview'>
+                        <div class='review-info'>
+                            <h2>Nome do usuário</h2>
+                            <p>Comentou no restaurante: </p>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.</p>
+                </div>
+            </div>
+        </div>
+
+        <?php
+        }
+    }
+        ?>
     </div>
 
 
