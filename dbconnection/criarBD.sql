@@ -21,9 +21,10 @@ CREATE TABLE Restaurante (
     Numero_Restaurante INT,
     EmailRestaurante VARCHAR(200) UNIQUE,
     FotoRestaurante MEDIUMBLOB,
-    SiteRestaurante VARCHAR(200) UNIQUE,
+    SiteRestaurante VARCHAR(200),
     SenhaRestaurante VARCHAR(200),
     NomeRestaurante VARCHAR(200) UNIQUE,
+    DescricaoRestaurante VARCHAR(400),
     RuaRestaurante VARCHAR(200),
     CEPRestaurante VARCHAR(15)
 );
@@ -42,8 +43,8 @@ CREATE TABLE Prato (
     IdPrato INT PRIMARY KEY auto_increment,
     NomePrato VARCHAR(200),
     DescricaoPrato VARCHAR(400),
-    FotoPrato BLOB,
-    PrecoPrato FLOAT,
+    FotoPrato MEDIUMBLOB,
+    PrecoPrato VARCHAR(10),
     fk_Restaurante_IdRestaurante INT
 );
 
@@ -52,6 +53,24 @@ CREATE TABLE Categoria (
     NomeCategoria VARCHAR(200) UNIQUE,
     DescricaoCategoria VARCHAR(400) UNIQUE
 );
+
+INSERT INTO Categoria (NomeCategoria, DescricaoCategoria) 
+VALUES 
+('Vegetariano', 'Pratos que não contêm carne ou produtos de origem animal.'),
+('Vegano', 'Pratos que não contêm nenhum ingrediente de origem animal.'),
+('Sem Glúten', 'Pratos que não contêm glúten.'),
+('Sem Lactose', 'Pratos que não contêm lactose.'),
+('Orgânico', 'Pratos feitos com ingredientes cultivados sem o uso de pesticidas ou fertilizantes sintéticos.'),
+('Sem Frutos do Mar', 'Pratos que não contêm frutos do mar ou produtos derivados.'),
+('Sem Nozes', 'Pratos que não contêm nozes ou produtos derivados.'),
+('Kosher', 'Pratos que seguem as leis dietéticas judaicas.'),
+('Halal', 'Pratos que seguem as leis dietéticas islâmicas.'),
+('Ceto', 'Pratos com baixo teor de carboidratos e alto teor de gorduras saudáveis.'),
+('Paleo', 'Pratos que imitam os alimentos consumidos durante a era paleolítica, excluindo alimentos processados e agrícolas.'),
+('Baixo teor de gordura', 'Pratos com reduzido teor de gordura.'),
+('Baixo teor de açúcar', 'Pratos com reduzido teor de açúcar.'),
+('Baixo teor de sódio', 'Pratos com reduzido teor de sódio.');
+
 
 CREATE TABLE Horario (
     IdHorario INT PRIMARY KEY auto_increment,

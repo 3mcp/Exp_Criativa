@@ -11,10 +11,12 @@ $restauranteCEPNovo   = $conn->real_escape_string($_POST['restauranteCEPNovo']);
 $restauranteRuaNovo   = $conn->real_escape_string($_POST['restauranteRuaNovo']);
 $restauranteNumeroNovo   = $conn->real_escape_string($_POST['restauranteNumeroNovo']);
 $restauranteSiteNovo   = $conn->real_escape_string($_POST['restauranteSiteNovo']);
+$restauranteDescricaoNovo   = $conn->real_escape_string($_POST['restauranteDescricaoNovo']);
 
 $tabela = "restaurante";
 $aSet = array(
     'NomeRestaurante' => "$restauranteNomeNovo",
+    'DescricaoRestaurante' => "$restauranteDescricaoNovo",
     'EmailRestaurante' => "$restauranteEmailNovo",
     'CNPJRestaurante' => "$restauranteCNPJNovo",
     'CEPRestaurante' => "$restauranteCEPNovo",

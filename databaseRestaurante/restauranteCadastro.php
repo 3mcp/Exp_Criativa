@@ -3,6 +3,7 @@ session_start();
 include("../dbconnection/functions.php");
 
 $restauranteNome   = $conn->real_escape_string(trim($_POST['restauranteNome']));   // prepara a string recebida para ser utilizada em comando SQL
+$restauranteDescricao   = $conn->real_escape_string(trim($_POST['retauranteDescricao']));   // prepara a string recebida para ser utilizada em comando SQL
 $restauranteEmail = $conn->real_escape_string(trim($_POST['restauranteEmail'])); // prepara a string recebida para ser utilizada em comando SQL
 $restauranteSenha  = $conn->real_escape_string(trim($_POST['restauranteSenha']));  // prepara a string recebida para ser utilizada em comando SQL
 $restauranteCEP  = $conn->real_escape_string(trim($_POST['restauranteCEP']));  // prepara a string recebida para ser utilizada em comando SQL
@@ -16,8 +17,8 @@ $restauranteFoto = NULL;
 $restauranteNome = ucwords(strtolower($restauranteNome)); 
 $md5Senha = md5($restauranteSenha);
 
-$aCampos = array("CNPJRestaurante", "Numero_Restaurante", "EmailRestaurante", "FotoRestaurante", "SiteRestaurante", "SenhaRestaurante", "NomeRestaurante", "RuaRestaurante", "CEPRestaurante");
-$aValores = array("$restauranteCNPJ", "$restauranteNumero", "$restauranteEmail", "$restauranteFoto", "$restauranteSite", "$md5Senha", "$restauranteNome", "$restauranteRua", "$restauranteCEP");
+$aCampos = array("CNPJRestaurante", "Numero_Restaurante", "EmailRestaurante", "FotoRestaurante", "SiteRestaurante", "SenhaRestaurante", "NomeRestaurante", "DescricaoRestaurante", "RuaRestaurante", "CEPRestaurante");
+$aValores = array("$restauranteCNPJ", "$restauranteNumero", "$restauranteEmail", "$restauranteFoto", "$restauranteSite", "$md5Senha", "$restauranteNome", "$restauranteDescricao", "$restauranteRua", "$restauranteCEP");
 $tabela = "restaurante";
 
 $result = create($conn, $aCampos, $aValores, $tabela);

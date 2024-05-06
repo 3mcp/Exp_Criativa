@@ -79,6 +79,11 @@ if (!isset($_SESSION["ID"])) {
                                     <p id="nomeRestauranteErro" style="color: red;"></p>
                                 </div>
                                 <div class='inputWrapper'>
+                                    <p>Descrição</p>
+                                    <textarea name="restauranteDescricaoNovo"><?php echo $usuario["DescricaoRestaurante"] ?></textarea>
+                                    <p id="descricaoRestauranteErro" style="color: red;"></p>
+                                </div>
+                                <div class='inputWrapper'>
                                     <p>Email</p>
                                     <input type="email" id="inputuserEmail" name="restauranteEmailNovo" required value="<?php echo $usuario["EmailRestaurante"] ?>">
                                     <p id="emailRestauranteErro" style="color: red;"></p>
