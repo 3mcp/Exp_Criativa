@@ -16,7 +16,8 @@ foreach ($usuarios as $usuario) {
     $_SESSION["ID"] = $usuario["IdPRA"];
     $_SESSION["NOME"] = $usuario["UsernamePRA"];
     $_SESSION["SENHA"] = md5($senha);
-    if($usuario["AdminUser"] == 0) {
+    $_SESSION["ADMIN"] = $usuario["AdminUser"];
+    if($usuario["ADMIN"] == 0) {
         $_SESSION["TYPE"] = "P.R.A.";
     } else {
         $_SESSION["TYPE"] = "ADMIN";

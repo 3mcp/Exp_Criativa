@@ -1,22 +1,32 @@
 function confirmarExcluirRestaurante() {
-  let text = "Tem certeza que deseja excluir sua conta?";
-  if (confirm(text) == true) {
-    window.location.href = "databaseRestaurante/restauranteDeletar.php";
-  }
+    Swal.fire({
+        title: "Tem certeza?",
+        text: "Você realmente deseja excluir sua conta?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Sim, exclua!",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = "databaseRestaurante/restauranteDeletar.php";
+        }
+    });
 }
 
 function confirmarExcluirPRA() {
-  let text = "Tem certeza que deseja excluir sua conta?";
-  if (confirm(text) == true) {
-    window.location.href = "databasePRA/usuarioDeletar.php";
-  }
-}
-
-function confirmarExcluirAdmin() {
-  let text = "Tem certeza que deseja excluir sua conta?";
-  if (confirm(text) == true) {
-    window.location.href = "databaseAdmin/adminDeletar.php";
-  }
+  Swal.fire({
+    title: "Tem certeza?",
+    text: "Você realmente deseja excluir sua conta?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Sim, exclua!",
+    cancelButtonText: "Cancelar"
+}).then((result) => {
+    if (result.isConfirmed) {
+        // Aqui você pode adicionar a lógica para excluir o item
+        window.location.href = "databasePRA/usuarioDeletar.php";
+    }
+});
 }
 
 function validaImagem(input) {

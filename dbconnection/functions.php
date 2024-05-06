@@ -123,3 +123,4 @@ $aValores = array("$adminNome", "$adminUser", "$adminEmail", "$md5Senha", "$admi
 $tabela = "p_r_a_";
 
 $result = create($conn, $aCampos, $aValores, $tabela);
+
