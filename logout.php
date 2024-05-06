@@ -4,6 +4,7 @@
 
     if (isset($_SESSION["ID"])) {
       unset($_SESSION["ID"]);
+      unset($_SESSION["TYPE"]);
       session_destroy();
       header("Location: ./index.php");
     } else {
