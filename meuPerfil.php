@@ -141,9 +141,9 @@ if (!isset($_SESSION["ID"])) {
         <?php }
        } else if ($_SESSION["TYPE"] == "ADMIN") {
         include("dbconnection/functions.php");
-        $tabela = "Admin";
+        $tabela = "p_r_a_";
         $aCampos = "*";
-        $condicao = "IdAdmin = " . $_SESSION["ID"];
+        $condicao = "AdminUser = 1";
         $usuarios = select($conn, $aCampos, $tabela, $condicao);
         $dados;
         foreach ($usuarios as $usuario) {
@@ -159,7 +159,7 @@ if (!isset($_SESSION["ID"])) {
                 <div>
                     <img src="img/admin.png" alt="" class='profilePic'>
                     <div class='container-info-content'>
-                        <h1 class='profileTitle'><?php echo $usuario['NomeAdmin'] ?></h1>
+                        <h1 class='profileTitle'><?php echo $usuario['UsernamePRA'] ?></h1>
                     </div>
                 </div>
             </div>
@@ -170,7 +170,7 @@ if (!isset($_SESSION["ID"])) {
                 <h1>Sobre</h1>
                 <hr>
                 <div class='sobre-info'>
-                    <p>Email: <span><?php echo $usuario['EmailAdmin'] ?></span></p>
+                    <p>Email: <span><?php echo $usuario['EmailPRA'] ?></span></p>
                 </div>
             </div>
             <div class="container-reviews">

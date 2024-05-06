@@ -11,27 +11,21 @@ CREATE TABLE P_R_A_ (
     EmailPRA VARCHAR(200) UNIQUE,
     SenhaPRA VARCHAR(200),
     FotoPRA MEDIUMBLOB,
-    AdminUser BOOLEAN
+    AdminUser BOOLEAN DEFAULT 0 
 );
 
-INSERT INTO P_R_A_ (NomePRA, EmailPRA, SenhaPRA, AdminUser) VALUES (
-    "Admin",
-    "adminteste@gmail.com",
-    "Admin123@",
-    TRUE
-);
 
 CREATE TABLE Restaurante (
     IdRestaurante INT PRIMARY KEY auto_increment,
-    CNPJRestaurante INT UNIQUE,
+    CNPJRestaurante VARCHAR(20) UNIQUE,
     Numero_Restaurante INT,
     EmailRestaurante VARCHAR(200) UNIQUE,
-    FotoRestaurante BLOB,
+    FotoRestaurante MEDIUMBLOB,
     SiteRestaurante VARCHAR(200) UNIQUE,
     SenhaRestaurante VARCHAR(200),
     NomeRestaurante VARCHAR(200) UNIQUE,
     RuaRestaurante VARCHAR(200),
-    CEPRestaurante INT
+    CEPRestaurante VARCHAR(15)
 );
 
 CREATE TABLE Comentario (
@@ -53,7 +47,7 @@ CREATE TABLE Prato (
     fk_Restaurante_IdRestaurante INT
 );
 
-CREATE TABLE CategoriaRestricao (
+CREATE TABLE Categoria (
     IdCategoria INT PRIMARY KEY auto_increment,
     NomeCategoria VARCHAR(200) UNIQUE,
     DescricaoCategoria VARCHAR(400) UNIQUE
