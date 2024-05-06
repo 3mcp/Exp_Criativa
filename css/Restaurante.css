@@ -66,6 +66,10 @@
     margin-top: 10px;
     position: relative;
     border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .cardapio-info { 
@@ -76,3 +80,70 @@
     margin: 0 auto;
 }
 
+.saibaMaisBtn {
+    background-color: #d9dbd8;
+    color: #4d6b6b;
+    padding: 10px;
+    margin-bottom: 3%;
+    border-radius: 10px;
+    border: none;
+}
+
+.overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.cardapio-info-prato{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  background-color: #4d6b6b;
+  border-radius: 20px;
+  padding: 50px 40px;
+}
+
+.cardapio-info-prato > .cardapio-info-texto {
+  font-size: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.cardapio-info-prato > p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.fecharBtn {
+  color: #4d6b6b;
+  background-color: #d9dbd8;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 800px) {
+
+  .cardapio-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
