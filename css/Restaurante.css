@@ -54,7 +54,6 @@
     grid-template-columns: auto auto auto;
     padding: 10px;
     gap: 100px;
-    cursor: pointer;
 }
 
 
@@ -80,6 +79,10 @@
     margin: 0 auto;
 }
 
+.cardapio-info > i {
+  cursor: pointer;
+}
+
 .saibaMaisBtn {
     background-color: #d9dbd8;
     color: #4d6b6b;
@@ -103,7 +106,7 @@
   cursor: pointer;
 }
 
-.cardapio-info-prato, .addPratoForm{
+.cardapio-info-prato, .addPrato, .editPrato {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -149,8 +152,61 @@
   border-radius: 10px;
 }
 
-.addPratoForm {
+.editPrato {
+  width: 500px;
 }
+
+.addPrato > div, .editPrato > div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.addPrato > .addPratoForm, .editPrato > .editPratoForm  {
+
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: left;
+
+}
+
+.enviarBtn {
+  color: #4d6b6b;
+  background-color: #d9dbd8;
+  font-size: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+
+}
+
+.enviarBtn:hover, .addBtn:hover {
+  background-color: rgb(217, 219, 216, 0.7);
+  color: #4d6b6b;
+}
+
+
+.addPratoForm > input, .editPratoForm > input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.addPratoForm > textarea, .editPratoForm > textarea {
+  resize: none;
+  height: 100px;
+  padding: 10px;
+  border-radius: 7px;
+}
+
+
+
 
 @media screen and (max-width: 800px) {
 
