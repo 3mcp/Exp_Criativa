@@ -108,3 +108,30 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 
 }
 $_SESSION['LAST_ACTIVITY'] = time();
 // echo "Session is created for $s_name, at " . gmdate("H:i:s", time()) .  "<br/>";
+
+
+$adminNome   = "SuperAdmin";
+$adminUser   = "sysAdmin";
+$adminEmail = "admin@gmail.com";
+$adminSenha  = "Admin123@";
+$admin  = 1;
+
+$md5Senha = md5($adminSenha);
+
+$aCampos = array("NomePRA", "UsernamePRA", "EmailPRA", "SenhaPRA", "AdminUser");
+$aValores = array("$adminNome", "$adminUser", "$adminEmail", "$md5Senha", "$admin");
+$tabela = "p_r_a_";
+
+$result = create($conn, $aCampos, $aValores, $tabela);
+
+if ($result == "Registro inserido com sucesso.") {
+    $_SESSION["ID"] = $conn->insert_id;
+    $_SESSION["NOME"] = $adminUser;
+    $_SESSION["SENHA"] = $md5Senha;
+    $_SESSION["TYPE"] = "ADMIN";
+    header('Location: ../index.php');
+} else {
+    $_SESSION["erroCadastro"] = $result;
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+}
+

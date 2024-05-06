@@ -13,21 +13,16 @@ restauranteBtn.addEventListener("click", function () {
 });
 
 const formularioUsuario = () => {
-  userBtn.style.backgroundColor = "#d9dbd8";
-  userBtn.style.color = "#9DBC98";
-  restauranteBtn.style.backgroundColor = "#9DBC98";
-  restauranteBtn.style.color = "white";
-  restauranteBtn.style.fontWeight = "normal";
+  userBtn.classList.toggle("selectedTypeBtn");
+  restauranteBtn.classList.toggle("selectedTypeBtn");
+
   userForm.style.display = "flex";
   restauranteForm.style.display = "none";
 }
 
 const formularioRestaurante = () => {
-  userBtn.style.backgroundColor = "#9DBC98";
-  userBtn.style.color = "white";
-  userBtn.style.fontWeight = "normal";
-  restauranteBtn.style.backgroundColor = "#d9dbd8";
-  restauranteBtn.style.color = "white";
+  userBtn.classList.toggle("selectedTypeBtn");
+  restauranteBtn.classList.toggle("selectedTypeBtn");
 
   userForm.style.display = "none";
   restauranteForm.style.display = "flex";

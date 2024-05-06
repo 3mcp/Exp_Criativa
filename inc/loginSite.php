@@ -19,8 +19,8 @@
     </div>
     <div class="entrarForm">
         <div class="button-wrapper">
-            <button class="userBtn" type="button" id="userButton">Usuario</button>
-            <button class="restaurantButton" type="button" id="restaurantButton">Restaurante</button>
+            <button class="typeBtn selectedTypeBtn" type="button" id="userButton">Usuario</button>
+            <button class="typeBtn" type="button" id="restaurantButton">Restaurante</button>
         </div>
         <?php if (isset($_SESSION['erro'])) { ?>
             <div class="alert-danger">

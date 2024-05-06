@@ -17,8 +17,8 @@
     </div>
     <form id="cadastroForm" action="../databasePRA/usuarioCadastro.php" method="post" onsubmit="return validateForm()">
         <div class="button-wrapper">
-            <button class="userBtn" type="button">Usuario</button>
-            <button class="restaurantBtn" type="button">Restaurante</button>
+            <button class="userBtn typeBtn selectedTypeBtn" type="button">Usuario</button>
+            <button class="restaurantBtn typeBtn" type="button">Restaurante</button>
         </div>
         <div>
             <h1>Cadastre-se</h1>
@@ -28,6 +28,18 @@
             <p id="inputNomeLabel">Nome completo: </p>
             <input type="text" id="inputNome" name="usuarioNome" required>
             <p id="namePRAError" style="color: red;"></p>
+            <?php 
+            if (isset($_SESSION["erroNome"])){
+                echo('<p style="color: red;">' . $_SESSION["erroNome"] . '</p>');
+                unset($_SESSION["erroNome"]);
+            }
+            ?>
+
+        </div>
+        <div class="input-wrapper" id="nomeWrapper">
+            <p id="inputNomeLabel">Username (visível para os outros): </p>
+            <input type="text" id="inputUsername" name="userName" required>
+            <p id="userNamePRAerror" style="color: red;"></p>
             <?php 
             if (isset($_SESSION["erroNome"])){
                 echo('<p style="color: red;">' . $_SESSION["erroNome"] . '</p>');
@@ -66,47 +78,5 @@
 
     <script src="../js/cadastro.js"></script>
     <script src="../js/mascarasUsuarios.js"></script>
-
-    <script>
-        function trim(str) {
-            return str.replace(/^\s+|\s+$/g, '');
-        }
-
-        function validateForm() {
-            var namePRAValue = document.getElementById("inputNome").value.trim();
-            var namePRAError = document.getElementById("namePRAError");
-            var emailPRAValue = document.getElementById("inputEmail").value;
-            var passwordPRAValue = document.getElementById("inputPassword").value;
-            var emailPRAError = document.getElementById("emailPRAError");
-            var passwordPRAError = document.getElementById("passwordPRAError");
-
-            if (namePRAValue.split(' ').length < 2) {
-                namePRAError.textContent = "Insira seu nome completo";
-                return false;
-            } else {
-                namePRAError.textContent = "";
-            }
-
-            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            if (!emailPattern.test(emailPRAValue)) {
-                emailPRAError.textContent = "Por favor, insira um email válido.";
-                return false; 
-            } else {
-                emailPRAError.textContent = ""; 
-            }
-
-            var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-            if (!passwordPattern.test(passwordPRAValue)) {
-                passwordPRAError.innerHTML = "A senha deve ter no mínimo:<br>* 8 caracteres<br>* Uma letra maiúscula<br>* Um número<br>* Um caractere especial (@, $, !, %, *, ?, &).";
-                return false; 
-            } else {
-                passwordPRAError.textContent = ""; 
-            }
-
-            return true; 
-        }
-    </script>
 </body>
 </html>

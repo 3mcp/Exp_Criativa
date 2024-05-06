@@ -1,0 +1,34 @@
+.Sobre-txt h1 {
+    font-family: "Shrikhand", serif;
+    color: #ffffff;
+    text-align: center;
+    font-size: 100px;
+    line-height: 50px;
+    text-shadow: 0.1em 0.1em #628888;
+    background-color: #9DBC98;
+    height: 280px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.Sobre-pg{
+    height: 1000px;
+    margin-top: 25px;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex; 
+    flex-direction: column;  
+    gap: 50px;
+}
+
+.Sobre-txt h3{
+    font-family: Poppins;
+    font-weight: 300;
+    background-color: #F9F6EE;
+    padding: 20px;
+    border-radius: 20px;
+    color: #9DBC98;
+    font-size: 30px;
+    margin: 120px 220px 0px 220px
+}

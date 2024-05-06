@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="css/faq.css">
     <link rel="stylesheet" href="css/meuPerfil.css">
     <link rel="stylesheet" href="css/editarPerfil.css">
-    <link rel="stylesheet" href="css/Restaurante.css">
 </head>
 
 <body>
@@ -29,9 +28,8 @@
             <div class="nav-links">
                 <img src="img/logo2.png" alt="Logo">
                 <a href="index.php" class='navLink'>Home</a>
-                <a href="" class='navLink'>Sobre</a>
+                <a href="sobre.php" class='navLink'>Sobre</a>
                 <a href="Restaurantes.php" class='navLink'>Restaurantes</a>
-                <a href="" class='navLink'>Forúm</a>
                 <a href="faq.php" class='navLink'>FAQ</a>
             </div>
             <?php if (isset($_SESSION['ID'])) { ?>
@@ -40,9 +38,15 @@
                         <div class="col-auto">
                             <a href="./meuPerfil.php" class="profile-link"><i class="bi bi-house-door fs-4"></i></a>
                         </div>
+                        <?php
+                        if ($_SESSION["TYPE"] != "ADMIN") {
+                        ?>
                         <div class="col-auto">
                             <a href="./editarPerfil.php" class="profile-link"><i class="bi bi-gear fs-4"></i></a>
                         </div>
+                        <?php
+                        }
+                        ?>
                         <div class="col-auto">
                             <a href="./logout.php" class="profile-link"><i class="bi bi-box-arrow-right fs-4"></i></a>
                         </div>
@@ -65,7 +69,7 @@
                 </div>
             <?php } else { ?>
                 <div class="signUpIn">
-                    <a href="inc/entrar.php" class='btnLogar'>Entrar</a>
+                    <a href="inc/loginSite.php" class='btnLogar'>Entrar</a>
                     <a href="inc/cadastroUsuario.php" class='btnRegistrar'>Registre-se</a>
                 </div>
             <?php } ?>

@@ -5,74 +5,76 @@ USE SAFEDISH;
 /* Lógico_SAFEDISH: */
 
 CREATE TABLE P_R_A_ (
-    IdPRA INT PRIMARY KEY AUTO_INCREMENT,
-    NomePRA VARCHAR(200) NOT NULL UNIQUE,
-    EmailPRA VARCHAR(200) NOT NULL UNIQUE,
-    SenhaPRA VARCHAR(200) NOT NULL
+    IdPRA INT PRIMARY KEY auto_increment,
+    NomePRA VARCHAR(200),
+    UsernamePRA VARCHAR(50) UNIQUE,
+    EmailPRA VARCHAR(200) UNIQUE,
+    SenhaPRA VARCHAR(200),
+    FotoPRA MEDIUMBLOB,
+    AdminUser BOOLEAN
+);
+
+INSERT INTO P_R_A_ (NomePRA, EmailPRA, SenhaPRA, AdminUser) VALUES (
+    "Admin",
+    "adminteste@gmail.com",
+    "Admin123@",
+    TRUE
 );
 
 CREATE TABLE Restaurante (
-    IdRestaurante INT PRIMARY KEY AUTO_INCREMENT,
-    CNPJRestaurante VARCHAR(50) NOT NULL UNIQUE,
-    Numero_Restaurante INT NOT NULL,
-    EmailRestaurante VARCHAR(200) NOT NULL UNIQUE,
-    FotoRestaurante MEDIUMBLOB,
-    SiteRestaurante VARCHAR(200),
-    SenhaRestaurante VARCHAR(200) NOT NULL,
-    NomeRestaurante VARCHAR(200) NOT NULL UNIQUE,
-    RuaRestaurante VARCHAR(200) NOT NULL,
-    CEPRestaurante VARCHAR(100) NOT NULL
+    IdRestaurante INT PRIMARY KEY auto_increment,
+    CNPJRestaurante INT UNIQUE,
+    Numero_Restaurante INT,
+    EmailRestaurante VARCHAR(200) UNIQUE,
+    FotoRestaurante BLOB,
+    SiteRestaurante VARCHAR(200) UNIQUE,
+    SenhaRestaurante VARCHAR(200),
+    NomeRestaurante VARCHAR(200) UNIQUE,
+    RuaRestaurante VARCHAR(200),
+    CEPRestaurante INT
 );
 
 CREATE TABLE Comentario (
-    IdComentario INT PRIMARY KEY AUTO_INCREMENT,
-    TextoComentario VARCHAR(300) NOT NULL,
+    IdComentario INT PRIMARY KEY auto_increment,
+    TextoComentario VARCHAR(300),
     DataComentario DATE,
     DenunciadoComentario BOOLEAN,
-    NotaComentario FLOAT NOT NULL,
+    NotaComentario FLOAT,
     fk_Restaurante_IdRestaurante INT,
-    fk_Admin_IdAdmin INT,
     fk_P_R_A__IdPRA INT
 );
 
-CREATE TABLE Admin (
-    IdAdmin INT PRIMARY KEY AUTO_INCREMENT,
-    NomeAdmin VARCHAR(200) NOT NULL UNIQUE,
-    EmailAdmin VARCHAR(200) NOT NULL UNIQUE,
-    SenhaAdmin VARCHAR(200) NOT NULL
-    );
-
 CREATE TABLE Prato (
-    IdPrato INT PRIMARY KEY AUTO_INCREMENT,
-    NomePrato VARCHAR(200) NOT NULL,
-    DescricaoPrato VARCHAR(400) NOT NULL,
-    FotoPrato BLOB NOT NULL,
-    PrecoPrato FLOAT NOT NULL,
+    IdPrato INT PRIMARY KEY auto_increment,
+    NomePrato VARCHAR(200),
+    DescricaoPrato VARCHAR(400),
+    FotoPrato BLOB,
+    PrecoPrato FLOAT,
     fk_Restaurante_IdRestaurante INT
 );
 
-CREATE TABLE Categoria (
-    IdCategoria INT PRIMARY KEY AUTO_INCREMENT,
-    NomeCategoria VARCHAR(200) NOT NULL UNIQUE,
-    DescricaoCategoria VARCHAR(400) NOT NULL
+CREATE TABLE CategoriaRestricao (
+    IdCategoria INT PRIMARY KEY auto_increment,
+    NomeCategoria VARCHAR(200) UNIQUE,
+    DescricaoCategoria VARCHAR(400) UNIQUE
 );
 
 CREATE TABLE Horario (
-    IdHorario INT PRIMARY KEY AUTO_INCREMENT,
-    DiadaSemana VARCHAR(50) NOT NULL,
-    AbreTime VARCHAR(10) NOT NULL,
-    FechaTime VARCHAR(10) NOT NULL,
+    IdHorario INT PRIMARY KEY auto_increment,
+    DiadaSemana VARCHAR(30),
+    AbreTime VARCHAR(10),
+    FechaTime VARCHAR(10),
     fk_Restaurante_IdRestaurante INT
 );
 
 CREATE TABLE Prato_Categoria (
-	IdPratoCategoria INT PRIMARY KEY AUTO_INCREMENT,
+	IdPratoCategoria INT PRIMARY KEY auto_increment,
     fk_Categoria_IdCategoria INT,
     fk_Prato_IdPrato INT
 );
 
 CREATE TABLE PRA_Categoria (
-	IdPRACategoria INT PRIMARY KEY AUTO_INCREMENT,
+	IdPRACategoria INT PRIMARY KEY auto_increment,
     fk_Categoria_IdCategoria INT,
     fk_P_R_A__IdPRA INT
 );
@@ -83,11 +85,6 @@ ALTER TABLE Comentario ADD CONSTRAINT FK_Comentario_2
     ON DELETE CASCADE;
  
 ALTER TABLE Comentario ADD CONSTRAINT FK_Comentario_3
-    FOREIGN KEY (fk_Admin_IdAdmin)
-    REFERENCES Admin (IdAdmin)
-    ON DELETE CASCADE;
- 
-ALTER TABLE Comentario ADD CONSTRAINT FK_Comentario_4
     FOREIGN KEY (fk_P_R_A__IdPRA)
     REFERENCES P_R_A_ (IdPRA)
     ON DELETE CASCADE;
