@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/estiloFooter.css">
     <link rel="stylesheet" href="css/Restaurantes.css">
+    <link rel="stylesheet" href="css/sobre.css">
     <link rel="stylesheet" href="css/faq.css">
     <link rel="stylesheet" href="css/meuPerfil.css">
     <link rel="stylesheet" href="css/editarPerfil.css">
@@ -28,6 +29,9 @@
 <body>
     <header>
         <nav>
+            <div class="elemento">
+            <i class="bi bi-list"></i>
+            </div>
             <div class="nav-links">
                 <img src="img/logo2.png" alt="Logo">
                 <a href="index.php" class='navLink'>Home</a>

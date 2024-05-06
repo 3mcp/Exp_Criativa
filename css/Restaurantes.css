@@ -21,6 +21,7 @@
 
 .search-container{
     width: 700px;
+    max-width: 700px; 
     display: inline-block;
     margin: 0 auto;
     justify-content: center;
@@ -121,4 +122,8 @@ input#search-bar{
     transition: 0.3s;
     color: #628888;
     text-decoration: none;
+}
+
+@media screen {
+    
 }

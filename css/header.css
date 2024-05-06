@@ -16,6 +16,10 @@ nav {
   padding: 1rem 4rem;
 }
 
+.elemento{
+  display: none;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -45,6 +49,7 @@ nav {
 .signUpIn {
   margin-top: 1rem;
 }
+
 .btnRegistrar {
   color: white;
   background-color: #638889;
@@ -119,10 +124,32 @@ nav {
   transform: scaleX(1);
 }
 
+<<<<<<< Updated upstream
 @media (max-width: 768px) {
 
   html {
     width: fit-content;
   }
 
+=======
+/* Consulta de mídia para dispositivos móveis */
+@media screen and (max-width: 1115px){
+  .nav-links {
+    display: none;
+  }
+  .elemento {
+    display: block; 
+    cursor: pointer;
+    font-size: 35px;
+  }
+  @media screen and (max-width: 500px){
+    .btnRegistrar{
+      display: none;
+    }
+    .btnLogar{
+      display: none;
+    }
+    
+}
+>>>>>>> Stashed changes
 }
