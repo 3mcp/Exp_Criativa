@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/faq.css">
     <link rel="stylesheet" href="css/meuPerfil.css">
     <link rel="stylesheet" href="css/editarPerfil.css">
+    <link rel="stylesheet" href="css/Restaurante.css">
 </head>
 
 <body>

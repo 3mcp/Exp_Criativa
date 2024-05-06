@@ -1,0 +1,78 @@
+.restaurante-pg{
+    margin-top: 20px;
+    background-color: #9DBC98;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex; 
+    flex-direction: column; 
+    padding-bottom: 4%; 
+  }
+
+  .restaurante-titulo {
+    font-family: "Shrikhand", serif;
+    color: #ffffff;
+    margin-top: 100px;
+    font-size: 100px;
+    text-shadow: 0.1em 0.1em #628888;
+  }
+
+  .restaurante-imagem {
+    width: 600px;
+    height: auto;
+    color: #d9dbd8;
+    margin-top: 10px;
+    border-radius: 10px;
+    margin-bottom: 3%;
+  }
+
+  .restaurante-info > p {
+    color: #ffffff;
+    font-size: 20px;
+    margin-left: 10px;
+    font-weight: 300;
+  }
+
+  .restaurante-botao-cardapio {
+    background-color: #4d6b6b;
+    color: #d9dbd8;
+    padding: 13px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 3%;
+  }
+
+  /* Cardapio */
+
+.restaurante-pg > p {
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.cardapio-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    gap: 100px;
+    cursor: pointer;
+}
+
+
+.cardapio-item {
+    background-color: #4d6b6b;
+    color: #d9dbd8;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 10px;
+    position: relative;
+    border-radius: 40px;
+}
+
+.cardapio-info { 
+    font-size: 20px;
+    padding: 10px;
+    font-weight: bold;
+    width: 300px;
+    margin: 0 auto;
+}
+
