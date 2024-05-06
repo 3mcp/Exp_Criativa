@@ -103,7 +103,7 @@
   cursor: pointer;
 }
 
-.cardapio-info-prato{
+.cardapio-info-prato, .addPratoForm{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -137,6 +137,19 @@
   cursor: pointer;
   border: none;
   border-radius: 10px;
+}
+
+.addBtn {
+  color: #4d6b6b;
+  background-color: #d9dbd8;
+  font-size: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+}
+
+.addPratoForm {
 }
 
 @media screen and (max-width: 800px) {

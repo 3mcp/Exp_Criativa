@@ -4,6 +4,16 @@
     <div class='restaurante-pg'>
         <h1 class='restaurante-titulo'>Restaurante</h1>
         <p>Cardápio</p>
+        <button class='addBtn' onclick="on('form')">+</button>
+        <div class="overlay" id='form'>
+            <div class='addPratoForm'>
+                <h1>Adicione um prato</h1>
+                <form action="">
+                    <label for="nomePrato">Nome do prato</label>
+                    <input type="text" id='nomePrato'>
+                </form>
+            </div>
+        </div>
         <div class='cardapio-container'>
             <div class="cardapio-item">
                 <img src='img/fotoPrato.png'>
