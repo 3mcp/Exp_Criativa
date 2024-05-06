@@ -123,15 +123,3 @@ $aValores = array("$adminNome", "$adminUser", "$adminEmail", "$md5Senha", "$admi
 $tabela = "p_r_a_";
 
 $result = create($conn, $aCampos, $aValores, $tabela);
-
-if ($result == "Registro inserido com sucesso.") {
-    $_SESSION["ID"] = $conn->insert_id;
-    $_SESSION["NOME"] = $adminUser;
-    $_SESSION["SENHA"] = $md5Senha;
-    $_SESSION["TYPE"] = "ADMIN";
-    header('Location: ../index.php');
-} else {
-    $_SESSION["erroCadastro"] = $result;
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-}
-
