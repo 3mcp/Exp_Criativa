@@ -1,5 +1,6 @@
 <?php 
     include("inc/header.php");
+    include("dbconnection/functions.php");    
 ?>
 <main>
     <script src="js/restaurante.js"></script>
