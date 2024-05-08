@@ -11,13 +11,19 @@
                     <h1>Adicione um prato</h1>
                     <i class="bi bi-x" onclick="off('form')"></i>
                 </div>
-                <form action="" class='addPratoForm'>
+                <form action="databasePrato/pratoCadastro.php" enctype="multipart/form-data" class='addPratoForm' method='post'>
+                    <div class='inputWrapper'>
+                        <p>Imagem:</p>
+                        <img id="imagemSelecionada">
+                        <input type="file" id="img" class="form-control" name="img" accept="imagem/*" onchange="validaImagem(this);">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
+                    </div>
                     <label for="nomePrato">Nome do prato</label>
-                    <input type="text" id='nomePrato' placeholder='Ex: Macarrão com Salsicha '>
+                    <input type="text" id='nomePrato'name="nomeP" placeholder='Ex: Macarrão com Salsicha '>
                     <label for="precoPrato">Preço do Prato</label>
-                    <input type="text" id='precoPrato' placeholder='Ex: R$00.00'>
+                    <input type="text" id='precoPrato' name="precoP" placeholder='Ex: R$00.00'>
                     <label for="descricaoPrato">Descrição do prato</label>
-                    <textarea id='descricaoPrato' maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
+                    <textarea id='descricaoPrato' name="descricaoP" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
                     <button class='enviarBtn'>Enviar</button>
                 </form>
             </div>
@@ -33,13 +39,19 @@
                             <h1>Editar</h1>
                             <i class="bi bi-x" onclick="off('editForm')"></i>
                         </div>
-                        <form action="" class='editPratoForm'>
+                        <form action="databasePrato/pratoEditar.php" enctype="multipart/form-data" class='editPratoForm' method="post">
+                            <div class='inputWrapper'>
+                                <p>Imagem:</p>
+                                <img id="imagemSelecionada">
+                                <input type="file" id="img" class="form-control" name="img" accept="imagem/*" onchange="validaImagem(this);">
+                                <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
+                            </div>
                             <label for="nomePrato">Nome do prato</label>
-                            <input type="text" id='nomePrato' placeholder='Ex: Macarrão com Salsicha '>
+                            <input type="text" id='nomePrato' name="pratoNomeNovo" placeholder='Ex: Macarrão com Salsicha '>
                             <label for="precoPrato">Preço do Prato</label>
-                            <input type="text" id='precoPrato' placeholder='Ex: R$00.00'>
+                            <input type="text" id='precoPrato' name="pratoPrecoNovo" placeholder='Ex: R$00.00'>
                             <label for="descricaoPrato">Descrição do prato</label>
-                            <textarea id='descricaoPrato' maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
+                            <textarea id='descricaoPrato' name="pratoDescricaoNovo" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
                             <button class='enviarBtn'>Salvar</button>
                         </form>
                     </div>
@@ -61,7 +73,7 @@
             </div>
         </div>
     </div>
-
+    <script src="./js/editar.js"></script>
     <script src='./js/cardapio.js'></script>
 </main>
 

@@ -21,7 +21,7 @@
             <?php
             $tabela = "restaurante";
             $aCampos = "*";
-            $restaurantes = select($conn, $aCampos, $tabela,NULL);
+            $restaurantes = select($conn, $aCampos, $tabela, NULL);
             foreach ($restaurantes as $r) {
             ?>
             <div class="restaurante">

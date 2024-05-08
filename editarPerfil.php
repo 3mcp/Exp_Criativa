@@ -70,8 +70,6 @@ if (!isset($_SESSION["ID"])) {
                                     <img id="imagemSelecionada">
                                     <input type="file" id="Imagem" class="form-control" name="Imagem" accept="imagem/*" onchange="validaImagem(this);">
                                     <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
-
-
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Nome</p>

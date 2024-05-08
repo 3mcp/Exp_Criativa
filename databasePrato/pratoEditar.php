@@ -28,4 +28,3 @@ if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
 } else {
     header('Location: ');
 }
-?>
