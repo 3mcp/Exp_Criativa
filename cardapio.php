@@ -1,4 +1,6 @@
-<?php include("inc/header.php") ?>
+<?php include("inc/header.php");
+    include("dbconnection/functions.php");    
+?>
 
 <main>
     <div class='restaurante-pg'>
@@ -28,11 +30,22 @@
                 </form>
             </div>
         </div>
+        <?php
+            $tabela = "prato";
+            $aCampos = "*";
+            $condicao = $_SESSION["ID"];
+            $pratos = select($conn, $aCampos, $tabela, $condicao);
+            foreach ($pratos as $r) {
+        ?>
         <div class='cardapio-container'>
             <div class="cardapio-item">
-                <img src='img/fotoPrato.png'>
-                <div class='cardapio-info'>Entrecot alla Fonduta di Formaggio
-                com Tagliatele <i class="bi bi-pencil-square" onclick="on('editForm')"></i></div>
+            <img  src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?>" />
+                <div class='cardapio-info'>
+                    <p><?php echo $r["DescricaoPrato"]?></p>
+                    <i class="bi bi-pencil-square" onclick="on('editForm')"></i>
+                </div>
+            </div>
+        <?php }?>
                 <div class="overlay" id='editForm'>
                     <div class='editPrato'>
                         <div>
