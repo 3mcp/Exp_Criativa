@@ -1,95 +1,39 @@
-.restaurante-pg{
-    margin-top: 20px;
-    background-color: #9DBC98;
-    justify-content: flex-start;
-    align-items: center;
-    display: flex; 
-    flex-direction: column; 
-    padding-bottom: 4%; 
-  }
+.restaurante-pg {
+  background-color: #9dbc98;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .restaurante-titulo {
-    font-family: "Shrikhand", serif;
-    color: #ffffff;
-    margin-top: 100px;
-    font-size: 100px;
-    text-shadow: 0.1em 0.1em #628888;
-  }
-
-  .restaurante-imagem {
-    width: 600px;
-    height: auto;
-    color: #d9dbd8;
-    margin-top: 10px;
-    border-radius: 10px;
-    margin-bottom: 3%;
-  }
-
-  .restaurante-info > p {
-    color: #ffffff;
-    font-size: 20px;
-    margin-left: 10px;
-    font-weight: 300;
-  }
-
-  .restaurante-botao-cardapio {
-    background-color: #4d6b6b;
-    color: #d9dbd8;
-    padding: 13px;
-    border-radius: 10px;
-    border: none;
-    margin-top: 3%;
-  }
-
-  /* Cardapio */
+.restaurante-titulo {
+  font-family: "Shrikhand", serif;
+  color: #ffffff;
+  font-size: 100px;
+  line-height: 50px;
+  text-align: center;
+  padding-top: 3%;
+  text-shadow: 0.1em 0.1em #628888;
+}
 
 .restaurante-pg > p {
-    color: #ffffff;
-    font-size: 50px;
-    font-weight: 600;
+  color: #ffffff;
+  font-size: 30px;
+  line-height: 50px;
+  text-align: center;
+  padding-top: 1%;
+  text-shadow: 0.1em 0.1em #628888;
 }
 
-.cardapio-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 10px;
-    gap: 100px;
-}
-
-
-.cardapio-item {
-    background-color: #4d6b6b;
-    color: #d9dbd8;
-    text-align: center;
-    border-radius: 10px;
-    margin-top: 10px;
-    position: relative;
-    border-radius: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.cardapio-info { 
-    font-size: 20px;
-    padding: 10px;
-    font-weight: bold;
-    width: 300px;
-    margin: 0 auto;
-}
-
-.cardapio-info > i {
+.addBtn {
+  background-color: #4d6b6b;
+  color: white;
+  padding: 10px 30px;
+  border: none;
   cursor: pointer;
-}
-
-.saibaMaisBtn {
-    background-color: #d9dbd8;
-    color: #4d6b6b;
-    padding: 10px;
-    margin-bottom: 3%;
-    border-radius: 10px;
-    border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 1%;
 }
 
 .overlay {
@@ -101,118 +45,68 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
   cursor: pointer;
 }
 
-.cardapio-info-prato, .addPrato, .editPrato {
+.cardapio-info-prato,
+.addPrato,
+.editPrato {
   position: absolute;
   top: 50%;
   left: 50%;
   font-size: 50px;
   color: white;
-  transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   background-color: #4d6b6b;
   border-radius: 20px;
   padding: 50px 40px;
 }
 
-.cardapio-info-prato > .cardapio-info-texto {
-  font-size: 20px;
+img {
+  max-width: 300px;
+}
+
+.card-container {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-around;
-  gap: 10px;
-}
-
-.cardapio-info-prato > p {
-  font-size: 20px;
-  margin-top: 10px;
-}
-
-.fecharBtn {
-  color: #4d6b6b;
-  background-color: #d9dbd8;
-  font-size: 20px;
-  padding: 10px;
-  cursor: pointer;
-  border: none;
-  border-radius: 10px;
-}
-
-.addBtn {
-  color: #4d6b6b;
-  background-color: #d9dbd8;
-  font-size: 20px;
-  padding: 10px 20px;
-  cursor: pointer;
-  border: none;
-  border-radius: 10px;
-}
-
-.editPrato {
-  width: 500px;
-}
-
-.addPrato > div, .editPrato > div{
-  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  padding: 50px;
 }
 
-.addPrato > .addPratoForm, .editPrato > .editPratoForm  {
+.card {
+  width: calc(33.33% - 30px);
+  margin-bottom: 20px;
+  background-color: transparent;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 10px;
+  border: none;
+}
 
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+  margin: 0 auto;
+}
+
+.card-content {
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
-  font-size: 16px;
-  text-align: left;
-
+  align-items: center;
 }
 
-.enviarBtn {
-  color: #4d6b6b;
-  background-color: #d9dbd8;
-  font-size: 20px;
-  padding: 10px 20px;
-  cursor: pointer;
+/* Adicione estilos para os botões, se necessário */
+.saibaMaisBtn {
+  background-color: #4d6b6b;
+  color: #fff;
   border: none;
-  border-radius: 10px;
-  margin-top: 10px;
-
-}
-
-.enviarBtn:hover, .addBtn:hover {
-  background-color: rgb(217, 219, 216, 0.7);
-  color: #4d6b6b;
-}
-
-
-.addPratoForm > input, .editPratoForm > input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-.addPratoForm > textarea, .editPratoForm > textarea {
-  resize: none;
-  height: 100px;
-  padding: 10px;
-  border-radius: 7px;
-}
-
-
-
-
-@media screen and (max-width: 800px) {
-
-  .cardapio-container {
-    display: flex;
-    flex-direction: column;
-  }
-
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
 }

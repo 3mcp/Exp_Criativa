@@ -35,17 +35,23 @@
             $aCampos = "*";
             $condicao = $_SESSION["ID"];
             $pratos = select($conn, $aCampos, $tabela, $condicao);
-            foreach ($pratos as $r) {
         ?>
-        <div class='cardapio-container'>
-            <div class="cardapio-item">
-            <img  src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?>" />
-                <div class='cardapio-info'>
-                    <p><?php echo $r["DescricaoPrato"]?></p>
-                    <i class="bi bi-pencil-square" onclick="on('editForm')"></i>
+            <div class='card-container'>
+                <div class='row'>
+                    <?php foreach ($pratos as $r) { ?>
+                    <div class='card'>
+                        <img src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?>" />
+                        <div class='card-content'>
+                            <p><?php echo $r["DescricaoPrato"]?></p>
+                            <i class="bi bi-pencil-square" onclick="on('editForm')"></i>
+                            <button class='saibaMaisBtn' onclick="on('entrecot')">Saiba mais</button>
+                        </div>
+                    </div>
+                    <?php } ?>
                 </div>
             </div>
-        <?php }?>
+
+        <?php ?>
                 <div class="overlay" id='editForm'>
                     <div class='editPrato'>
                         <div>
@@ -67,10 +73,10 @@
                             <textarea id='descricaoPrato' name="pratoDescricaoNovo" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
                             <button class='enviarBtn'>Salvar</button>
                         </form>
+
                     </div>
                     </div>
 
-                    <button class='saibaMaisBtn' onclick="on('entrecot')">Saiba mais</button>
                 <div class="overlay" id='entrecot' onclick="off()">
                 <div class="cardapio-info-prato">
                     <div class='cardapio-info-texto'>
@@ -90,4 +96,3 @@
     <script src='./js/cardapio.js'></script>
 </main>
 
-<?php include("inc/footer.php") ?>
