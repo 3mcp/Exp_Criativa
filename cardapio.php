@@ -47,7 +47,7 @@
         <?php
             $tabela = "prato";
             $aCampos = "*";
-            $condicao = $_SESSION["ID"];
+            $condicao = 'IDPrato';
             $pratos = select($conn, $aCampos, $tabela, $condicao);
             foreach ($pratos as $r) {
                 $pratoID = $r['IdPrato'];

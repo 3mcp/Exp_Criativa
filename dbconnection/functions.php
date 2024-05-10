@@ -104,7 +104,7 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 
     session_destroy();
     //Exibindo um alerta de sessão expirada
     echo "<script>alert('Sessão expirada!')</script>";
-    header('Location: index.php');
+    header('Location: ../index.php');
 }
 $_SESSION['LAST_ACTIVITY'] = time();
 // echo "Session is created for $s_name, at " . gmdate("H:i:s", time()) .  "<br/>";
