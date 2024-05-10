@@ -6,8 +6,9 @@
   color: #d0decd;
   bottom: 0px;
   position: relative;
-  z-index: 999;
 }
+
+
 .site-footer hr {
   border-top-color: #d9dbd8;
   opacity: 0.5;

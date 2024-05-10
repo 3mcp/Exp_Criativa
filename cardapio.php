@@ -20,12 +20,19 @@
                         <input type="file" id="img" class="form-control" name="img" accept="imagem/*" onchange="validaImagem(this);">
                         <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
                     </div>
+                    <div class='inputWrapper'>
                     <label for="nomePrato">Nome do prato</label>
                     <input type="text" id='nomePrato'name="nomeP" placeholder='Ex: Macarrão com Salsicha '>
+                    </div>
+                    <div class='inputWrapper'>
                     <label for="precoPrato">Preço do Prato</label>
                     <input type="text" id='precoPrato' name="precoP" placeholder='Ex: R$00.00'>
+                    </div>
+                    <div class='inputWrapper'>
                     <label for="descricaoPrato">Descrição do prato</label>
                     <textarea id='descricaoPrato' name="descricaoP" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
+                    </div>
+                    <div class='inputWrapper'>
                     <label for="categoriaPrato">Categorias do prato</label>
                         <div class="categoria-checkboxes">
                             <?php
@@ -39,7 +46,8 @@
                                 echo "<p>Nenhuma categoria encontrada</p>";
                             }
                             ?>
-                        </div>                    
+                        </div>     
+                    </div>               
                     <button class='enviarBtn'>Enviar</button>
                 </form>
             </div>
@@ -49,12 +57,16 @@
             $aCampos = "*";
             $condicao = 'IDPrato';
             $pratos = select($conn, $aCampos, $tabela, $condicao);
-            foreach ($pratos as $r) {
-                $pratoID = $r['IdPrato'];
         ?>
         <div class='cardapio-container'>
+        <?php             
+            foreach ($pratos as $r) {
+                $pratoID = $r['IdPrato'];
+            ?>
             <div class="cardapio-item">
-            <img  src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?>" />
+
+
+            <img  src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?> "style="width: 300px; height: 300px;" />
                 <div class='cardapio-info'>
                     <p><?php echo $r["DescricaoPrato"]?></p>
                     <button class='saibaMaisBtn' onclick="on('entrecot_<?php echo $pratoID; ?>')">Saiba mais</button>

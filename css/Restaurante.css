@@ -46,7 +46,7 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
+  z-index: 1000;
   cursor: pointer;
 }
 
@@ -63,6 +63,11 @@
   background-color: #4d6b6b;
   border-radius: 20px;
   padding: 50px 40px;
+}
+
+.inputWrapper > p {
+  font-size: 20px;
+  color: grey;
 }
 
 img {
@@ -103,10 +108,11 @@ img {
 
 /* Adicione estilos para os botões, se necessário */
 .saibaMaisBtn {
-  background-color: #4d6b6b;
-  color: #fff;
+  background-color: #FFFF;
+  color: #4d6b6b;
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
+  margin: 10px;
 }

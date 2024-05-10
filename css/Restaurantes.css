@@ -19,6 +19,32 @@
   gap: 50px;
 }
 
+.cardapio-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cardapio-item{
+  background-color: #4d6b6b;
+  border-radius: 20px;
+  margin: 15px;
+  margin-bottom: 20px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+.cardapio-item img{
+  width: 100%;
+  border-radius: 20px; /* Borda arredondada superior esquerda da imagem */
+  margin: 10px
+}
+
+.cardapio-item p {
+  font-size: 20px;
+  color: white;
+  margin-left: 10px
+}
+
 .search-container {
   width: 700px;
   max-width: 700px;
@@ -65,6 +91,7 @@ input#search-bar {
   align-items: center;
   text-align: center;
   margin-top: 3rem;
+  z-index: 1;
 }
 
 .Restaurantes {
@@ -80,6 +107,10 @@ input#search-bar {
   cursor: pointer;
 }
 
+.categoria-checkboxes {
+  font-size: 18px;
+
+}
 .restaurante p {
   font-size: 18px;
   margin-top: 20px;
