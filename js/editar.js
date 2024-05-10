@@ -23,10 +23,24 @@ function confirmarExcluirPRA() {
     cancelButtonText: "Cancelar"
 }).then((result) => {
     if (result.isConfirmed) {
-        // Aqui você pode adicionar a lógica para excluir o item
         window.location.href = "databasePRA/usuarioDeletar.php";
     }
 });
+}
+
+function confirmarExclusao(pratoID) {
+  Swal.fire({
+    title: "Tem certeza?",
+    text: "Você realmente deseja excluir esse prato?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Sim, exclua!",
+    cancelButtonText: "Cancelar"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = "databasePrato/pratoDeletar.php?id=" + pratoID;
+    }
+  });
 }
 
 function validaImagem(input) {

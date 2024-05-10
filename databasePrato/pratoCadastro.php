@@ -19,6 +19,24 @@ $tabela = "prato";
 
 $result = create($conn, $aCampos, $aValores, $tabela);
 
+$ultimoIdPrato = mysqli_insert_id($conn);
+
+if (!is_string($ultimoIdPrato)) {
+  // Se categorias foram selecionadas
+  if (isset($_POST['pratoCategorias']) && !empty($_POST['pratoCategorias'])) {
+      foreach ($_POST['pratoCategorias'] as $categoriaId) {
+          $categoriaId = $conn->real_escape_string($categoriaId);
+
+          $aCamposCategoria = array("fk_Categoria_IdCategoria", "fk_Prato_IdPrato");
+          $aValoresCategoria = array($categoriaId, $ultimoIdPrato);
+          $tabelaCategoria = "prato_categoria";
+
+          // Criar um novo registro na tabela de associação para cada categoria selecionada
+          $resultCategoria = create($conn, $aCamposCategoria, $aValoresCategoria, $tabelaCategoria);
+      }
+  }
+}
+
 $conn->close();
 
 if(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])){
@@ -26,5 +44,4 @@ if(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])){
 } else {
   header('Location:');
 }
-
 

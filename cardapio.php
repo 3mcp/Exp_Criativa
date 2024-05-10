@@ -26,6 +26,20 @@
                     <input type="text" id='precoPrato' name="precoP" placeholder='Ex: R$00.00'>
                     <label for="descricaoPrato">Descrição do prato</label>
                     <textarea id='descricaoPrato' name="descricaoP" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
+                    <label for="categoriaPrato">Categorias do prato</label>
+                        <div class="categoria-checkboxes">
+                            <?php
+                            $categorias = select($conn, "*", "categoria", NULL);
+                            if (!empty($categorias)) {
+                                foreach ($categorias as $categoria) {
+                                    echo "<div><input type='checkbox' id='categoria_".$categoria['IdCategoria']."' name='pratoCategorias[]' value='".$categoria['IdCategoria']."'>";
+                                    echo "<label for='categoria_".$categoria['IdCategoria']."'>".$categoria['NomeCategoria']."</label></div>";
+                                }
+                            } else {
+                                echo "<p>Nenhuma categoria encontrada</p>";
+                            }
+                            ?>
+                        </div>                    
                     <button class='enviarBtn'>Enviar</button>
                 </form>
             </div>
@@ -36,52 +50,68 @@
             $condicao = $_SESSION["ID"];
             $pratos = select($conn, $aCampos, $tabela, $condicao);
             foreach ($pratos as $r) {
+                $pratoID = $r['IdPrato'];
         ?>
         <div class='cardapio-container'>
             <div class="cardapio-item">
             <img  src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?>" />
                 <div class='cardapio-info'>
                     <p><?php echo $r["DescricaoPrato"]?></p>
+                    <button class='saibaMaisBtn' onclick="on('entrecot_<?php echo $pratoID; ?>')">Saiba mais</button>
                     <i class="bi bi-pencil-square" onclick="on('editForm')"></i>
+                </div>
+            </div>
+            <div class="overlay" id='entrecot_<?php echo $pratoID; ?>' onclick="off()">
+                <div class="cardapio-info-prato">
+                    <div class='cardapio-info-texto'>
+                        <h1><?php echo $r["NomePrato"]; ?></h1>
+                        <p><?php echo $r["PrecoPrato"]; ?></p>
+                        <img src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?>" alt="">
+                    </div>
+                    <p><?php echo $r["DescricaoPrato"]; ?></p>
+                    <button class='fecharBtn' onclick="off('entrecot_<?php echo $pratoID; ?>')">Fechar</button>
                 </div>
             </div>
         <?php }?>
                 <div class="overlay" id='editForm'>
-                    <div class='editPrato'>
-                        <div>
-                            <h1>Editar</h1>
-                            <i class="bi bi-x" onclick="off('editForm')"></i>
+                <div class='editPrato'>
+                    <div>
+                    <h1>Editar</h1>
+                        <i class="bi bi-x" onclick="off('editForm')"></i>
+                    </div>
+                    <form action="databasePrato/pratoEditar.php" enctype="multipart/form-data" class='editPratoForm' method="post">
+                        <div class='inputWrapper'>
+                            <p>Imagem:</p>
+                            <img id="imagemSelecionada">
+                            <input type="file" id="pratoFotoNovo" class="form-control" name="pratoFotoNEW" accept="imagem/*" onchange="validaImagem(this);">
+                            <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
                         </div>
-                        <form action="databasePrato/pratoEditar.php" enctype="multipart/form-data" class='editPratoForm' method="post">
-                            <div class='inputWrapper'>
-                                <p>Imagem:</p>
-                                <img id="imagemSelecionada">
-                                <input type="file" id="img" class="form-control" name="img" accept="imagem/*" onchange="validaImagem(this);">
-                                <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
-                            </div>
-                            <label for="nomePrato">Nome do prato</label>
-                            <input type="text" id='nomePrato' name="pratoNomeNovo" placeholder='Ex: Macarrão com Salsicha '>
-                            <label for="precoPrato">Preço do Prato</label>
-                            <input type="text" id='precoPrato' name="pratoPrecoNovo" placeholder='Ex: R$00.00'>
-                            <label for="descricaoPrato">Descrição do prato</label>
-                            <textarea id='descricaoPrato' name="pratoDescricaoNovo" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
-                            <button class='enviarBtn'>Salvar</button>
-                        </form>
-                    </div>
-                    </div>
-
-                    <button class='saibaMaisBtn' onclick="on('entrecot')">Saiba mais</button>
-                <div class="overlay" id='entrecot' onclick="off()">
-                <div class="cardapio-info-prato">
-                    <div class='cardapio-info-texto'>
-                        <h1>Entrecot alla Fonduta di Formaggio com Tagliatele</h1>
-                        <img src="./img/fotoPrato.png" alt="">
-                    </div>
-                    <p>Uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano suave e cremoso, com a intensidade do tomate seco, resultando em uma combinação irresistível. Adicionamos uma pitada de manjericão fresco para adicionar um toque aromático e refrescante.</p>
-                    <button class='fecharBtn' onclick="off('entrecot')">Fechar</button>
-                </div></div>
-            </div>
-            
+                        <label for="nomePrato">Nome do prato</label>
+                        <input type="text" id='pratoNomeNovo' name="pratoNomeNEW" placeholder='Ex: Macarrão com Salsicha '>
+                        <label for="precoPrato">Preço do Prato</label>
+                        <input type="text" id='pratoPrecoNovo' name="pratoPrecoNEW" placeholder='Ex: R$00.00'>
+                        <label for="descricaoPrato">Descrição do prato</label>
+                        <textarea id='pratoDescricaoNovo' name="pratoDescricaoNEW" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
+                        <label for="categoriaPrato">Categorias do prato</label>
+                        <div class="categoria-checkboxes">
+                            <?php
+                            $categorias = select($conn, "*", "categoria", NULL);
+                            if (!empty($categorias)) {
+                                foreach ($categorias as $categoria) {
+                                    echo "<div><input type='checkbox' id='categoria_".$categoria['IdCategoria']."' name='pratoCategorias[]' value='".$categoria['IdCategoria']."'>";
+                                    echo "<label for='categoria_".$categoria['IdCategoria']."'>".$categoria['NomeCategoria']."</label></div>";
+                                }
+                            } else {
+                                echo "<p>Nenhuma categoria encontrada</p>";
+                            }
+                            ?>
+                        </div>
+                        <input type="hidden" name="pratoID" value="<?php echo $pratoID; ?>">
+                        <button class="delButton" type="button" onclick="confirmarExclusao(<?php echo $pratoID; ?>)">Excluir Prato</button>
+                        <button class='enviarBtn'>Salvar</button>
+                    </form>
+                </div>
+                </div>            
 
             </div>
         </div>
