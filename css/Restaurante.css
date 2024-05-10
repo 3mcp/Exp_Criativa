@@ -65,6 +65,59 @@
   padding: 50px 40px;
 }
 
+/* Saiba Mais */
+
+.cardapio-info-prato {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardapio-info-texto {
+  font-size: 10px;
+  color: white;
+  text-align: center;
+}
+
+.cardapio-info-descricao {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+
+.imgSaibaMais {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.fecharBtn {
+  color: #4d6b6b;
+  font-size: 20px;
+  background-color: #fbfbfb;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.fecharBtn:hover {
+  background-color: rgb(251, 251, 251, 0.7);
+}
+
+.saibaMaisBtn {
+  background-color: #ffff;
+  color: #4d6b6b;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* */
+
 .inputWrapper > p {
   font-size: 20px;
   color: grey;
@@ -74,7 +127,7 @@ img {
   max-width: 300px;
 }
 
-.card-container {
+.cardapio-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -84,7 +137,6 @@ img {
 .card {
   width: calc(33.33% - 30px);
   margin-bottom: 20px;
-  background-color: transparent;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -99,20 +151,9 @@ img {
   margin: 0 auto;
 }
 
-.card-content {
-  padding: 20px;
+.cardapio-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-/* Adicione estilos para os botões, se necessário */
-.saibaMaisBtn {
-  background-color: #FFFF;
-  color: #4d6b6b;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin: 10px;
+  margin: 2% 4%;
 }

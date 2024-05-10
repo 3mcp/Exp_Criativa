@@ -78,9 +78,9 @@
                     <div class='cardapio-info-texto'>
                         <h1><?php echo $r["NomePrato"]; ?></h1>
                         <p><?php echo $r["PrecoPrato"]; ?></p>
-                        <img src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?>" alt="">
+                        <img src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?>" alt="" class='imgSaibaMais'>
                     </div>
-                    <p><?php echo $r["DescricaoPrato"]; ?></p>
+                    <p class='cardapio-info-descricao'><?php echo $r["DescricaoPrato"]; ?></p>
                     <button class='fecharBtn' onclick="off('entrecot_<?php echo $pratoID; ?>')">Fechar</button>
                 </div>
             </div>
