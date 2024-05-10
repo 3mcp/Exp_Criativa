@@ -14,25 +14,27 @@
                     <i class="bi bi-x" onclick="off('form')"></i>
                 </div>
                 <form action="databasePrato/pratoCadastro.php" enctype="multipart/form-data" class='addPratoForm' method='post'>
-                    <div class='inputWrapper'>
-                        <p>Imagem:</p>
-                        <img id="imagemSelecionada">
-                        <input type="file" id="img" class="form-control" name="img" accept="imagem/*" onchange="validaImagem(this);">
-                        <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
+                    <div class='container1'>
+                        <div class='inputWrapper'>
+                            <p>Imagem:</p>
+                            <img id="imagemSelecionada">
+                            <input type="file" id="img" class="form-control" name="img" accept="imagem/*" onchange="validaImagem(this);">
+                            <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
+                        </div>
+                        <div class='inputWrapper'>
+                        <label for="nomePrato">Nome do prato</label>
+                        <input type="text" id='nomePrato'name="nomeP" placeholder='Ex: Macarrão com Salsicha '>
+                        </div>
+                        <div class='inputWrapper'>
+                        <label for="precoPrato">Preço do Prato</label>
+                        <input type="text" id='precoPrato' name="precoP" placeholder='Ex: R$00.00'>
+                        </div>
+                        <div class='inputWrapper'>
+                        <label for="descricaoPrato">Descrição do prato</label>
+                        <textarea id='descricaoPrato' name="descricaoP" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
+                        </div>
                     </div>
-                    <div class='inputWrapper'>
-                    <label for="nomePrato">Nome do prato</label>
-                    <input type="text" id='nomePrato'name="nomeP" placeholder='Ex: Macarrão com Salsicha '>
-                    </div>
-                    <div class='inputWrapper'>
-                    <label for="precoPrato">Preço do Prato</label>
-                    <input type="text" id='precoPrato' name="precoP" placeholder='Ex: R$00.00'>
-                    </div>
-                    <div class='inputWrapper'>
-                    <label for="descricaoPrato">Descrição do prato</label>
-                    <textarea id='descricaoPrato' name="descricaoP" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
-                    </div>
-                    <div class='inputWrapper'>
+                    <div class='inputWrapperCategoria'>
                     <label for="categoriaPrato">Categorias do prato</label>
                         <div class="categoria-checkboxes">
                             <?php
@@ -47,8 +49,8 @@
                             }
                             ?>
                         </div>     
+                        <button class='enviarBtn'>Enviar</button>
                     </div>               
-                    <button class='enviarBtn'>Enviar</button>
                 </form>
             </div>
         </div>

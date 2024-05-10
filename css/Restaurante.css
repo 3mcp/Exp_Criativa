@@ -65,6 +65,76 @@
   padding: 50px 40px;
 }
 
+/* */
+
+.addPrato {
+  width: 70%;
+  height: 70%;
+}
+
+.addPrato > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.addPrato > form {
+  display: flex;
+  font-size: 20px;
+  width: 100%;
+}
+
+.container1 {
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.inputWrapper > p {
+  color: white;
+  margin-bottom: 0;
+}
+
+textarea {
+  resize: none;
+  height: 180px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.inputWrapperCategoria {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.categoria-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.categoria-checkboxes > div {
+}
+
+.enviarBtn {
+  width: 100px;
+  background-color: #fbfbfb;
+  color: #4d6b6b;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+
+/***/
+
 /* Saiba Mais */
 
 .cardapio-info-prato {
@@ -117,11 +187,6 @@
 }
 
 /* */
-
-.inputWrapper > p {
-  font-size: 20px;
-  color: grey;
-}
 
 img {
   max-width: 300px;
