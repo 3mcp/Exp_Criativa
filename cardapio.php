@@ -1,5 +1,8 @@
+<!--essa parte inclui o header e as funções de banco de dados-->
 <?php include("inc/header.php");
     include("dbconnection/functions.php");
+    //aqui serve para negar ou permitir acesso a um usuario baseado no seu id 
+    //assim não tem como acessar a página apenas por um link
     $restauranteId = $_GET["id"];
     $donoRestaurante = FALSE;
     if($_SESSION["TYPE"] == "Restaurante")
@@ -8,27 +11,36 @@
 
 ?>
 
+<!--inicia a pagina dos cardápios-->
 <main>
     <div class='restaurante-pg'>
         <h1 class='restaurante-titulo'>Restaurante</h1>
         <p>Cardápio</p>
+        <!--Se o id do dono for o id da sessão então realiza o que está em {}-->
         <?php if($donoRestaurante == TRUE) {?>
+            <!--botão para adicionar um prato, inicializando o formulario-->
         <button class='addBtn' onclick="on('form')">+</button>
         <?php } ?>
         <div class="overlay" id='form'>
             <div class='addPrato'>
                 <div>
                     <h1>Adicione um prato</h1>
+                    <!--Descarte de um elemento do formulario-->
                     <i class="bi bi-x" onclick="off('form')"></i>
                 </div>
+                <!--actions: indica onde os dados seram enviados. enctype: indica que tem imagem no formulario
+                onsubmir: o retorno dessa função determina se o formulário será submetido ou não (valida formulario)-->
                 <form action="databasePrato/pratoCadastro.php" enctype="multipart/form-data" class='addPratoForm' method='post' onsubmit="return validarFormulario()">
                     <div class='container1'>
                         <div class='inputWrapper'>
                             <p>Imagem:</p>
                             <img id="imagemSelecionada">
+                            <!--accept: indica que apenas imagens podem ser aceitas. oncharge: chama a função de validar imagem-->
                             <input type="file" id="img" class="form-control" name="img" accept="imagem/*" onchange="validaImagem(this);">
+                            <!--serve para limitar o tamanho da imagem selecionada-->
                             <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
                         </div>
+                        <!--Outras entradas para o formulario como nome do prato, preço e descrição-->
                         <div class='inputWrapper'>
                         <label for="nomePrato">Nome do prato</label>
                         <input type="text" id='nomePrato'name="nomeP" placeholder='Ex: Macarrão com Salsicha '>
@@ -41,6 +53,7 @@
                         <label for="descricaoPrato">Descrição do prato</label>
                         <textarea id='descricaoPrato' name="descricaoP" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
                         </div>
+                    <!--adicionar categorias para os pratos-->
                     </div>
                     <div class='inputWrapperCategoria'>
                     <label for="categoriaPrato">Categorias do prato</label>
