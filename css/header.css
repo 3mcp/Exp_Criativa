@@ -142,7 +142,7 @@ nav {
 } 
 
   /* Consulta de mídia para dispositivos móveis */
-  @media screen and (max-width: 1115px){
+  @media screen and (max-width: 1212px){
     .nav-links {
       display: none;
     }
@@ -158,6 +158,9 @@ nav {
       }
       .btnLogar{
         display: none;
+      }
+      .profile-avatar{
+        display: show;
       }
    }
 
