@@ -1,11 +1,11 @@
 <?php
 include("../dbconnection/functions.php");
 
-$pratoID   = $conn->real_escape_string($_POST['ID']);
+$pratoID   = $conn->real_escape_string($_POST['pratoID']);
 $pratoNome   = $conn->real_escape_string($_POST['pratoNomeNovo']);
 $pratoPreco   = $conn->real_escape_string($_POST['pratoPrecoNovo']);
 $pratoDescricao   = $conn->real_escape_string($_POST['pratoDescricaoNovo']);
-$pratoFoto   = $conn->real_escape_string($_POST['img']);
+$pratoFoto   = $conn->real_escape_string($_POST['pratoFotoNovo']);
 
 $campos = array(
     'pratoNomeNovo' => 'NomePrato',
@@ -16,9 +16,9 @@ $campos = array(
 
 $aSet = array();
 
-if (isset($_FILES['img']))
-    if ($_FILES['img']['tmp_name'] != "") {
-        $imagem = addslashes(file_get_contents($_FILES['img']['tmp_name']));
+if (isset($_FILES['pratoFotoNovo']))
+    if ($_FILES['pratoFotoNovo']['tmp_name'] != "") {
+        $imagem = addslashes(file_get_contents($_FILES['pratoFotoNovo']['tmp_name']));
         $aSet['FotoPrato'] = $imagem;
         echo "Imagem adicionada";
     }

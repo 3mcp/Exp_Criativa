@@ -23,7 +23,6 @@ function confirmarExcluirPRA() {
     cancelButtonText: "Cancelar"
 }).then((result) => {
     if (result.isConfirmed) {
-        // Aqui você pode adicionar a lógica para excluir o item
         window.location.href = "databasePRA/usuarioDeletar.php";
     }
 });
