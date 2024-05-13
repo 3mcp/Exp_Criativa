@@ -15,7 +15,7 @@
             <div class="inputSearchWrapper">
                 <input type="text" id="search-bar" placeholder="Pesquise por restaurantes, pratos...">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle searchBtnFilter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="dropdown-toggle searchBtnFilter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-funnel" id='searchFilterBtn' onclick='showSelect()'></i>
                     </button>
                     <ul class="dropdown-menu">

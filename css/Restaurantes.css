@@ -85,6 +85,11 @@ input#search-bar {
   border: none;
 }
 
+.searchBtnFilter {
+  border: none;
+  background-color: transparent;
+}
+
 .option-wrapper {
   display: flex;
   align-items: center;
@@ -172,5 +177,8 @@ input#search-bar {
   text-decoration: none;
 }
 
-@media screen {
+@media (max-width: 768px) {
+  input#search-bar {
+    width: 300px;
+  }
 }
