@@ -74,7 +74,7 @@
 
 .editPrato {
   width: 70%;
-  height: 80%;
+  height: fit-content;
 }
 
 .editPrato > div {
