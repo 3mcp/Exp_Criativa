@@ -46,14 +46,14 @@
                             <a href="./meuPerfil.php" class="profile-link"><i class="bi bi-house-door fs-4"></i></a>
                         </div>
                         <?php
-                        if ($_SESSION["TYPE"] == "Restaurante") {
+                        if ($_SESSION["TYPE"] === "Restaurante") {
                         ?>
                         <div class="col-auto">
                             <a href="./cardapio.php" class="profile-link"><i class="bi bi-journals fs-4"></i></a>
                         </div>
                         <?php
                         } 
-                        if ($_SESSION["TYPE"] != "ADMIN") {
+                        if ($_SESSION["TYPE"] !== "ADMIN") {
                         ?>
                         <div class="col-auto">
                             <a href="./editarPerfil.php" class="profile-link"><i class="bi bi-gear fs-4"></i></a>

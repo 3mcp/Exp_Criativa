@@ -6,7 +6,9 @@
     <div class='restaurante-pg'>
         <h1 class='restaurante-titulo'>Restaurante</h1>
         <p>Cardápio</p>
+        <?php if($_SESSION["ID"]){?>
         <button class='addBtn' onclick="on('form')">+</button>
+        <?php }?>
         <div class="overlay" id='form'>
             <div class='addPrato'>
                 <div>
