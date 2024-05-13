@@ -74,6 +74,11 @@
   height: 80%;
 }
 
+.editPrato > div {
+  display: flex;
+  justify-content: space-between;
+}
+
 .editPrato > form {
   display: flex;
   font-size: 20px;
@@ -82,15 +87,16 @@
 
 .buttons {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: row-reverse;
 }
 
 .buttonDeletar {
   background-color: transparent;
   color: red;
-  border: 1px dotted red;
+  font-size: 16px;
+  border: none;
+  margin-left: 10px;
   padding: 5px;
-  margin-top: 4px;
 }
 
 /* */
