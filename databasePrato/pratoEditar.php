@@ -31,6 +31,17 @@ foreach ($campos as $campo_post => $campo_bd) {
     }
 }
 
+if(isset($_POST['pratoCategorias']) && !empty($_POST['pratoCategorias'])) {
+    $tabelaCategoria = "Prato_Categoria";
+    $condition = "fk_Prato_IdPrato = ". $pratoID;
+    deleteByCondition($conn, $tabelaCategoria, $condition);
+    foreach($_POST['pratoCategorias'] as $categoriaID) {
+        $aCamposCategoriaEdicao = array("fk_Categoria_IdCategoria", "fk_Prato_IdPrato");
+        $aValoresCategoria = array($categoriaID, $pratoID);
+        create($conn, $aCamposCategoriaEdicao, $aValoresCategoria, $tabelaCategoria);
+    }
+}
+
 if (!empty($aSet)) {
     $tabela = "prato";
     $condicao = "IdPrato = " . $pratoID;
