@@ -6,7 +6,7 @@
             <div class='homepage'>
                 <div class="nomeDoSite">
                     <h1>Safe</h1>
-                    <h2>Dish</h2>
+                    <h2>d</h2>
                 </div>
                 <div class="vetor">
                     <img src="img/Vector.png" alt="" class='vetor'>
