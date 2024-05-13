@@ -136,28 +136,28 @@ nav {
 }
 
 @media (max-width: 768px) {
-
   html {
     width: fit-content;
   }
+} 
 
-/* Consulta de mídia para dispositivos móveis */
-@media screen and (max-width: 1115px){
-  .nav-links {
-    display: none;
-  }
-  .elemento {
-    display: block; 
-    cursor: pointer;
-    font-size: 35px;
+  /* Consulta de mídia para dispositivos móveis */
+  @media screen and (max-width: 1115px){
+    .nav-links {
+      display: none;
+    }
+    .elemento {
+      display: block; 
+      cursor: pointer;
+      font-size: 35px;
+    }
   }
   @media screen and (max-width: 500px){
-    .btnRegistrar{
-      display: none;
-    }
-    .btnLogar{
-      display: none;
-    }
-    
-}
-}
+      .btnRegistrar{
+        display: none;
+      }
+      .btnLogar{
+        display: none;
+      }
+   }
+
