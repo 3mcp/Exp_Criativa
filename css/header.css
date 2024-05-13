@@ -135,14 +135,12 @@ nav {
   transform: scaleX(1);
 }
 
-<<<<<<< Updated upstream
 @media (max-width: 768px) {
 
   html {
     width: fit-content;
   }
 
-=======
 /* Consulta de mídia para dispositivos móveis */
 @media screen and (max-width: 1115px){
   .nav-links {
@@ -162,5 +160,4 @@ nav {
     }
     
 }
->>>>>>> Stashed changes
 }
