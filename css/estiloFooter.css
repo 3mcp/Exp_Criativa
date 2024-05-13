@@ -6,8 +6,8 @@
   color: #d0decd;
   bottom: 0px;
   position: relative;
+  margin-top: auto;
 }
-
 
 .site-footer hr {
   border-top-color: #d9dbd8;
@@ -24,7 +24,7 @@
   color: #d0decd;
 }
 .site-footer a:hover {
-  color: #D2E9CD;
+  color: #d2e9cd;
   text-decoration: none;
 }
 .footer-links {

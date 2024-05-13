@@ -72,7 +72,7 @@
                 <div class='cardapio-info'>
                     <p><?php echo $r["DescricaoPrato"]?></p>
                     <button class='saibaMaisBtn' onclick="on('entrecot_<?php echo $pratoID; ?>')">Saiba mais</button>
-                    <i class="bi bi-pencil-square" onclick="on('editForm')"></i>
+                    <i class="bi bi-pencil-square white" onclick="on('editForm')"></i>
                 </div>
             </div>
             <div class="overlay" id='entrecot_<?php echo $pratoID; ?>' onclick="off()">
