@@ -12,9 +12,32 @@
         <a href="inc/cadastroRestaurante.php" class='btnRegistrar'>Registre seu restaurante</a>
 
         <form class="search-container">
-            <input type="text" id="search-bar" placeholder="Pesquise por restaurantes, pratos...">
+            <div class="inputSearchWrapper">
+                <input type="text" id="search-bar" placeholder="Pesquise por restaurantes, pratos...">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle searchBtnFilter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-funnel" id='searchFilterBtn' onclick='showSelect()'></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class='option-wrapper'>
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label>Categoria1</label>
+                        </li>
+                        <li class='option-wrapper'>
+                            <input class="form-check-input" type="checkbox" value="" id="teste">
+                            <label>Categoria2</label>
+                        </li>
+                        <li class='option-wrapper'>
+                            <input class="form-check-input" type="checkbox" value="" id="teste2">
+                            <label>Categoria3</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <button class="search-button">Pesquisar</button>
         </form>
+
+
 
 
         <section class="Restaurantes">
@@ -34,6 +57,9 @@
             
         </section>
     </div>
+
+
+
 </main>
 
         <?php include("inc/footer.php") ?>
