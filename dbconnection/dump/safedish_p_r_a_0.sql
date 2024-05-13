@@ -33,7 +33,7 @@ CREATE TABLE `p_r_a_` (
   PRIMARY KEY (`IdPRA`),
   UNIQUE KEY `UsernamePRA` (`UsernamePRA`),
   UNIQUE KEY `EmailPRA` (`EmailPRA`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=591 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `p_r_a_` (
 
 LOCK TABLES `p_r_a_` WRITE;
 /*!40000 ALTER TABLE `p_r_a_` DISABLE KEYS */;
-INSERT INTO `p_r_a_` VALUES (1,'SuperAdmin','sysAdmin','admin@gmail.com','a43c27c2babefd68df8a694900f30a1c',NULL,1);
+INSERT INTO `p_r_a_` VALUES (1,'SuperAdmin','sysAdmin','admin@gmail.com','a43c27c2babefd68df8a694900f30a1c',NULL,1),(530,'Karen Ubial','kakaubial','kakaubial@gmail.com','304f6f0d19e227540533c0204fb4406e',NULL,0);
 /*!40000 ALTER TABLE `p_r_a_` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-06 11:38:33
+-- Dump completed on 2024-05-13 11:18:00

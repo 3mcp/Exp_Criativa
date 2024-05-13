@@ -49,7 +49,7 @@
                         if ($_SESSION["TYPE"] === "Restaurante") {
                         ?>
                         <div class="col-auto">
-                            <a href="./cardapio.php" class="profile-link"><i class="bi bi-journals fs-4"></i></a>
+                            <a href="./cardapio.php?id=<?php echo $_SESSION["ID"] ?>" class="profile-link"><i class="bi bi-journals fs-4"></i></a>
                         </div>
                         <?php
                         } 
