@@ -36,6 +36,10 @@
   margin-bottom: 1%;
 }
 
+.addBtn:hover {
+  background-color: rgb(99, 136, 137, 0.9);
+}
+
 .overlay {
   position: fixed;
   display: none;
@@ -69,7 +73,7 @@
 
 .addPrato {
   width: 70%;
-  height: 70%;
+  height: 80%;
 }
 
 .addPrato > div {
@@ -121,9 +125,6 @@ textarea {
   flex-wrap: wrap;
 }
 
-.categoria-checkboxes > div {
-}
-
 .enviarBtn {
   width: 100px;
   background-color: #fbfbfb;
@@ -131,6 +132,10 @@ textarea {
   border: none;
   border-radius: 10px;
   padding: 10px 16px;
+}
+
+.enviarBtn:hover {
+  background-color: rgb(251, 251, 251, 0.7);
 }
 
 /***/
@@ -221,4 +226,11 @@ img {
   flex-direction: column;
   align-items: center;
   margin: 2% 4%;
+}
+
+@media (max-width: 768px) {
+  .addPrato > form {
+    display: flex;
+    flex-direction: column;
+  }
 }
