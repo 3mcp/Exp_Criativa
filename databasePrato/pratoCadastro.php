@@ -19,6 +19,17 @@ $tabela = "prato";
 
 $result = create($conn, $aCampos, $aValores, $tabela);
 
+$newPratoID = $conn->insert_id;
+
+if(isset($_POST['pratoCategorias']) && !empty($_POST['pratoCategorias'])) {
+    foreach($_POST['pratoCategorias'] as $categoriaID) {
+        $aCamposCategoria = array("fk_Categoria_IdCategoria", "fk_Prato_IdPrato");
+        $aValoresCategoria = array($categoriaID, $newPratoID);
+        $tabelaCategoria = "Prato_Categoria";
+        create($conn, $aCamposCategoria, $aValoresCategoria, $tabelaCategoria);
+    }
+}
+
 $conn->close();
 
 if(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])){
