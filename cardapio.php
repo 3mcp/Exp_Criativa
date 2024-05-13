@@ -59,6 +59,11 @@
             $aCampos = "*";
             $condicao = 'IDPrato';
             $pratos = select($conn, $aCampos, $tabela, $condicao);
+
+            $tabela1 = "prato_categoria";
+            $aCampos1 = "*";
+            $condicao1 = 'IDPrato';
+            $categorias = select($conn, $aCampos, $tabela, $condicao);
         ?>
         <div class='cardapio-container'>
         <?php             
@@ -71,6 +76,7 @@
             <img  src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?> "style="width: 300px; height: 300px;" />
                 <div class='cardapio-info'>
                     <p><?php echo $r["DescricaoPrato"]?></p>
+
                     <button class='saibaMaisBtn' onclick="on('entrecot_<?php echo $pratoID; ?>')">Saiba mais</button>
                     <i class="bi bi-pencil-square" onclick="on('editForm',<?php echo $pratoID; ?>)"></i> <!-- Botão de editar -->
                 </div>
@@ -120,8 +126,8 @@
                                 $categorias = select($conn, "*", "categoria", NULL);
                                 if (!empty($categorias)) {
                                     foreach ($categorias as $categoria) {
-                                        echo "<div><input type='checkbox' id='categoria_".$categoria['IdCategoria']."' name='pratoCategorias[]' value='".$categoria['IdCategoria']."'>";
-                                        echo "<label for='categoria_".$categoria['IdCategoria']."'>".$categoria['NomeCategoria']."</label></div>";
+                                        echo "<div><input type='checkbox' id='categoriaN_".$categoria['IdCategoria']."' name='pratoCategorias[]' value='".$categoria['IdCategoria']."'>";
+                                        echo "<label for='categoriaN_".$categoria['IdCategoria']."'>".$categoria['NomeCategoria']."</label></div>";
                                     }
                                 } else {
                                     echo "<p>Nenhuma categoria encontrada</p>";

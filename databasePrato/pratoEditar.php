@@ -7,6 +7,7 @@ $pratoPreco   = $conn->real_escape_string($_POST['pratoPrecoNovo']);
 $pratoDescricao   = $conn->real_escape_string($_POST['pratoDescricaoNovo']);
 $pratoFoto   = $conn->real_escape_string($_POST['pratoFotoNovo']);
 
+
 $campos = array(
     'pratoNomeNovo' => 'NomePrato',
     'pratoDescricaoNovo' => 'DescricaoPrato',
