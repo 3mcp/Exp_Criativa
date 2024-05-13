@@ -69,6 +69,30 @@
   padding: 50px 40px;
 }
 
+.editPrato {
+  width: 70%;
+  height: 80%;
+}
+
+.editPrato > form {
+  display: flex;
+  font-size: 20px;
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.buttonDeletar {
+  background-color: transparent;
+  color: red;
+  border: 1px dotted red;
+  padding: 5px;
+  margin-top: 4px;
+}
+
 /* */
 
 .addPrato {

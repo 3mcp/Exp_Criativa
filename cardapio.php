@@ -94,35 +94,46 @@
                         <i class="bi bi-x" onclick="off('editForm')"></i>
                     </div>
                     <form action="databasePrato/pratoEditar.php" enctype="multipart/form-data" class='editPratoForm' method="post">
-                        <div class='inputWrapper'>
-                            <p>Imagem:</p>
-                            <img id="imagemSelecionada">
-                            <input type="file" id="pratoFotoNovo" class="form-control" name="pratoFotoNEW" accept="imagem/*" onchange="validaImagem(this);">
-                            <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
+                        <div>
+
+                            <div class='inputWrapper'>
+                                <p>Imagem:</p>
+                                <img id="imagemSelecionada">
+                                <input type="file" id="pratoFotoNovo" class="form-control" name="pratoFotoNEW" accept="imagem/*" onchange="validaImagem(this);">
+                                <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
+                            </div>
+                            <label for="nomePrato">Nome do prato</label>
+                            <input type="text" id='pratoNomeNovo' name="pratoNomeNEW" placeholder='Ex: Macarrão com Salsicha '>
+                            <label for="precoPrato">Preço do Prato</label>
+                            <input type="text" id='pratoPrecoNovo' name="pratoPrecoNEW" placeholder='Ex: R$00.00'>
+                            <label for="descricaoPrato">Descrição do prato</label>
+                            <div class='inputWrapper'>
+
+                                <textarea id='pratoDescricaoNovo' name="pratoDescricaoNEW" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
+                            </div>
                         </div>
-                        <label for="nomePrato">Nome do prato</label>
-                        <input type="text" id='pratoNomeNovo' name="pratoNomeNEW" placeholder='Ex: Macarrão com Salsicha '>
-                        <label for="precoPrato">Preço do Prato</label>
-                        <input type="text" id='pratoPrecoNovo' name="pratoPrecoNEW" placeholder='Ex: R$00.00'>
-                        <label for="descricaoPrato">Descrição do prato</label>
-                        <textarea id='pratoDescricaoNovo' name="pratoDescricaoNEW" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
-                        <label for="categoriaPrato">Categorias do prato</label>
-                        <div class="categoria-checkboxes">
-                            <?php
-                            $categorias = select($conn, "*", "categoria", NULL);
-                            if (!empty($categorias)) {
-                                foreach ($categorias as $categoria) {
-                                    echo "<div><input type='checkbox' id='categoria_".$categoria['IdCategoria']."' name='pratoCategorias[]' value='".$categoria['IdCategoria']."'>";
-                                    echo "<label for='categoria_".$categoria['IdCategoria']."'>".$categoria['NomeCategoria']."</label></div>";
+                        <div class='inputWrapperCategoria'>
+
+                            <label for="categoriaPrato">Categorias do prato</label>
+                            <div class="categoria-checkboxes">
+                                <?php
+                                $categorias = select($conn, "*", "categoria", NULL);
+                                if (!empty($categorias)) {
+                                    foreach ($categorias as $categoria) {
+                                        echo "<div><input type='checkbox' id='categoria_".$categoria['IdCategoria']."' name='pratoCategorias[]' value='".$categoria['IdCategoria']."'>";
+                                        echo "<label for='categoria_".$categoria['IdCategoria']."'>".$categoria['NomeCategoria']."</label></div>";
+                                    }
+                                } else {
+                                    echo "<p>Nenhuma categoria encontrada</p>";
                                 }
-                            } else {
-                                echo "<p>Nenhuma categoria encontrada</p>";
-                            }
-                            ?>
+                                ?>
+                            </div>
+                            <input type="hidden" name="pratoID" value="<?php echo $pratoID; ?>">
+                            <div class="buttons">
+                                <button class="buttonDeletar" type="button" onclick="confirmarExclusao(<?php echo $pratoID; ?>)">Excluir Prato</button>
+                                <button class='enviarBtn'>Salvar</button>
+                            </div>
                         </div>
-                        <input type="hidden" name="pratoID" value="<?php echo $pratoID; ?>">
-                        <button class="delButton" type="button" onclick="confirmarExclusao(<?php echo $pratoID; ?>)">Excluir Prato</button>
-                        <button class='enviarBtn'>Salvar</button>
                     </form>
                 </div>
                 </div>            
