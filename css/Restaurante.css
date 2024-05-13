@@ -106,7 +106,7 @@
 
 .addPrato {
   width: 70%;
-  height: 80%;
+  height: fit-content;
 }
 
 .addPrato > div {
