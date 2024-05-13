@@ -1,14 +1,20 @@
 <?php include("inc/header.php");
-    include("dbconnection/functions.php");    
+    include("dbconnection/functions.php");
+    $restauranteId = $_GET["id"];
+    $donoRestaurante = FALSE;
+    if($_SESSION["TYPE"] == "Restaurante")
+        if($restauranteId==$_SESSION["ID"]) 
+        $donoRestaurante = TRUE;
+
 ?>
 
 <main>
     <div class='restaurante-pg'>
         <h1 class='restaurante-titulo'>Restaurante</h1>
         <p>Cardápio</p>
-        <?php if($_SESSION["ID"]){?>
+        <?php if($donoRestaurante == TRUE) {?>
         <button class='addBtn' onclick="on('form')">+</button>
-        <?php }?>
+        <?php } ?>
         <div class="overlay" id='form'>
             <div class='addPrato'>
                 <div>
@@ -59,12 +65,12 @@
         <?php
             $tabela = "prato";
             $aCampos = "*";
-            $condicao = 'IDPrato';
+            $condicao = 'fk_Restaurante_IdRestaurante ='. $restauranteId;
             $pratos = select($conn, $aCampos, $tabela, $condicao);
 
             $tabela1 = "prato_categoria";
             $aCampos1 = "*";
-            $condicao1 = 'IDPrato';
+            $condicao1 = 'fk_Prato_IdPrato';
             $categorias = select($conn, $aCampos, $tabela, $condicao);
         ?>
         <div class='cardapio-container'>
@@ -107,7 +113,7 @@
                             <div class='inputWrapper'>
                                 <p>Imagem:</p>
                                 <img id="imagemSelecionada">
-                                <input type="file" id="pratoFotoN" class="form-control" name="pratoFotoNovo" accept="imagem/*" onchange="validaImagem(this);">
+                                <input type="file" id="pratoFotoN" class="form-control" name="pratoFotoNovo" accept="imagem/*" style="width: 300ppx; height:300px;" onchange="validaImagem(this);">
                                 <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
                             </div>
                             <label for="nomePrato">Nome do prato</label>
