@@ -1,14 +1,23 @@
 <?php
 include("../dbconnection/functions.php");
 
-$pratoID   = $conn->real_escape_string($_POST['HiddenIDPrato']);
+if (isset($_GET['id']) && !empty($_GET['id'])) {
+    $pratoID = $_GET['id'];
+    $tabela = "prato";
+    $condicao = "IdPrato = " . $pratoID;
+    $pratos = select($conn, "*", $tabela, $condicao);
+    foreach ($pratos as $prato) {
+        if ($_SESSION["TYPE"] == "Restaurante")
+            if ($prato["fk_Restaurante_IdRestaurante"] == $_SESSION["ID"]) {
+                echo deleteByCondition($conn, $tabela, $condicao);
+            }
+    }
+} else {
+    echo "ID do prato não fornecido.";
+}
 
-$tabela = "prato";
-$condicao = "IdPrato = ".$pratoID;
 
-echo deleteByCondition($conn, $tabela, $condicao);
-
-if(isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])){
+if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 } else {
     header('Location:');

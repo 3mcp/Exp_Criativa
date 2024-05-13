@@ -13,7 +13,7 @@
                     <h1>Adicione um prato</h1>
                     <i class="bi bi-x" onclick="off('form')"></i>
                 </div>
-                <form action="databasePrato/pratoCadastro.php" enctype="multipart/form-data" class='addPratoForm' method='post'>
+                <form action="databasePrato/pratoCadastro.php" enctype="multipart/form-data" class='addPratoForm' method='post' onsubmit="return validarFormulario()">
                     <div class='container1'>
                         <div class='inputWrapper'>
                             <p>Imagem:</p>
@@ -72,7 +72,7 @@
                 <div class='cardapio-info'>
                     <p><?php echo $r["DescricaoPrato"]?></p>
                     <button class='saibaMaisBtn' onclick="on('entrecot_<?php echo $pratoID; ?>')">Saiba mais</button>
-                    <i class="bi bi-pencil-square white" onclick="on('editForm')"></i>
+                    <i class="bi bi-pencil-square" onclick="on('editForm',<?php echo $pratoID; ?>)"></i> <!-- Botão de editar -->
                 </div>
             </div>
             <div class="overlay" id='entrecot_<?php echo $pratoID; ?>' onclick="off()">
@@ -99,17 +99,17 @@
                             <div class='inputWrapper'>
                                 <p>Imagem:</p>
                                 <img id="imagemSelecionada">
-                                <input type="file" id="pratoFotoNovo" class="form-control" name="pratoFotoNEW" accept="imagem/*" onchange="validaImagem(this);">
+                                <input type="file" id="pratoFotoN" class="form-control" name="pratoFotoNovo" accept="imagem/*" onchange="validaImagem(this);">
                                 <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
                             </div>
                             <label for="nomePrato">Nome do prato</label>
-                            <input type="text" id='pratoNomeNovo' name="pratoNomeNEW" placeholder='Ex: Macarrão com Salsicha '>
+                            <input type="text" id='pratoNomeN' name="pratoNomeNovo" placeholder='Ex: Macarrão com Salsicha '>
                             <label for="precoPrato">Preço do Prato</label>
-                            <input type="text" id='pratoPrecoNovo' name="pratoPrecoNEW" placeholder='Ex: R$00.00'>
+                            <input type="text" id='pratoPrecoN' name="pratoPrecoNovo" placeholder='Ex: R$00.00'>
                             <label for="descricaoPrato">Descrição do prato</label>
                             <div class='inputWrapper'>
 
-                                <textarea id='pratoDescricaoNovo' name="pratoDescricaoNEW" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
+                                <textarea id='pratoDescricaoN' name="pratoDescricaoNovo" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
                             </div>
                         </div>
                         <div class='inputWrapperCategoria'>
@@ -128,10 +128,10 @@
                                 }
                                 ?>
                             </div>
-                            <input type="hidden" name="pratoID" value="<?php echo $pratoID; ?>">
+                            <input type="hidden" name="pratoID" id="idPratoEditado">
                             <div class="buttons">
-                                <button class="buttonDeletar" type="button" onclick="confirmarExclusao(<?php echo $pratoID; ?>)">Excluir Prato</button>
-                                <button class='enviarBtn'>Salvar</button>
+                                <button class="buttonDeletar" type="button" onclick="confirmarExclusao()">Excluir Prato</button>
+                                <button class='enviarBtn' type="submit">Salvar</button>
                             </div>
                         </div>
                     </form>
