@@ -59,52 +59,67 @@
                     <label for="categoriaPrato">Categorias do prato</label>
                         <div class="categoria-checkboxes">
                             <?php
+                            //executa consultas ao banco de dados para obter todas as categorias disponíveis e, em seguida, itera sobre elas para exibi-las como checkboxes.
                             $categorias = select($conn, "*", "categoria", NULL);
                             if (!empty($categorias)) {
                                 foreach ($categorias as $categoria) {
                                     echo "<div><input type='checkbox' id='categoria_".$categoria['IdCategoria']."' name='pratoCategorias[]' value='".$categoria['IdCategoria']."'>";
                                     echo "<label for='categoria_".$categoria['IdCategoria']."'>".$categoria['NomeCategoria']."</label></div>";
-                                }
+                                } 
+                                //se não encontrar nenhuma categoria exibe uma mensagem
                             } else {
                                 echo "<p>Nenhuma categoria encontrada</p>";
                             }
                             ?>
-                        </div>     
+                        </div>    
+                        <!--Botão para enviar o formulario--> 
                         <button class='enviarBtn'>Enviar</button>
                     </div>               
                 </form>
             </div>
         </div>
         <?php
+        //na tabela prato é selecionado todas as colunas
             $tabela = "prato";
             $aCampos = "*";
+        //quando a chave estrangeira id restaurante é igual ao id de restaurante que foi pego no inicio desta página
             $condicao = 'fk_Restaurante_IdRestaurante ='. $restauranteId;
+        //assim, realiza a função select do dbconnection, salvando esse dados para serem salvos em uma variavel
             $pratos = select($conn, $aCampos, $tabela, $condicao);
 
+        //na tabela prato categoria é selecionada todas as colunas
             $tabela1 = "prato_categoria";
             $aCampos1 = "*";
+        //quando id prato na tabela prato for = 
             $condicao1 = 'fk_Prato_IdPrato';
+        //assim, realiza a função select do dbconnection, salvando esse dados para serem salvos em uma variavel
             $categorias = select($conn, $aCampos, $tabela, $condicao);
         ?>
         <div class='cardapio-container'>
-        <?php             
+        <?php        
+        //armazena o id de cada prato na variavel pratoID      
             foreach ($pratos as $r) {
                 $pratoID = $r['IdPrato'];
             ?>
+<!--Aqui vai mostrar o prato após o formulario, como ficará sua formatação-->
             <div class="cardapio-item">
 
-
+            <!--Mostra a imagem que foi selecionada, imagem é codificada em base64-->
             <img  src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?> "style="width: 300px; height: 300px;" />
                 <div class='cardapio-info'>
+                    <!--Exibe a descrição do prato que é obtida na coluna descricao prato-->
                     <p><?php echo $r["DescricaoPrato"]?></p>
-
+                
+                    <!--Esse é um botão de saiba mais que mostra mais informações sobre o prato-->
                     <button class='saibaMaisBtn' onclick="on('entrecot_<?php echo $pratoID; ?>')">Saiba mais</button>
                     <i class="bi bi-pencil-square" onclick="on('editForm',<?php echo $pratoID; ?>)"></i> <!-- Botão de editar -->
                 </div>
             </div>
+            <!--O onclick serve para que quando o usuario clica fora da sobreposição ele sai do saiba mais-->
             <div class="overlay" id='entrecot_<?php echo $pratoID; ?>' onclick="off()">
                 <div class="cardapio-info-prato">
                     <div class='cardapio-info-texto'>
+                        <!--Irá aparecer o nome, preço, imagem, descrição-->
                         <h1><?php echo $r["NomePrato"]; ?></h1>
                         <p><?php echo $r["PrecoPrato"]; ?></p>
                         <img src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?>" alt="" class='imgSaibaMais'>
@@ -114,39 +129,46 @@
                 </div>
             </div>
         <?php }?>
+        <!--Aqui é a parte para editar o prato-->
                 <div class="overlay" id='editForm'>
                 <div class='editPrato'>
                     <div>
                     <h1>Editar</h1>
                         <i class="bi bi-x" onclick="off('editForm')"></i>
                     </div>
+                    <!--Inicia um formulario para a edição do prato-->
+                    <!--Onde os dados são enviados para pratoEditar.php-->
                     <form action="databasePrato/pratoEditar.php" enctype="multipart/form-data" class='editPratoForm' method="post">
                         <div>
-
+                        <!--Aqui adiciona a nova imagem utilizando o js de validarImagem-->
                             <div class='inputWrapper'>
                                 <p>Imagem:</p>
                                 <img id="imagemSelecionada">
                                 <input type="file" id="pratoFotoN" class="form-control" name="pratoFotoNovo" accept="imagem/*" style="width: 300ppx; height:300px;" onchange="validaImagem(this);">
                                 <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
                             </div>
+                        <!--Aqui adiciona o novo nome do prato-->
                             <label for="nomePrato">Nome do prato</label>
                             <input type="text" id='pratoNomeN' name="pratoNomeNovo" placeholder='Ex: Macarrão com Salsicha '>
+                        <!--Aqui adiciona o novo preço do prato-->
                             <label for="precoPrato">Preço do Prato</label>
                             <input type="text" id='pratoPrecoN' name="pratoPrecoNovo" placeholder='Ex: R$00.00'>
+                        <!--Aqui adiciona a nova descrição do prato-->
                             <label for="descricaoPrato">Descrição do prato</label>
                             <div class='inputWrapper'>
-
+                            <!--textarea serve para algo com muitas linhas-->
                                 <textarea id='pratoDescricaoN' name="pratoDescricaoNovo" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
                             </div>
                         </div>
                         <div class='inputWrapperCategoria'>
-
+                        <!--Aqui serve para editar as categorias dos pratos-->
                             <label for="categoriaPrato">Categorias do prato</label>
                             <div class="categoria-checkboxes">
                                 <?php
                                 $categorias = select($conn, "*", "categoria", NULL);
                                 if (!empty($categorias)) {
                                     foreach ($categorias as $categoria) {
+                                        //cria um checkbox para cada categoria baseada no seu id, e mais de uma categoria pode ser selecionada
                                         echo "<div><input type='checkbox' id='categoriaN_".$categoria['IdCategoria']."' name='pratoCategorias[]' value='".$categoria['IdCategoria']."'>";
                                         echo "<label for='categoriaN_".$categoria['IdCategoria']."'>".$categoria['NomeCategoria']."</label></div>";
                                     }
@@ -157,6 +179,7 @@
                             </div>
                             <input type="hidden" name="pratoID" id="idPratoEditado">
                             <div class="buttons">
+                                <!--Chama o javascript para confirmar se deseja escluir-->
                                 <button class="buttonDeletar" type="button" onclick="confirmarExclusao()">Excluir Prato</button>
                                 <button class='enviarBtn' type="submit">Salvar</button>
                             </div>
