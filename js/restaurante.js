@@ -18,8 +18,4 @@ function searchRestaurantes() {
     });
 }
 
-// Adicionando evento de input à barra de pesquisa
-document.addEventListener('DOMContentLoaded', function() {
-    const searchBar = document.getElementById('search-bar');
-    searchBar.addEventListener('input', searchRestaurantes);
-});
+

@@ -19,18 +19,15 @@
                         <i class="bi bi-funnel" id='searchFilterBtn' onclick='showSelect()'></i>
                     </button>
                     <ul class="dropdown-menu">
-                        <li class='option-wrapper'>
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            <label>Categoria1</label>
-                        </li>
-                        <li class='option-wrapper'>
-                            <input class="form-check-input" type="checkbox" value="" id="teste">
-                            <label>Categoria2</label>
-                        </li>
-                        <li class='option-wrapper'>
-                            <input class="form-check-input" type="checkbox" value="" id="teste2">
-                            <label>Categoria3</label>
-                        </li>
+                        <?php
+                            $categorias = select($conn, "*", "Categoria", NULL);
+                            foreach ($categorias as $categoria) {
+                            ?>
+                            <li class='option-wrapper'>
+                                <input class="form-check-input" type="checkbox" name="categoria" value="<?php echo $categoria['NomeCategoria']; ?>" id="<?php echo $categoria['NomeCategoria']; ?>">
+                                <label><?php echo $categoria['NomeCategoria']; ?></label>
+                            </li>
+                        <?php } ?>                    
                     </ul>
                 </div>
             </div>
@@ -59,6 +56,7 @@
     </div>
 
 
+    <script src="js/restauranteFiltro.js"></script>
 
 </main>
 
