@@ -1,6 +1,7 @@
 <!--essa parte inclui o header e as funções de banco de dados-->
 <?php include("inc/header.php");
     include("dbconnection/functions.php");
+    
     //aqui serve para negar ou permitir acesso a um usuario baseado no seu id 
     //assim não tem como acessar a página apenas por um link
     $restauranteId = $_GET["id"];
@@ -21,6 +22,7 @@
     } else {
         $pageTitle = "Cardápio";
     } 
+
 ?>
 
 <!--inicia a pagina dos cardápios-->
@@ -112,6 +114,22 @@
         //armazena o id de cada prato na variavel pratoID      
             foreach ($pratos as $r) {
                 $pratoID = $r['IdPrato'];
+                // Consulta SQL para obter as categorias de cada prato
+                $queryCategorias = "SELECT Categoria.NomeCategoria 
+                                    FROM Prato_Categoria 
+                                    INNER JOIN Categoria 
+                                    ON Prato_Categoria.fk_Categoria_IdCategoria = Categoria.IdCategoria 
+                                    WHERE Prato_Categoria.fk_Prato_IdPrato = $pratoID";
+
+            $resultCategorias = mysqli_query($conn, $queryCategorias);
+
+            $categoriasPrato = array();
+
+            if ($resultCategorias && mysqli_num_rows($resultCategorias) > 0) {
+                while ($rowCategoria = mysqli_fetch_assoc($resultCategorias)) {
+                $categoriasPrato[] = $rowCategoria['NomeCategoria'];
+                }
+                }
             ?>
 <!--Aqui vai mostrar o prato após o formulario, como ficará sua formatação-->
             <div class="cardapio-item">
@@ -140,6 +158,7 @@
                         <img src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?>" alt="" class='imgSaibaMais'>
                     </div>
                     <p class='cardapio-info-descricao'><?php echo $r["DescricaoPrato"]; ?></p>
+                    <p>Categorias: <?php echo implode(", ", $categoriasPrato); ?></p>
                     <button class='fecharBtn' onclick="off('entrecot_<?php echo $pratoID; ?>')">Fechar</button>
                 </div>
             </div>
