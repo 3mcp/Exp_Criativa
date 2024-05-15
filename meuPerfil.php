@@ -1,7 +1,11 @@
-<?php include("inc/header.php");
+<?php 
+include("inc/header.php");
+
 if (!isset($_SESSION["ID"])) {
     header('Location: index.php');
+    exit; // Encerra o script para evitar a execução do restante do código desnecessariamente
 }
+
 ?>
 
 <main>
@@ -48,31 +52,33 @@ if (!isset($_SESSION["ID"])) {
                     </div>
 
                     <div class="container-reviews">
-                        <h1>Reviews mais recentes</h1>
+                        <h1>Seus Comentários</h1>
                         
                         <hr>
-                        <div class='review'>
-                            <div>
-                                <img src="img/profilepic.png" alt="" class='profilePicReview'>
-                                <div class='review-info'>
-                                    <h2><?php echo $_SESSION['NOME'] ?></h2>
-                                    <p>Comentou no restaurante: Lorem ipsum</p>
-                                </div>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.</p>
-                        </div>
-                        <div class='review'>
-                            <div>
-                                <img src="img/profilepic.png" alt="" class='profilePicReview'>
-                                <div class='review-info'>
-                                    <h2><?php echo $_SESSION['NOME'] ?></h2>
-                                    <p>Comentou no restaurante: Lorem ipsum</p>
-                                </div>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.</p>
-                        </div>
-                    </div>
+                        <?php 
+                            // Consulta para buscar os comentários feitos pelo P.R.A.
+                            $sql = "SELECT * FROM Comentario WHERE fk_P_R_A__IdPRA = " . $_SESSION["ID"];
+                            $result = $conn->query($sql);
 
+                            // Verifica se existem comentários
+                            if ($result->num_rows > 0) {
+                                // Exibe cada comentário
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<div class='review'>";
+                                    echo "<div>";
+                                    echo "<img src='img/profilepic.png' alt='' class='profilePicReview'>";
+                                    echo "<div class='review-info'>";
+                                    echo "<h2>Nome do restaurante</h2>"; // Aqui você pode exibir o nome do restaurante ao qual o comentário foi feito
+                                    echo "</div>";
+                                    echo "</div>";
+                                    echo "<p>" . $row['TextoComentario'] . "</p>";
+                                    echo "</div>";
+                                }
+                            } else {
+                                echo "<p>Você ainda não fez nenhum comentário.</p>";
+                            }
+                        ?>
+                    </div>
 
                 </div>
             <?php }
@@ -125,28 +131,34 @@ if (!isset($_SESSION["ID"])) {
                     </div>
 
                     <div class="container-reviews">
-                        <h1>Reviews mais recentes no seu restaurante</h1>
-                        <hr>
-                        <div class='review'>
-                            <div>
-                                <img src="img/profilepic.png" alt="" class='profilePicReview'>
-                                <div class='review-info'>
-                                    <h2>Nome do usuário</h2>
-                                    <p>Comentou no restaurante: <?php echo $_SESSION['NOME'] ?></p>
-                                </div>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.</p>
-                        </div>
-                        <div class='review'>
-                            <div>
-                                <img src="img/profilepic.png" alt="" class='profilePicReview'>
-                                <div class='review-info'>
-                                    <h2>Nome do usuário</h2>
-                                    <p>Comentou no restaurante: <?php echo $_SESSION['NOME'] ?></p>
-                                </div>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.</p>
-                        </div>
+                        <?php 
+                            // Consulta para buscar os comentários relacionados ao restaurante
+                            $sql = "SELECT * FROM Comentario WHERE fk_Restaurante_IdRestaurante = " . $_SESSION["ID"];
+                            $result = $conn->query($sql);
+
+                            // Verifica se existem comentários
+                            if ($result->num_rows > 0) {
+                                // Exibe cada comentário
+                                echo "<h1>Reviews mais recentes no seu restaurante</h1>";
+                                echo "<hr>";
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<div class='review'>";
+                                    echo "<div>";
+                                    echo "<img src='img/profilepic.png' alt='' class='profilePicReview'>";
+                                    echo "<div class='review-info'>";
+                                    echo "<h2>Nome do usuário</h2>"; // Aqui você pode exibir o nome do usuário que fez o comentário
+                                    echo "<p>Comentou no restaurante: " . $_SESSION['NOME'] . "</p>";
+                                    echo "</div>";
+                                    echo "</div>";
+                                    echo "<p>" . $row['TextoComentario'] . "</p>";
+                                    echo "</div>";
+                                }
+                            } else {
+                                echo "<h1>Reviews mais recentes no seu restaurante</h1>";
+                                echo "<hr>";
+                                echo "<p>Nenhum comentário encontrado.</p>";
+                            }
+                        ?>
                     </div>
                 </div>
         <?php }
@@ -158,12 +170,7 @@ if (!isset($_SESSION["ID"])) {
         $usuarios = select($conn, $aCampos, $tabela, $condicao);
         $dados;
         foreach ($usuarios as $usuario) {
-            foreach ($usuario as $key => $value) {
-                if($key == "FotoRestaurante"){
-                    echo "<script>console.log('" . $value . "')</script>";
-                }
                 
-            }
         ?>
         <div class='container-banner'>
             <div class='container-info'>
@@ -187,35 +194,51 @@ if (!isset($_SESSION["ID"])) {
             <div class="container-reviews">
                 <h1>Denúncias para Avaliar</h1>
                 <hr>
-                <div class='review'>
-                    <div>
-                        <img src="img/profilepic.png" alt="" class='profilePicReview'>
-                        <div class='review-info'>
-                            <h2>Nome do usuário</h2>
-                            <p>Comentou no restaurante: </p>
-                        </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.</p>
-                </div>
-                <div class='review'>
-                    <div>
-                        <img src="img/profilepic.png" alt="" class='profilePicReview'>
-                        <div class='review-info'>
-                            <h2>Nome do usuário</h2>
-                            <p>Comentou no restaurante: </p>
-                        </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id quam tortor nec arcu. Euismod neque ultricies eget adipiscing condimentum.</p>
-                </div>
-            </div>
-        </div>
+            <?php
+                $sql = "SELECT * FROM Comentario WHERE DenunciadoComentario = 1";
+                $result = $conn->query($sql);
 
-        <?php
+            if ($result->num_rows > 0) {
+                ?>
+                <div class='container-banner'>
+                    <div class='container-info'>
+                        <div>
+                            <img src="img/admin.png" alt="" class='profilePic'>
+                            <div class='container-info-content'>
+                                <h1 class='profileTitle'>Área Administrativa</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='wrapper-profile'>
+                    <div class="container-reviews">
+                        <h1>Comentários Denunciados</h1>
+                        <hr>
+                        <?php 
+                            // Exibe cada comentário denunciado
+                            while($row = $result->fetch_assoc()) {
+                                echo "<div class='review'>";
+                                echo "<div>";
+                                echo "<img src='img/profilepic.png' alt='' class='profilePicReview'>";
+                                echo "<div class='review-info'>";
+                                echo "<h2>Nome do restaurante</h2>";
+                                echo "</div>";
+                                echo "</div>";
+                                echo "<p>" . $row['TextoComentario'] . "</p>";
+                                echo "</div>";
+                            }
+                        ?>
+                    </div>
+                </div>
+                <?php
+            } else {
+                echo "<p>Nenhum comentário denunciado encontrado.</p>";
+            }
         }
     }
         ?>
     </div>
-
 
 </main>
 

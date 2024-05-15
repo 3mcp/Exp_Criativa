@@ -33,7 +33,7 @@ CREATE TABLE Comentario (
     IdComentario INT PRIMARY KEY auto_increment,
     TextoComentario VARCHAR(300),
     DataComentario DATE,
-    DenunciadoComentario BOOLEAN,
+    DenunciadoComentario BOOLEAN DEFAULT 0 ,
     NotaComentario FLOAT,
     fk_Restaurante_IdRestaurante INT,
     fk_P_R_A__IdPRA INT
