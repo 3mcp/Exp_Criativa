@@ -14,12 +14,23 @@ if (!isset($_SESSION["ID"])) {
             $condicao = "IdPRA = " . $_SESSION["ID"];
             $usuarios = select($conn, $aCampos, $tabela, $condicao);
             $dados;
+
             foreach ($usuarios as $usuario) {
+                foreach ($usuario as $key => $value) {
+                    if($key == "FotoPRA"){
+                        echo "<script>console.log('" . $value . "')</script>";
+                    }
+                    
+                }
         ?>
                 <div class='container-banner'>
                     <div class='container-info'>
                         <div>
-                            <img src="img/profilepic.png" alt="" class='profilePic'>
+                        <?php if ($usuario['FotoPRA'] != "") { ?>
+                                <img class="profilePic" src="data:image/png;base64,<?= base64_encode($usuario['FotoPRA']) ?>" />
+                            <?php } else { ?>
+                                <img src="img/profilepic.png" alt="" class='profilePic'>
+                            <?php } ?>
                             <div class='container-info-content'>
                                 <h1 class='profileTitle'><?php echo $_SESSION['NOME'] ?></h1>
                             </div>
