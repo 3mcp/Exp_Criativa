@@ -1,5 +1,8 @@
+//usado para aparecer a tela que mostra as informações do prato
 function on(id, idDoPrato) {
+  //o display da informações será em bloco
   document.getElementById(id).style.display = "block";
+  //quando estiver no formulario de edição de prato
   if (idDoPrato && id == "editForm") {
     idPratoSelecionado = idDoPrato;
     document.getElementById("idPratoEditado").value = idDoPrato;
@@ -24,10 +27,12 @@ function on(id, idDoPrato) {
   }
 }
 
+//fecha o bloco de informações do prato
 function off(id) {
   document.getElementById(id).style.display = "none";
 }
 
+//função de confirmar a exclusão do prato
 function confirmarExclusao() {
   Swal.fire({
     title: "Tem certeza?",
@@ -37,6 +42,7 @@ function confirmarExclusao() {
     confirmButtonText: "Sim, exclua!",
     cancelButtonText: "Cancelar",
   }).then((result) => {
+    //se for confirmado chama o php de deletar prato pelo id de pratoselecionado que é igual um id de prato
     if (result.isConfirmed) {
       window.location.href =
         "databasePrato/pratoDeletar.php?id=" + idPratoSelecionado;
@@ -44,7 +50,9 @@ function confirmarExclusao() {
   });
 }
 
+//função que diz que pelo menos uma categoria deve ser selecionada
 function validarFormulario() {
+  //cria uma variavies para as categorias do prato
   var checkboxes = document.querySelectorAll('input[name="pratoCategorias[]"]');
   var peloMenosUmSelecionado = false;
   checkboxes.forEach(function (checkbox) {
