@@ -18,7 +18,7 @@ $condicao = " as p
         restaurante as r on p.fk_Restaurante_IdRestaurante = r.IdRestaurante
     order by r.IdRestaurante,c.IdCategoria";
 //Selecionando os restaurantes
-$restaurantes = selectComposto($conn, $aCampos, $tabela, $condicao);
+$restaurantesComCategorias = selectComposto($conn, $aCampos, $tabela, $condicao);
 
 //Função para agrupar os restaurantes pelo id
 function agruparPorCampo($array, $field) {
@@ -35,7 +35,7 @@ function agruparPorCampo($array, $field) {
 }
 
 // Agrupando os linha pelo id do restaurante
-$restaurantesAgrupados = agruparPorCampo($restaurantes, 'IdRestaurante');
+$restaurantesAgrupados = agruparPorCampo($restaurantesComCategorias, 'IdRestaurante');
 //Pegando todos os restaurantes
 $tabelaRestaurante = "restaurante";
 //Campos que serão selecionados
