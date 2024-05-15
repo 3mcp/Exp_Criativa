@@ -59,7 +59,29 @@ if (!isset($_SESSION["ID"])) {
                                     <input type="email" id="inputEmail" name="usuarioEmailNovo" required value="<?php echo $usuario["EmailPRA"] ?>">
                                     <p id="emailuserError" style="color: red;"></p>
                                 </div>
-                                <!--Serve para fazer uma autenticação, para verificar se o usuario pode mesmo editar os dados, baseando se a senha esta correta-->
+                                <label for="categoriaPrato">Categorias do Usuário</label>
+                                    <div class="categoria-checkboxes">
+                                        <?php
+                                        // Obtém todas as categorias disponíveis
+                                        $categorias = select($conn, "*", "categoria", NULL);
+                                        if (!empty($categorias)) {
+                                            foreach ($categorias as $categoria) {
+                                                // Verifica se o usuário já possui essa categoria
+                                                $isChecked = false;
+                                                // Verifica se o usuário possui essa categoria
+                                                $usuarioCategorias = select($conn, "*", "PRA_Categoria", "fk_P_R_A__IdPRA = " . $_SESSION["ID"] . " AND fk_Categoria_IdCategoria = " . $categoria['IdCategoria']);
+                                                if (!empty($usuarioCategorias)) {
+                                                    $isChecked = true;
+                                                }
+                                                // Exibe a checkbox da categoria
+                                                echo "<div><input type='checkbox' id='categoria_".$categoria['IdCategoria']."' name='pratoCategorias[]' value='".$categoria['IdCategoria']."' ". ($isChecked ? "checked" : "") .">";
+                                                echo "<label for='categoria_".$categoria['IdCategoria']."'>".$categoria['NomeCategoria']."</label></div>";
+                                            }
+                                        } else {
+                                            echo "<p>Nenhuma categoria encontrada</p>";
+                                        }
+                                        ?>
+                                    </div>                                <!--Serve para fazer uma autenticação, para verificar se o usuario pode mesmo editar os dados, baseando se a senha esta correta-->
                                 <div class='inputWrapper'>
                                     <p>Senha Antiga</p>
                                     <input type="password" name="usuarioSenhaAntiga">

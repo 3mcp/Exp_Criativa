@@ -16,31 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `pra_categoria`
+-- Table structure for table `comentario`
 --
 
-DROP TABLE IF EXISTS `pra_categoria`;
+DROP TABLE IF EXISTS `comentario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `pra_categoria` (
-  `IdPRACategoria` int NOT NULL AUTO_INCREMENT,
-  `fk_Categoria_IdCategoria` int DEFAULT NULL,
+CREATE TABLE `comentario` (
+  `IdComentario` int NOT NULL AUTO_INCREMENT,
+  `TextoComentario` varchar(300) DEFAULT NULL,
+  `DataComentario` date DEFAULT NULL,
+  `DenunciadoComentario` tinyint(1) DEFAULT NULL,
+  `NotaComentario` float DEFAULT NULL,
+  `fk_Restaurante_IdRestaurante` int DEFAULT NULL,
   `fk_P_R_A__IdPRA` int DEFAULT NULL,
-  PRIMARY KEY (`IdPRACategoria`),
-  KEY `FK_PRA_Categoria_1` (`fk_Categoria_IdCategoria`),
-  KEY `FK_PRA_Categoria_2` (`fk_P_R_A__IdPRA`),
-  CONSTRAINT `FK_PRA_Categoria_1` FOREIGN KEY (`fk_Categoria_IdCategoria`) REFERENCES `categoria` (`IdCategoria`) ON DELETE RESTRICT,
-  CONSTRAINT `FK_PRA_Categoria_2` FOREIGN KEY (`fk_P_R_A__IdPRA`) REFERENCES `p_r_a_` (`IdPRA`) ON DELETE SET NULL
+  PRIMARY KEY (`IdComentario`),
+  KEY `FK_Comentario_2` (`fk_Restaurante_IdRestaurante`),
+  KEY `FK_Comentario_3` (`fk_P_R_A__IdPRA`),
+  CONSTRAINT `FK_Comentario_2` FOREIGN KEY (`fk_Restaurante_IdRestaurante`) REFERENCES `restaurante` (`IdRestaurante`) ON DELETE CASCADE,
+  CONSTRAINT `FK_Comentario_3` FOREIGN KEY (`fk_P_R_A__IdPRA`) REFERENCES `p_r_a_` (`IdPRA`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `pra_categoria`
+-- Dumping data for table `comentario`
 --
 
-LOCK TABLES `pra_categoria` WRITE;
-/*!40000 ALTER TABLE `pra_categoria` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pra_categoria` ENABLE KEYS */;
+LOCK TABLES `comentario` WRITE;
+/*!40000 ALTER TABLE `comentario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comentario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-13 11:18:00
+-- Dump completed on 2024-05-15 10:29:51

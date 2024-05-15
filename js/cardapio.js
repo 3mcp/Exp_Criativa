@@ -24,7 +24,6 @@ function on(id, idDoPrato) {
   }
 }
 
-
 function off(id) {
   document.getElementById(id).style.display = "none";
 }

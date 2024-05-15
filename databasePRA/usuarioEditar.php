@@ -8,6 +8,27 @@ $usuarioEmailNovo   = $conn->real_escape_string($_POST['usuarioEmailNovo']);
 $usuarioSenhaAntiga   = md5($conn->real_escape_string($_POST['usuarioSenhaAntiga']));
 $usuarioSenhaNovo   = $conn->real_escape_string($_POST['usuarioSenhaNovo']);
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $pratoCategorias = isset($_POST['pratoCategorias']) ? $_POST['pratoCategorias'] : [];
+
+    $conn->query("DELETE FROM PRA_Categoria WHERE fk_P_R_A__IdPRA = ".$_SESSION['ID']);
+
+    if (!empty($pratoCategorias)) {
+        foreach ($pratoCategorias as $categoriaId) {
+            $categoriaId = intval($categoriaId);
+            $sql = "INSERT INTO PRA_Categoria (fk_Categoria_IdCategoria, fk_P_R_A__IdPRA) VALUES ($categoriaId, ".$_SESSION['ID'].")";
+            if ($conn->query($sql) === TRUE) {
+                echo "Categoria inserida com sucesso.";
+            } else {
+                echo "Erro ao inserir categoria: " . $conn->error;
+            }
+        }
+    } else {
+        echo "Nenhuma categoria selecionada.";
+    }
+}
+
+
 $usuarioNomeNovo = ucwords(strtolower($usuarioNomeNovo));
 $tabela = "p_r_a_";
 $aSet = array("NomePRA" => "$usuarioNomeNovo", "UsernamePRA" => "$usuarioUsernameNovo","EmailPRA" => "$usuarioEmailNovo");
