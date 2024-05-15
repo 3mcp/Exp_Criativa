@@ -8,13 +8,25 @@
     if($_SESSION["TYPE"] == "Restaurante")
         if($restauranteId==$_SESSION["ID"]) 
         $donoRestaurante = TRUE;
-
+        
+            
+    $query = "SELECT NomeRestaurante FROM Restaurante WHERE IdRestaurante = $restauranteId";
+    $result = mysqli_query($conn, $query);
+    
+    if ($result && mysqli_num_rows($result) > 0) {
+        $restaurante = mysqli_fetch_assoc($result);
+        $nomeRestaurante = $restaurante['NomeRestaurante'];
+        
+        $pageTitle = $nomeRestaurante;
+    } else {
+        $pageTitle = "Cardápio";
+    } 
 ?>
 
 <!--inicia a pagina dos cardápios-->
 <main>
     <div class='restaurante-pg'>
-        <h1 class='restaurante-titulo'>Restaurante</h1>
+        <h1 class='restaurante-titulo'><?php echo $pageTitle; ?></h1>
         <p>Cardápio</p>
         <!--Se o id do dono for o id da sessão então realiza o que está em {}-->
         <?php if($donoRestaurante == TRUE) {?>
@@ -112,7 +124,10 @@
                 
                     <!--Esse é um botão de saiba mais que mostra mais informações sobre o prato-->
                     <button class='saibaMaisBtn' onclick="on('entrecot_<?php echo $pratoID; ?>')">Saiba mais</button>
+                    <?php if($donoRestaurante == TRUE) {?>
+
                     <i class="bi bi-pencil-square" onclick="on('editForm',<?php echo $pratoID; ?>)"></i> <!-- Botão de editar -->
+                    <?php } ?>
                 </div>
             </div>
             <!--O onclick serve para que quando o usuario clica fora da sobreposição ele sai do saiba mais-->
