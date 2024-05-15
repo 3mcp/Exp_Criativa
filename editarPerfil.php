@@ -35,13 +35,23 @@ if (!isset($_SESSION["ID"])) {
                         $dados;
                         foreach ($usuarios as $usuario) {
                 ?>
-                        <!--Os dados são enviados para usuarioEditar.php, e a função validar formulario é chamada-->
-                            <form action="databasePRA/usuarioEditar.php" method="post" onsubmit="return validateuserForm()">
+                            <form action="databasePRA/usuarioEditar.php" method="post" enctype="multipart/form-data" onsubmit="return validateuserForm()">
+                                <div class='inputWrapper'>
+                                    <p>Imagem:</p>
+                                    <img id="imagemSelecionada">
+                                    <input type="file" id="Img" class="form-control" name="Img" accept="imagem/*" onchange="validaImagem(this);">
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
+                                </div>
                                 <div class='inputWrapper'>
                                     <p>Nome</p>
                                     <!--O valor é preenchido com o nome antigo, que foi recuperado do loop de usuario feito anteriomente, se não tiver nenhum nome é obrigatorio que adicione um nome para enviar o formulario-->
                                     <input type="text" id="inputuserNome" name="usuarioNomeNovo" required value="<?php echo $usuario["NomePRA"] ?>">
                                     <p id="nameuserError" style="color: red;"></p>
+                                </div>
+                                <div class='inputWrapper'>
+                                    <p>Username</p>
+                                    <input type="text" id="inputuserName" name="usuarioUsernameNovo" required value="<?php echo $usuario["UsernamePRA"] ?>">
+                                    <p id="usernameError" style="color: red;"></p>
                                 </div>
                                 <div class='inputWrapper'>
                                     <p>Email</p>
