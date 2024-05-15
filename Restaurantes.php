@@ -39,16 +39,21 @@
 
         <section class="Restaurantes">
             <?php
-                $tabela = "restaurante";
-                $aCampos = "*";
-                $restaurantes = select($conn, $aCampos, $tabela, NULL);
                 foreach ($restaurantes as $r) {
-            ?>
-        <div class="restaurante">
-            <img  src="data:image/png;base64,<?= base64_encode($r['FotoRestaurante']) ?>" />
-                <h5><?php echo $r["NomeRestaurante"]?></h5>
-                <p><?php echo $r["DescricaoRestaurante"]?></p>
-                <a href="<?php echo $r["SiteRestaurante"]?>" target="_blank"><button class='btn-vermais'>Ver mais</button></a>
-                <a href="cardapio.php?id=<?php echo $r['IdRestaurante']; ?>"><button class='btn-vermais'>Ver cardápio</button></a>
-        </div>
-            <?php }?>
+                    ?>
+                    <div class="restaurante">
+                        <img src="data:image/png;base64,<?= base64_encode($r['FotoRestaurante']) ?>" />
+                        <h5><?php echo $r["NomeRestaurante"] ?></h5>
+                        <p><?php echo $r["DescricaoRestaurante"] ?></p>
+                        <p>Categorias: <?php foreach($r["Categorias"] as $c){
+                            echo $c["IdCategoria"];
+                            echo $c["NomeCategoria"];
+                        } ?></p> <!-- Display associated categories -->
+                        <a href="<?php echo $r["SiteRestaurante"] ?>" target="_blank"><button class='btn-vermais'>Ver mais</button></a>
+                        <a href="cardapio.php?id=<?php echo $r['IdRestaurante']; ?>"><button class='btn-vermais'>Ver cardápio</button></a>
+                    </div>
+                <?php } ?>
+
+            </main>
+
+<?php include("inc/footer.php") ?>

@@ -6,7 +6,8 @@ $tabela = "prato";
 //Campos que serão selecionados
 $aCampos = array(
     "r.IdRestaurante",
-    "c.IdCategoria"
+    "c.IdCategoria",
+    "c.NomeCategoria"
 );
 //Condição para a seleção
 $condicao = " as p 
@@ -37,17 +38,17 @@ function agruparPorCampo($array, $field) {
 // Agrupando os linha pelo id do restaurante
 $restaurantesAgrupados = agruparPorCampo($restaurantesComCategorias, 'IdRestaurante');
 //Pegando todos os restaurantes
-$tabelaRestaurante = "restaurante";
+$tabela2 = "restaurante";
 //Campos que serão selecionados
-$aCampos = "*";
+$campos = "*";
 //Condição para a seleção
-$condicao = NULL;
+$condicao2 = NULL;
 //Selecionando os restaurantes
-$restaurantes = select($conn, $aCampos, $tabela, $condicao);
+$restaurantes = select($conn, $campos, $tabela2, $condicao2);
 //Passando por cada restaurante para associar as categorias
-foreach ($restaurantes as $restaurante) {
+foreach ($restaurantes as $key => $restaurante) {
     $idRestaurante = $restaurante["IdRestaurante"];
-    //Associando as categorias ao restaurante caso ele nao tenha deixar um array vazio
-    $restaurante["Categorias"] = $restaurantesAgrupados[$idRestaurante] ?? [];
+    // Associating the categories with the restaurant, if it doesn't exist, leave an empty array
+    $restaurantes[$key]["Categorias"] = $restaurantesAgrupados[$idRestaurante] ?? [];  
 }
 
