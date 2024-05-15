@@ -18,4 +18,33 @@ function searchRestaurantes() {
     });
 }
 
+function filtrarRestaurantes() {
+    var categoriasSelecionadas = [];
+    var checkboxes = document.getElementsByClassName('categoriaCheckbox');
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            categoriasSelecionadas.push(checkboxes[i].value);
+        }
+    }
+    
+    var restaurantes = document.getElementsByClassName('restaurante');
+    for (var j = 0; j < restaurantes.length; j++) {
+        var restaurante = restaurantes[j];
+        var categoriasRestaurante = restaurante.dataset.categorias.split(',');
+        var visivel = false;
+        for (var k = 0; k < categoriasSelecionadas.length; k++) {
+            if (categoriasRestaurante.includes(categoriasSelecionadas[k])) {
+                visivel = true;
+                break;
+            }
+        }
+        if (visivel) {
+            restaurante.style.display = 'block';
+        } else {
+            restaurante.style.display = 'none';
+        }
+    }
+  }
+  
+
 
