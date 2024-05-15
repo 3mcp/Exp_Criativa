@@ -18,6 +18,23 @@ function select($conn, $aCampos, $tabela, $condicao)
     return $rows;
 }
 
+function selectComposto($conn, $aCampos, $tabela, $extras)
+{
+    $_SESSION['LAST_ACTIVITY'] = time();
+    if ($aCampos == "*") {
+        $consulta = "SELECT * FROM " . $tabela . "";
+    } else {
+        $consulta = "SELECT " . implode(',', $aCampos) . " FROM " . $tabela . "";
+    }
+
+    if ($extras) {
+        $consulta .= " " . $extras;
+    }
+    $result = $conn->query($consulta);
+    $rows = $result->fetch_all(MYSQLI_ASSOC);
+    return $rows;
+}
+
 function create($conn, $aCampos, $aValores, $tabela)
 {
     $_SESSION['LAST_ACTIVITY'] = time();
