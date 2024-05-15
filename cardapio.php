@@ -4,6 +4,9 @@
     
     //aqui serve para negar ou permitir acesso a um usuario baseado no seu id 
     //assim não tem como acessar a página apenas por um link
+    if (!isset($_GET['id'])) {
+        header("Location: index.php");
+    }
     $restauranteId = $_GET["id"];
     $donoRestaurante = FALSE;
     if($_SESSION["TYPE"] == "Restaurante")
