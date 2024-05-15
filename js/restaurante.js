@@ -26,6 +26,7 @@ function filtrarRestaurantes() {
             categoriasSelecionadas.push(checkboxes[i].value);
         }
     }
+    console.log(categoriasSelecionadas)
     
     var restaurantes = document.getElementsByClassName('restaurante');
     for (var j = 0; j < restaurantes.length; j++) {

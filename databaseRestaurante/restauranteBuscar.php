@@ -36,9 +36,18 @@ function agruparPorCampo($array, $field) {
 
 // Agrupando os linha pelo id do restaurante
 $restaurantesAgrupados = agruparPorCampo($restaurantes, 'IdRestaurante');
-header('Content-Type: application/json');
+//Pegando todos os restaurantes
+$tabelaRestaurante = "restaurante";
+//Campos que serão selecionados
+$aCampos = "*";
+//Condição para a seleção
+$condicao = NULL;
+//Selecionando os restaurantes
+$restaurantes = select($conn, $aCampos, $tabela, $condicao);
+//Passando por cada restaurante para associar as categorias
+foreach ($restaurantes as $restaurante) {
+    $idRestaurante = $restaurante["IdRestaurante"];
+    //Associando as categorias ao restaurante caso ele nao tenha deixar um array vazio
+    $restaurante["Categorias"] = $restaurantesAgrupados[$idRestaurante] ?? [];
+}
 
-//Convertendo o array em JSON
-$json = json_encode($restaurantesAgrupados);
-echo $json;
-$conn->close();

@@ -1,5 +1,9 @@
 <html lang="pt-br">
-<?php session_start();
+<?php 
+if (session_status() === PHP_SESSION_NONE) {
+    // Start the session
+    session_start();
+}
 ?>
 
 <head>

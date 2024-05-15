@@ -1,6 +1,6 @@
 <?php 
     include("inc/header.php");
-    include("dbconnection/functions.php");    
+    include("databaseRestaurante/restauranteBuscar.php");
 ?>
 <main>
     <script src="js/restaurante.js"></script>
@@ -24,7 +24,7 @@
                                         foreach ($categorias as $categoria) {
                                         ?>
                                         <li class='option-wrapper'>
-                                            <input class="form-check-input" type="checkbox" name="categoria" value="<?php echo $categoria['NomeCategoria']; ?>" id="<?php echo $categoria['NomeCategoria']; ?>">
+                                            <input class="form-check-input" type="checkbox" name="categoria" value="<?php echo $categoria['IdCategoria']; ?>" id="<?php echo $categoria['NomeCategoria']; ?>">
                                             <label><?php echo $categoria['NomeCategoria']; ?></label>
                                         </li>
                                     <?php } ?>                    
