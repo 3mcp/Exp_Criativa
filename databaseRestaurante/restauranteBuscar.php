@@ -1,5 +1,5 @@
 <?php
-include("../dbconnection/functions.php");
+include("dbconnection/functions.php");
 
 //Pegando as categorias de cada restaurante
 $tabela = "prato";
