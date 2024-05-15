@@ -9,9 +9,10 @@
     }
     $restauranteId = $_GET["id"];
     $donoRestaurante = FALSE;
-    if($_SESSION["TYPE"] == "Restaurante")
-        if($restauranteId==$_SESSION["ID"]) 
-        $donoRestaurante = TRUE;
+    if(isset($_SESSION["TYPE"]))
+        if($_SESSION["TYPE"] == "Restaurante")
+            if($restauranteId==$_SESSION["ID"]) 
+            $donoRestaurante = TRUE;
         
             
     $query = "SELECT NomeRestaurante FROM Restaurante WHERE IdRestaurante = $restauranteId";
