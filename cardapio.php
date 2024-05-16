@@ -162,7 +162,7 @@
                         <img src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?>" alt="" class='imgSaibaMais'>
                     </div>
                     <p class='cardapio-info-descricao'><?php echo $r["DescricaoPrato"]; ?></p>
-                    <p>Categorias: <?php echo implode(", ", $categoriasPrato); ?></p>
+                    <p class='cardapio-info-categoria'>Categorias: <?php echo implode(", ", $categoriasPrato); ?></p>
                     <button class='fecharBtn' onclick="off('entrecot_<?php echo $pratoID; ?>')">Fechar</button>
                 </div>
             </div>

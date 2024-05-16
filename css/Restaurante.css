@@ -330,7 +330,8 @@ textarea {
   text-align: center;
 }
 
-.cardapio-info-descricao {
+.cardapio-info-descricao,
+.cardapio-info-categoria {
   font-size: 20px;
   color: white;
   text-align: center;
