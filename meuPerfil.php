@@ -11,14 +11,17 @@ if (!isset($_SESSION["ID"])) {
 <main>
 
     <div class='containerPrincipal'>
+        <!--Verifica se o usuario atual é uma pessoarestrição alimentar-->
         <?php if ($_SESSION["TYPE"] == "P.R.A.") {
             include("dbconnection/functions.php");
+            //na tabela p.r.a, seleciona todos os usuarios, em que a condição seja o id do usuario da sessão atual
             $tabela = "p_r_a_";
             $aCampos = "*";
             $condicao = "IdPRA = " . $_SESSION["ID"];
             $usuarios = select($conn, $aCampos, $tabela, $condicao);
             $dados;
-
+            
+            //serve para pegar a foto do usuario 
             foreach ($usuarios as $usuario) {
                 foreach ($usuario as $key => $value) {
                     if($key == "FotoPRA"){
@@ -30,8 +33,10 @@ if (!isset($_SESSION["ID"])) {
                 <div class='container-banner'>
                     <div class='container-info'>
                         <div>
+                        <!--Se a foto do usuario estiver vazia então aparece um avatar generico-->
                         <?php if ($usuario['FotoPRA'] != "") { ?>
                                 <img class="profilePic" src="data:image/png;base64,<?= base64_encode($usuario['FotoPRA']) ?>" />
+                                <!--Se não aparece a imagem que o usuario escolheu-->
                             <?php } else { ?>
                                 <img src="img/profilepic.png" alt="" class='profilePic'>
                             <?php } ?>
@@ -82,13 +87,18 @@ if (!isset($_SESSION["ID"])) {
 
                 </div>
             <?php }
+            //no caso de ser um restaurante o tipo de usuario
         } else if ($_SESSION["TYPE"] == "Restaurante") {
             include("dbconnection/functions.php");
+            //seleciona todos da tabela restaurante
             $tabela = "Restaurante";
             $aCampos = "*";
+            //no caso do id ser da sessão iniciada
             $condicao = "IdRestaurante = " . $_SESSION["ID"];
             $usuarios = select($conn, $aCampos, $tabela, $condicao);
             $dados;
+
+            //serve para pegar a imgame que o restaurante selecionou
             foreach ($usuarios as $usuario) {
                 foreach ($usuario as $key => $value) {
                     if($key == "FotoRestaurante"){
@@ -100,13 +110,17 @@ if (!isset($_SESSION["ID"])) {
                 <div class='container-banner'>
                     <div class='container-info'>
                         <div>
+                            <!--Se o restaurante não tiver nenhuma imagem coloca um avatar generico-->
                             <?php if ($usuario['FotoRestaurante'] != "") { ?>
                                 <img class="profilePic" src="data:image/png;base64,<?= base64_encode($usuario['FotoRestaurante']) ?>" />
                             <?php } else { ?>
+                                <!--Coloca a imagem selecionada-->
                                 <img src="img/profilepic.png" alt="" class='profilePic'>
                             <?php } ?>
                             <div class='container-info-content'>
+                                <!--Coloca comotitulo do perfil o nome do restaurante-->
                                 <h1 class='profileTitle'><?php echo $usuario['NomeRestaurante'] ?></h1>
+                                <!--E adiciona a localização do restaurante em baixo-->
                                 <p class='profileLocation'>
                                     <img src="img/location.svg" alt="">
                                     <?php echo $usuario['RuaRestaurante'] ?>, <?php echo $usuario['Numero_Restaurante'] ?>, <?php echo $usuario['CEPRestaurante'] ?>
@@ -162,6 +176,7 @@ if (!isset($_SESSION["ID"])) {
                     </div>
                 </div>
         <?php }
+        //no caso do usuario ser um administrador
        } else if ($_SESSION["TYPE"] == "ADMIN") {
         include("dbconnection/functions.php");
         $tabela = "p_r_a_";
@@ -195,6 +210,7 @@ if (!isset($_SESSION["ID"])) {
                 <h1>Denúncias para Avaliar</h1>
                 <hr>
             <?php
+            //para mostrar os comemntarios que foram denunciados
                 $sql = "SELECT * FROM Comentario WHERE DenunciadoComentario = 1";
                 $result = $conn->query($sql);
 
