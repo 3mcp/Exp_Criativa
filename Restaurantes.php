@@ -15,13 +15,9 @@
 
         <form class="search-container">
             <div class="inputSearchWrapper">
-<<<<<<< Updated upstream
-                            <input type="text" id="search-bar" placeholder="Pesquise por restaurantes, pratos...">
-=======
                 <!--Cria uma barra de pesquisa para poder realizar a busca por restaurante, que chama a função de pesquisar localizada no restaurante.js -->
-                            <input type="text" id="search-bar" placeholder="Pesquise por restaurantes, pratos..." oninput="searchRestaurantes()">
+                            <input type="text" id="search-bar" placeholder="Pesquise por restaurantes, pratos...">
                             
->>>>>>> Stashed changes
                             <div class="dropdown">
                                 <!--Mostra as opções de categorias -->
                                 <!--cria um menu suspenso com opções de categoria, onde o usuário pode selecionar uma ou várias categorias usando checkboxes-->
@@ -31,6 +27,7 @@
                                 <!--Alem de pesquisar pelo nome do restaurante pode pesquisar pela categoria-->
                                 <ul class="dropdown-menu">
                                     <?php
+                                        //Pega todas as categorias do banco de dados e cria um checkbox para cada uma delas
                                         $categorias = select($conn, "*", "Categoria", NULL);
                                         foreach ($categorias as $categoria) {
                                         ?>
@@ -42,12 +39,8 @@
                                 </ul>
                             </div>
                         </div>
-<<<<<<< Updated upstream
+                        <!--Botão de pesquisa-->
                         <button class="search-button" type="button" onclick="searchRestaurantes()">Pesquisar</button>
-=======
-                        <!--Botão de pesquisa -->
-                        <button class="search-button">Pesquisar</button>
->>>>>>> Stashed changes
                     </form>
 
 
