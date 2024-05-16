@@ -129,6 +129,17 @@
   flex-direction: column;
 }
 
+.comentario-info > button {
+  margin-left: auto;
+  color: red;
+  background-color: transparent;
+  border: none;
+}
+
+.comentario-info > button:hover {
+  color: rgb(255, 0, 0, 0.7);
+}
+
 .comentario-info > div > p {
   margin-bottom: 0;
 }

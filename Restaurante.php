@@ -24,11 +24,12 @@
             </div>
             <div class="comentario-box">
                 <div class="comentario-info">
-                    <img src="./img/profilepic.png" class='comentarioProfilePic' alt="">
-                    <div>
-                        <p style="font-weight: bold;">Nome do usuário</p>
-                        <p>Comentou em: 10/10/2010</p>
-                    </div>
+                        <img src="./img/profilepic.png" class='comentarioProfilePic' alt="">
+                        <div>
+                            <p style="font-weight: bold;">Nome do usuário</p>
+                            <p>Comentou em: 10/10/2010</p>
+                        </div>
+                        <button><i class="bi bi-flag-fill"></i> Denunciar comentário </button>
                 </div>
                 <div class='comentario-content'>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt atque quia nulla quaerat blanditiis sequi qui consectetur accusamus, iusto, quam officia odit fugiat dolores vel? Incidunt aperiam fuga veritatis. Illo. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure dolor minima error reiciendis magni dolore, optio nobis pariatur nam vel provident? Hic dignissimos incidunt odio alias doloribus. Hic, sed asperiores!</p>
