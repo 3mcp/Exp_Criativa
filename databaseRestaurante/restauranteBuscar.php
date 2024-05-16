@@ -7,7 +7,6 @@ $tabela = "prato";
 $aCampos = array(
     "r.IdRestaurante",
     "c.IdCategoria",
-    "c.NomeCategoria"
 );
 //Condição para a seleção
 $condicao = " as p 

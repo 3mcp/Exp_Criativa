@@ -16,35 +16,40 @@ function searchRestaurantes() {
             restaurante.style.display = 'none';
         }
     });
+    filtrarRestaurantes();
 }
 
 function filtrarRestaurantes() {
     var categoriasSelecionadas = [];
-    var checkboxes = document.getElementsByClassName('categoriaCheckbox');
+    var checkboxes = document.getElementsByClassName('categoria-checkbox');
     for (var i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
             categoriasSelecionadas.push(checkboxes[i].value);
         }
     }
-    console.log(categoriasSelecionadas)
-    
-    var restaurantes = document.getElementsByClassName('restaurante');
-    for (var j = 0; j < restaurantes.length; j++) {
-        var restaurante = restaurantes[j];
-        var categoriasRestaurante = restaurante.dataset.categorias.split(',');
-        var visivel = false;
-        for (var k = 0; k < categoriasSelecionadas.length; k++) {
-            if (categoriasRestaurante.includes(categoriasSelecionadas[k])) {
-                visivel = true;
-                break;
+    console.log(categoriasSelecionadas);
+    // Filtrando restaurantes
+    const restaurantes = document.querySelectorAll('.restaurante');
+
+    restaurantes.forEach(restaurante => {
+        const categorias = restaurante.getAttribute('categorias').split(',');
+        console.log(categorias);
+        if (categoriasSelecionadas.length == 0) {
+            return;
+        } else {
+            var mostrar = false;
+            categorias.forEach(categoria => {
+                if (categoriasSelecionadas.includes(categoria)) {
+                    mostrar = true;
+                }
+            });
+            if (mostrar) {
+                restaurante.style.display = 'block';
+            } else {
+                restaurante.style.display = 'none';
             }
         }
-        if (visivel) {
-            restaurante.style.display = 'block';
-        } else {
-            restaurante.style.display = 'none';
-        }
-    }
+    });
   }
   
 
