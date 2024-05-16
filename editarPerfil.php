@@ -37,7 +37,7 @@ if (!isset($_SESSION["ID"])) {
                 ?>
                             <form action="databasePRA/usuarioEditar.php" method="post" enctype="multipart/form-data" onsubmit="return validateuserForm()">
                                 <div class='inputWrapper'>
-                                    <p>Imagem:</p>
+                                    <p class='inputWrapperP'>Imagem:</p>
                                     <img id="imagemSelecionada">
                                     <input type="file" id="Img" class="form-control" name="Img" accept="imagem/*" onchange="validaImagem(this);">
                                     <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />

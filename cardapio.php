@@ -51,7 +51,7 @@
                 <form action="databasePrato/pratoCadastro.php" enctype="multipart/form-data" class='addPratoForm' method='post' onsubmit="return validarFormulario()">
                     <div class='container1'>
                         <div class='inputWrapper'>
-                            <p>Imagem:</p>
+                            <p class='inputWrapperImagem'>Imagem:</p>
                             <img id="imagemSelecionada">
                             <!--accept: indica que apenas imagens podem ser aceitas. oncharge: chama a função de validar imagem-->
                             <input type="file" id="img" class="form-control" name="img" accept="imagem/*" onchange="validaImagem(this);">
