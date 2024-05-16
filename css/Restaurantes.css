@@ -127,11 +127,18 @@ input#search-bar {
   max-width: 400px;
   border-radius: 20px;
   cursor: pointer;
+  height: 600px;
+  position: relative;
+}
+
+.imagemRestaurante {
+  width: 400px;
 }
 
 .categoria-checkboxes {
   font-size: 18px;
 }
+
 .restaurante p {
   font-size: 18px;
   margin-top: 20px;
@@ -152,23 +159,32 @@ input#search-bar {
   border-radius: 20px 20px 0px 0px;
 }
 
-.btn-vermais {
-  background-color: #d0cfce;
-  color: #628888;
-  border: none;
+.linkToRestaurant {
   text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  margin: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-  margin-left: 220px;
+  color: #ffffff;
 }
 
-.btn-vermais:hover,
-.btn-vermais > a:hover {
-  background-color: #628888;
-  color: #ffffff;
+.restaurante > h5 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linkToRestaurant:hover {
+  color: #d9d9d9;
+}
+
+.btn-vermais {
+  background-color: #ffffff;
+  color: #628888;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.btn-vermais:hover {
+  background-color: #d9d9d9;
+  color: #628888;
 }
 
 .btn-vermais > a {

@@ -59,11 +59,22 @@
                          ?>
                     <div class="restaurante" categorias="<?php echo $categoriaString; ?>">
                     
-                        <img src="data:image/png;base64,<?= base64_encode($r['FotoRestaurante']) ?>" />
-                        <h5><?php echo $r["NomeRestaurante"] ?></h5>
+                        <img src="data:image/png;base64,<?= base64_encode($r['FotoRestaurante']) ?>" class='imagemRestaurante'/>
+                        <h5>
+                            <?php echo $r["NomeRestaurante"] ?>
+                            <div>
+                                <a href="<?php echo $r["SiteRestaurante"] ?>" target="_blank">
+                                    <button class='btn-vermais'>Ver mais</button>
+                                </a>
+                                <a href=""cardapio.php?id=<?php echo $r['IdRestaurante']; ?>">
+                                    <button class='btn-vermais'>Cardapio</button>
+                                </a>
+                            </div>
+                        
+                        </h5>
                         <p><?php echo $r["DescricaoRestaurante"] ?></p>
-                        <a href="<?php echo $r["SiteRestaurante"] ?>" target="_blank"><button class='btn-vermais'>Ver mais</button></a>
-                        <a href="cardapio.php?id=<?php echo $r['IdRestaurante']; ?>"><button class='btn-vermais'>Ver cardápio</button></a>
+                        <!-- <a href="<?php echo $r["SiteRestaurante"] ?>" target="_blank"><button class='btn-vermais'>Ver mais</button></a>
+                        <a href="cardapio.php?id=<?php echo $r['IdRestaurante']; ?>"><button class='btn-vermais'>Ver cardápio</button></a> --> 
                     </div>
                 <?php } ?>
 
