@@ -84,6 +84,10 @@
 @media (max-width: 768px) {
 
   body {
+    width: auto;
+    overflow-x: hidden; /* Evita rolagem horizontal */
+
+    
   }
 
   .container_vocesabia {
