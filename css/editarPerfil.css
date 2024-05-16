@@ -43,10 +43,9 @@
   color: #638889;
 }
 
-
-
 form {
   width: 100%;
+  border-radius: 20px;
 }
 
 input {
@@ -62,7 +61,7 @@ input:focus {
   outline: none;
 }
 
-.inputWrapper > p {
+.inputWrapperP {
   font-size: 20px;
   color: grey;
 }
