@@ -1,3 +1,6 @@
+//javascript para a edição tanto do PRA quanto do restaurante quanto do admin
+
+//função para excluir o restaurante
 function confirmarExcluirRestaurante() {
     Swal.fire({
         title: "Tem certeza?",

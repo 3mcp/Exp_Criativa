@@ -81,7 +81,8 @@ if (!isset($_SESSION["ID"])) {
                                             echo "<p>Nenhuma categoria encontrada</p>";
                                         }
                                         ?>
-                                    </div>                                <!--Serve para fazer uma autenticação, para verificar se o usuario pode mesmo editar os dados, baseando se a senha esta correta-->
+                                    </div>                               
+                                    <!--Serve para fazer uma autenticação, para verificar se o usuario pode mesmo editar os dados, baseando se a senha esta correta-->
                                 <div class='inputWrapper'>
                                     <p>Senha Antiga</p>
                                     <input type="password" name="usuarioSenhaAntiga">
