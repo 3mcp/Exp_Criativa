@@ -3,7 +3,7 @@
     color: #ffffff;
     text-align: center;
     font-size: 100px;
-    line-height: 50px;
+    line-height: 100px;
     text-shadow: 0.1em 0.1em #628888;
     background-color: #9DBC98;
     height: 280px;
@@ -31,4 +31,21 @@
     color: #9DBC98;
     font-size: 30px;
     margin: 120px 220px 0px 220px
+}
+
+@media (max-width: 768px) {
+    body {
+        width: auto;
+        overflow-x: hidden; /* Evita rolagem horizontal */
+    }
+    .Sobre-txt h1{ 
+        font-size: 50px;
+
+    }
+    .Sobre-txt h3{
+        width: 100vw;
+        padding: 5vw 0 0 5vw;
+        margin: 0 auto;
+        border-radius: 0;
+    }
 }

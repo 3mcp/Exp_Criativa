@@ -84,29 +84,38 @@
 @media (max-width: 768px) {
 
   body {
-    width: auto;
+    width: 100vw;
     overflow-x: hidden; /* Evita rolagem horizontal */
-
-    
   }
 
   .container_vocesabia {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0%;
+  }
+
+  .textoVoceSabia > p {
+    font-size: 18px;
+  }
+
+  .nomeDoSite h1 {
+    font-size: 100;
+  }
+
+  .nomeDoSite h2 {
+    font-size: 100;
+
   }
 
   .textoVoceSabia {
-    width: 200vw;
+    width: 100vw;
     padding: 5vw 0 0 5vw;
     margin: 0 auto;
+    border-radius: 0;
   }
 
   .container_vocesabia > img {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 80vw;
-    height: auto;
+    display: none;
   }
 }
