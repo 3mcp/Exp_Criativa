@@ -1,1 +1,0 @@
-<!-- Restaurante poderá responder comentário? -->

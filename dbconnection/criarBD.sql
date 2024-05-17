@@ -34,7 +34,7 @@ CREATE TABLE Comentario (
     TextoComentario VARCHAR(300),
     DataComentario DATE,
     DenunciadoComentario BOOLEAN DEFAULT 0 ,
-    NotaComentario FLOAT,
+    NotaComentario CHAR,
     fk_Restaurante_IdRestaurante INT,
     fk_P_R_A__IdPRA INT
 );
