@@ -87,7 +87,6 @@
                                 <input type="hidden" name="idcomentario" value="<?php echo $comentario['IdComentario'];?>">
                                 <button type="submit" class="denunciar-btn"><i class="bi bi-flag-fill"></i> Denunciar comentário </button>
                             </form>
-                            <a href="databaseComentario/comentarioExcluir.php?id=<?php echo $comentario['IdComentario']; ?>"><button class='comentarioEnviarBtn'>Excluir comentário</button><a>
 
                         </div>
                         <div class='comentario-content'>
