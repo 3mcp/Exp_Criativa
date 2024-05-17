@@ -7,12 +7,16 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $condicao = "IdComentario = " . $comentarioID;
     $comentarios = select($conn, "*", $tabela, $condicao);
     foreach ($comentarios as $comentario) {
-        if ($_SESSION["TYPE"] == "P.R.A.")
+        if ($_SESSION["TYPE"] == "P.R.A.") {
             if ($comentario["fk_P_R_A__IdPRA"] == $_SESSION["ID"]) {
                 echo deleteByCondition($conn, $tabela, $condicao);
             }
+        } else if ($_SESSION["TYPE"] = "ADMIN") {
+            echo deleteByCondition($conn, $tabela, $condicao);
+        }
     }
-} else {
+}
+ else {
     echo "ID do comentario não fornecido.";
 }
 

@@ -61,26 +61,30 @@ if (!isset($_SESSION["ID"])) {
                         
                         <hr>
                         <?php 
-                            // Consulta para buscar os comentários feitos pelo P.R.A.
-                            $sql = "SELECT * FROM Comentario WHERE fk_P_R_A__IdPRA = " . $_SESSION["ID"];
+                            $sql = "SELECT Comentario.*, Restaurante.NomeRestaurante 
+                                    FROM Comentario 
+                                    INNER JOIN Restaurante ON Comentario.fk_Restaurante_IdRestaurante = Restaurante.IdRestaurante 
+                                    WHERE Comentario.fk_P_R_A__IdPRA = " . $_SESSION["ID"];
                             $result = $conn->query($sql);
 
-                            // Verifica se existem comentários
                             if ($result->num_rows > 0) {
-                                // Exibe cada comentário
-                                while($row = $result->fetch_assoc()) {
-                                    echo "<div class='review'>";
-                                    echo "<div>";
-                                    echo "<img src='img/profilepic.png' alt='' class='profilePicReview'>";
-                                    echo "<div class='review-info'>";
-                                    echo "<h2>Nome do restaurante</h2>"; // Aqui você pode exibir o nome do restaurante ao qual o comentário foi feito
-                                    echo "</div>";
-                                    echo "</div>";
-                                    echo "<p>" . $row['TextoComentario'] . "</p>";
-                                    echo "</div>";
-                                }
+                                while($row = $result->fetch_assoc()) { ?>
+                            <div class='review'>
+                                <div>
+                                    <?php if($usuario['FotoPRA']){ ?>
+                                        <img src="data:image/jpeg;base64,<?php echo base64_encode($usuario['FotoPRA']); ?>" alt='' class='profilePicReview'>
+                                    <?php } else { ?>
+                                        <img src='img/profilepic.png' alt='' class='profilePicReview'>
+                                    <?php } ?>
+                                    <div class='review-info'>
+                                        <h2><?php echo $row["NomeRestaurante"]; ?></h2> <!-- Aqui exibimos o nome do restaurante -->
+                                    </div>
+                                </div>
+                                <p><?php echo $row['TextoComentario']; ?></p>
+                            </div>
+                            <?php }
                             } else {
-                                echo "<p>Você ainda não fez nenhum comentário.</p>";
+                            echo "<p>Você ainda não fez nenhum comentário.</p>";
                             }
                         ?>
                     </div>
@@ -146,31 +150,31 @@ if (!isset($_SESSION["ID"])) {
 
                     <div class="container-reviews">
                         <?php 
-                            // Consulta para buscar os comentários relacionados ao restaurante
-                            $sql = "SELECT * FROM Comentario WHERE fk_Restaurante_IdRestaurante = " . $_SESSION["ID"];
+                            $sql = "SELECT Comentario.*, P_R_A_.NomePRA, P_R_A_.FotoPRA
+                            FROM Comentario 
+                            INNER JOIN P_R_A_ ON Comentario.fk_P_R_A__IdPRA = P_R_A_.IdPRA 
+                            WHERE Comentario.fk_Restaurante_IdRestaurante = " . $_SESSION["ID"];
                             $result = $conn->query($sql);
 
-                            // Verifica se existem comentários
                             if ($result->num_rows > 0) {
-                                // Exibe cada comentário
-                                echo "<h1>Reviews mais recentes no seu restaurante</h1>";
-                                echo "<hr>";
-                                while($row = $result->fetch_assoc()) {
-                                    echo "<div class='review'>";
-                                    echo "<div>";
-                                    echo "<img src='img/profilepic.png' alt='' class='profilePicReview'>";
-                                    echo "<div class='review-info'>";
-                                    echo "<h2>Nome do usuário</h2>"; // Aqui você pode exibir o nome do usuário que fez o comentário
-                                    echo "<p>Comentou no restaurante: " . $_SESSION['NOME'] . "</p>";
-                                    echo "</div>";
-                                    echo "</div>";
-                                    echo "<p>" . $row['TextoComentario'] . "</p>";
-                                    echo "</div>";
-                                }
+                            while($row = $result->fetch_assoc()) { ?>
+                            <div class='review'>
+                                <div>
+                                    <?php if ($row['FotoPRA']): ?>
+                                        <img src="data:image/jpeg;base64,<?php echo base64_encode($row['FotoPRA']); ?>" class='profilePicReview'>
+                                    <?php else: ?>
+                                        <img src="./img/profilepic.png" class='profilePicReview' alt="">
+                                    <?php endif; ?>        
+                                    <div class='review-info'>
+                                        <h2><?php echo $row["NomePRA"]; ?></h2> <!-- Aqui exibimos o nome do usuário -->
+                                    </div>
+                                </div>
+                                <p><?php echo $row['TextoComentario']; ?></p>
+                            </div>
+                            <?php }
                             } else {
-                                echo "<h1>Reviews mais recentes no seu restaurante</h1>";
-                                echo "<hr>";
-                                echo "<p>Nenhum comentário encontrado.</p>";
+                            echo "<p>Nenhum comentário encontrado.</p>";
+                            
                             }
                         ?>
                     </div>
@@ -206,45 +210,44 @@ if (!isset($_SESSION["ID"])) {
                     <p>Email: <span><?php echo $usuario['EmailPRA'] ?></span></p>
                 </div>
             </div>
-            <div class="container-reviews">
-                <h1>Denúncias para Avaliar</h1>
-                <hr>
             <?php
             //para mostrar os comemntarios que foram denunciados
-                $sql = "SELECT * FROM Comentario WHERE DenunciadoComentario = 1";
-                $result = $conn->query($sql);
+            $sql = "SELECT Comentario.*, P_R_A_.NomePRA, P_R_A_.FotoPRA, Restaurante.NomeRestaurante
+                    FROM Comentario 
+                    INNER JOIN P_R_A_ ON Comentario.fk_P_R_A__IdPRA = P_R_A_.IdPRA 
+                    INNER JOIN Restaurante ON Comentario.fk_Restaurante_IdRestaurante = Restaurante.IdRestaurante
+                    WHERE Comentario.fk_Restaurante_IdRestaurante = " . $_SESSION["ID"] . " AND Comentario.DenunciadoComentario = 1";
+                    
+                    $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
                 ?>
-                <div class='container-banner'>
-                    <div class='container-info'>
-                        <div>
-                            <img src="img/admin.png" alt="" class='profilePic'>
-                            <div class='container-info-content'>
-                                <h1 class='profileTitle'>Área Administrativa</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class='wrapper-profile'>
                     <div class="container-reviews">
                         <h1>Comentários Denunciados</h1>
                         <hr>
                         <?php 
-                            // Exibe cada comentário denunciado
-                            while($row = $result->fetch_assoc()) {
-                                echo "<div class='review'>";
-                                echo "<div>";
-                                echo "<img src='img/profilepic.png' alt='' class='profilePicReview'>";
-                                echo "<div class='review-info'>";
-                                echo "<h2>Nome do restaurante</h2>";
-                                echo "</div>";
-                                echo "</div>";
-                                echo "<p>" . $row['TextoComentario'] . "</p>";
-                                echo "</div>";
-                            }
+                            while($row = $result->fetch_assoc()) { 
                         ?>
+                            <div class='review'>
+                                <div>
+                                    <?php if ($row['FotoPRA']): ?>
+                                        <img src="data:image/jpeg;base64,<?php echo base64_encode($row['FotoPRA']); ?>" class='profilePicReview'>
+                                    <?php else: ?>
+                                        <img src="./img/profilepic.png" class='profilePicReview' alt="">
+                                    <?php endif; ?>        
+                                    <div class='review-info'>
+                                        <h2><?php echo $row['NomePRA'] ?> Comentou no Restaurante "<?php echo $row['NomeRestaurante'] ?>"</h2>
+                                    </div>
+                                </div>
+                            <p><?php echo $row['TextoComentario'] ?></p>
+                            <a href="databaseComentario/comentarioRetirarDenuncia.php?id=<?php echo $row['IdComentario']; ?>"><button class="denunciar-btn"><i class="bi bi-flag-fill"></i> Retirar denúncia </button></a>
+                            <a href="databaseComentario/comentarioExcluir.php?id=<?php echo $row['IdComentario']; ?>"><button class="denunciar-btn"><i class=""></i> Excluir comentário </button></a>
+                            </div> 
+                            <?php
+                            }
+                            ?>
                     </div>
                 </div>
                 <?php

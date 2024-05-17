@@ -63,11 +63,8 @@
                         <h5>
                             <?php echo $r["NomeRestaurante"] ?>
                             <div>
-                                <a href="<?php echo $r["SiteRestaurante"] ?>" target="_blank">
+                                <a href="Restaurante.php?id=<?php echo $r['IdRestaurante']; ?>" target="_blank">
                                     <button class='btn-vermais'>Ver mais</button>
-                                </a>
-                                <a href=""cardapio.php?id=<?php echo $r['IdRestaurante']; ?>">
-                                    <button class='btn-vermais'>Cardapio</button>
                                 </a>
                             </div>
                         
