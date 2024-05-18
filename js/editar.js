@@ -1,4 +1,5 @@
 //javascript para a edição tanto do PRA quanto do restaurante quanto do admin
+//é chamdo em editarperfil php
 
 //função para excluir o restaurante
 function confirmarExcluirRestaurante() {
@@ -10,12 +11,14 @@ function confirmarExcluirRestaurante() {
         confirmButtonText: "Sim, exclua!",
         cancelButtonText: "Cancelar"
     }).then((result) => {
+      //se for confirmado vai chamar o deletar restaurante php
         if (result.isConfirmed) {
           window.location.href = "databaseRestaurante/restauranteDeletar.php";
         }
     });
 }
 
+//função para excluir PRA
 function confirmarExcluirPRA() {
   Swal.fire({
     title: "Tem certeza?",
@@ -25,12 +28,14 @@ function confirmarExcluirPRA() {
     confirmButtonText: "Sim, exclua!",
     cancelButtonText: "Cancelar"
 }).then((result) => {
+  //se for confirmado vai chamar em deletar usuario php
     if (result.isConfirmed) {
         window.location.href = "databasePRA/usuarioDeletar.php";
     }
 });
 }
 
+//função para a validação de imagens adicionadas pelos usuarios (restaurante e pra)
 function validaImagem(input) {
   var caminho = input.value;
 
