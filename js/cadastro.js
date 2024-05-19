@@ -30,7 +30,7 @@ function validateForm() {
   //cria uma variavel para salvar o username do usuario
   var usernamePRAValue = document.getElementById("inputUsername").value.trim();
   //cria uma variavel para salvar a mensagem que será apresenta quando a algo de errado no username
-  var usernamePRAError = document.getElementById("userNamePRAerror").value;
+  var usernamePRAError = document.getElementById("userNamePRAerror");
   //cria uma variavel para salavr uma mensagem quando a algo de errado no nome 
   var namePRAError = document.getElementById("namePRAError");
   //cria uma variavel para salvar o email 
