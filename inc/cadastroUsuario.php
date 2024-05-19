@@ -15,6 +15,7 @@
             <h2>Dish</h2>
         </div>
     </div>
+    <!--Formulario de cadastro que utiliza o validar formulario de cadastro.js-->
     <form id="cadastroForm" action="../databasePRA/usuarioCadastro.php" method="post" onsubmit="return validateForm()">
         <div class="button-wrapper">
             <button class="userBtn typeBtn selectedTypeBtn" type="button">Usuario</button>

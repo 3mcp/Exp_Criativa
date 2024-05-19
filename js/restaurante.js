@@ -28,7 +28,7 @@ function searchRestaurantes() {
   filtrarRestaurantes();
 }
 
-//filtrar elementos com base em seleções do usuário
+//filtrar elementos com base em seleções do usuário de categoria
 function filtrarRestaurantes() {
   //aqui são armazenadas as categorias que foram selecionadas
   var categoriasSelecionadas = [];

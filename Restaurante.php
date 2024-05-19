@@ -2,11 +2,14 @@
 <?php include("inc/header.php");
     include("dbconnection/functions.php");
 
+    //pega o id do restaurante em questao
     $restauranteId = $_GET["id"];
    
+    //Uma query é executada para obter detalhes do restaurante com base no ID.
     $query = "SELECT * FROM Restaurante WHERE IdRestaurante = $restauranteId";
     $result = mysqli_query($conn, $query);
     
+    //Se os dados forem encontrados, o nome do restaurante é usado como título da página; caso contrário, um título padrão é definido.
     if ($result && mysqli_num_rows($result) > 0) {
         $restaurante = mysqli_fetch_assoc($result);
         $nomeRestaurante = $restaurante['NomeRestaurante'];
@@ -16,6 +19,7 @@
         $pageTitle = "Cardápio";
     } 
 
+    //Uma query é executada para obter os comentários do restaurante, incluindo informações do usuário que fez o comentário.
     $queryComentarios = "
     SELECT c.TextoComentario, c.DenunciadoComentario, c.DataComentario,  c.IdComentario, p.UsernamePRA, p.FotoPRA
     FROM Comentario c
@@ -31,6 +35,7 @@
     <div class='restaurante-pg'>
         <h1 class='restaurante-titulo'><?php echo $pageTitle; ?></h1>
         <div class="restaurante-imagem-container">
+            <!--Adiciona a foto do restaurante-->
             <?php if ($restaurante['FotoRestaurante']): ?>
                 <img src="data:image/jpeg;base64,<?php echo base64_encode($restaurante['FotoRestaurante']); ?>" class='restaurante-imagem'>
             <?php else: ?>
@@ -38,9 +43,12 @@
             <?php endif; ?>        
         </div>
         <div class='restaurante-info'>
+            <!--Rua e numero do restaurante-->
             <p><?php echo ($restaurante['RuaRestaurante']); ?>, <?php echo ($restaurante['Numero_Restaurante']); ?></p>
+            <!--Site do restaurante-->
             <p><?php echo ($restaurante['SiteRestaurante']); ?></p>
         </div>
+        <!--Vizualização cardapio do restaurante-->
         <a href="cardapio.php?id=<?php echo $restaurante['IdRestaurante']; ?>">
             <button class='restaurante-botao-cardapio'>Visualizar Cardápio</button>
         </a>
@@ -50,9 +58,11 @@
             <hr>
             <div class="comentario-box-escreva comentario-box">
                 <h3>Escreva um comentário:</h3>
+                <!--Criar um comentario chama o comentario criar php-->
                 <form action="databaseComentario/comentarioCriar.php?id=<?php echo $restauranteId; ?>" method="POST">
                     <div class='comentarioEscrevaDiv'>
                         <textarea name="texto_comentario" placeholder='Escreva aqui o que achou do nosso restaurante...' required></textarea>
+                        <!--usuario pode adicionar uma nota ao restaurante-->
                         <label>Que nota você dá para o restaurante?</label>
                         <div class="rating">
                             <input type="radio" id="star1" name="nota" value="1" /><label for="star1" title="Muito ruim">1 estrela</label>
@@ -66,6 +76,7 @@
                 </form>
             </div>
 
+            <!--gera dinamicamente a interface de exibição dos comentários de um restaurante específico, garantindo que apenas os comentários que não foram denunciados sejam exibidos-->
 
             <?php if ($resultComentarios && mysqli_num_rows($resultComentarios) > 0): ?>
                 <?php while($comentario = mysqli_fetch_assoc($resultComentarios)): 
@@ -74,6 +85,7 @@
                     <div class="comentario-box" data-id="">
 
                         <div class="comentario-info">
+                            <!--Coloca a foto de quem comentou-->
                             <?php if ($comentario['FotoPRA']): ?>
                                 <img src="data:image/jpeg;base64,<?php echo base64_encode($comentario['FotoPRA']); ?>" class='restaurante-imagem'>
                             <?php else: ?>
@@ -83,6 +95,7 @@
                                 <p style="font-weight: bold;"><?php echo htmlspecialchars($comentario['UsernamePRA']); ?></p>
                                 <p>Comentou em: <?php echo date('d/m/Y', strtotime($comentario['DataComentario'])); ?></p>
                             </div>
+                            <!--para denunciar comentários-->
                             <form action="databaseComentario/comentarioDenunciar.php" method="post">
                                 <input type="hidden" name="idcomentario" value="<?php echo $comentario['IdComentario'];?>">
                                 <button type="submit" class="denunciar-btn"><i class="bi bi-flag-fill"></i> Denunciar comentário </button>

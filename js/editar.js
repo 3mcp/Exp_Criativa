@@ -35,24 +35,30 @@ function confirmarExcluirPRA() {
 });
 }
 
-//função para a validação de imagens adicionadas pelos usuarios (restaurante e pra)
+//função para a validação de imagens adicionadas pelos usuarios (restaurante e pra) em editar perfil php
 function validaImagem(input) {
+  //variavel para salvar o que foi adiciona para a foto
   var caminho = input.value;
 
+  //se o caminho não estiver vazio
   if (caminho) {
     var comecoCaminho =
+    //Esta parte do código identifica o índice do último \ ou / no caminho para extrair o nome do arquivo.
       caminho.indexOf("\\") >= 0
         ? caminho.lastIndexOf("\\")
         : caminho.lastIndexOf("/");
     var nomeArquivo = caminho.substring(comecoCaminho);
 
+    //Se o nome do arquivo começa com \ ou /, esses caracteres são removidos.
     if (nomeArquivo.indexOf("\\") === 0 || nomeArquivo.indexOf("/") === 0) {
       nomeArquivo = nomeArquivo.substring(1);
     }
 
+    //A extensão do arquivo é extraída após o último ponto . no nome do arquivo.
     var extensaoArquivo =
       nomeArquivo.indexOf(".") < 1 ? "" : nomeArquivo.split(".").pop();
 
+    //Se a extensão do arquivo não for uma das permitidas (gif, png, jpg, jpeg), o campo de entrada é resetado (input.value = "") e um alerta é exibido.
     if (
       extensaoArquivo != "gif" &&
       extensaoArquivo != "png" &&
@@ -64,12 +70,17 @@ function validaImagem(input) {
         "É preciso selecionar um arquivo de imagem (gif, png, jpg ou jpeg)"
       );
     }
+  //Se o caminho estiver vazio, o campo de entrada é resetado e um alerta é exibido.
   } else {
     input.value = "";
     alert("Selecione um caminho de arquivo válido");
   }
+  //o tamanho do arquivo é verificado.
   if (input.files && input.files[0]) {
     var arquivoTam = input.files[0].size / 1024 / 1024;
+    //Se o arquivo tiver menos de 16 MB, um FileReader é usado para ler o arquivo.
+    //Quando o arquivo for carregado (reader.onload), a função define o atributo src do elemento de imagem (imagemSelecionada) com o conteúdo do arquivo.
+    //Adiciona a classe edit-profile-avatar ao elemento de imagem.
     if (arquivoTam < 16) {
       var reader = new FileReader();
       reader.onload = function (e) {
@@ -78,19 +89,23 @@ function validaImagem(input) {
         imagem.classList.add("edit-profile-avatar");
       };
       reader.readAsDataURL(input.files[0]);
+      //Se o arquivo for maior que 16 MB, o campo de entrada é resetado e um alerta é exibido.
     } else {
       input.value = "";
       alert("O arquivo precisa ser uma imagem com menos de 16 MB");
     }
+    //Se não houver arquivos selecionados (após todas as verificações), o src da imagem selecionada é definido como #.
   } else {
     document.getElementById("imagemSelecionada").setAttribute("src", "#");
   }
 }
 
+//quando essa função é chamada com uma string como argumento, ela retorna a mesma string sem espaços em branco no início e no final
 function trim(str) {
   return str.replace(/^\s+|\s+$/g, "");
 }
 
+//usado em editarperfil.php para validar o formulario de pra
 function validateuserForm() {
   var nameuserValue = document.getElementById("inputuserNome").value.trim();
   var nameuserError = document.getElementById("nameuserError");
@@ -99,6 +114,7 @@ function validateuserForm() {
   var emailuserError = document.getElementById("emailuserError");
   var passworduserError = document.getElementById("passworduserError");
 
+  //nome deve ter no minimo 2 palavras 
   if (nameuserValue.split(" ").length < 2) {
     nameuserError.textContent = "Insira seu nome completo";
     return false;
@@ -106,8 +122,10 @@ function validateuserForm() {
     nameuserError.textContent = "";
   }
 
+  //cria variavel de padrão de email
   var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  //email deve seguir o padrao
   if (!emailPattern.test(emailuserValue)) {
     emailuserError.textContent = "Por favor, insira um email válido.";
     return false;
@@ -115,9 +133,11 @@ function validateuserForm() {
     emailuserError.textContent = "";
   }
 
+  //padrao para a senha
   var passwordPattern =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
+    //senha deve seguir um padrao
   if (!passwordPattern.test(passwordPRAValue) && passwordPRAValue != "") {
     passworduserError.innerHTML =
       "A senha deve ter no mínimo:<br>* 8 caracteres<br>* Uma letra maiúscula<br>* Um número<br>* Um caractere especial (@, $, !, %, *, ?, &).";
@@ -129,6 +149,7 @@ function validateuserForm() {
   return true;
 }
 
+//valida formulario de edição do restaurante em editarperfil.php
 function validaterestaurantForm() {
   var restaurantValue = document.getElementById("inputNome").value.trim();
   var restauranteError = document.getElementById("nomeRestauranteErro");
@@ -150,6 +171,7 @@ function validaterestaurantForm() {
   var siteUrlValue = document.getElementById("inputSiteUrl").value;
   var siteUrlError = document.getElementById("siteUrlError");
 
+  //o nome completo do restaurante deve ter pelo menso 2 nomes
   if (restaurantValue.length < 2) {
     restauranteError.textContent = "Insira seu nome completo";
     return false;
@@ -157,8 +179,10 @@ function validaterestaurantForm() {
     restauranteError.textContent = "";
   }
 
+  //padrao usado na edição do restaurante
   var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  //email deve seguir este padrao
   if (!emailPattern.test(emailrestauranteValue)) {
     emailrestauranteError.textContent = "Por favor, insira um email válido.";
     return false;
@@ -166,9 +190,11 @@ function validaterestaurantForm() {
     emailrestauranteError.textContent = "";
   }
 
+  //padrao para a senha
   var passwordPattern =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
+  //senha deve seguir um padrao
   if (
     !passwordPattern.test(passwordrestauranteValue) &&
     passwordrestauranteValue != ""
@@ -180,6 +206,7 @@ function validaterestaurantForm() {
     passwordrestauranteError.textContent = "";
   }
 
+  //cep deve conter 9 ou mais numeros
   if (cepValue.length < 9) {
     cepError.textContent = "Insira um CEP válido";
     return false;
@@ -187,6 +214,7 @@ function validaterestaurantForm() {
     cepError.textContent = "";
   }
 
+  //rua deve ter pelo menos um nome
   if (ruaValue.length < 1) {
     ruaError.textContent = "Insira o nome da rua";
     return false;
@@ -194,6 +222,7 @@ function validaterestaurantForm() {
     ruaError.textContent = "";
   }
 
+  //deve conter pelo menos um numero
   if (numeroValue.length < 1) {
     numeroError.textContent = "Insira o número do endereço";
     return false;
@@ -201,12 +230,14 @@ function validaterestaurantForm() {
     numeroError.textContent = "";
   }
 
+  //cnpj nao pode ter menos de 14 numeros
   if (cnpjValue.length < 14) {
     cnpjError.textContent = "Insira um CNPJ válido";
     return false;
   } else {
     cnpjError.textContent = "";
   }
+  //valida se ele é uma URL completa e válida (começando com ftp://, http:// ou https://). Se a URL não for válida, exibe uma mensagem de erro e impede a continuação do processo
   if (siteUrlValue.length > 0) {
     var urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
     if (!urlPattern.test(siteUrlValue)) {
@@ -220,7 +251,7 @@ function validaterestaurantForm() {
   return true;
 }
 
-
+//função de validação para o admin no editarperfil.php
 function validateAdminForm() {
   var adminNome = document.getElementById("adminN").value.trim();
   var adminENome = document.getElementById("adminNomeErro");
@@ -236,8 +267,10 @@ function validateAdminForm() {
   //   adminENome.textContent = "";
   // }
 
+  //padrao para email
   var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  //email deve seguir um padrao
   if (!emailPattern.test(adminEmail)) {
     adminEErro.textContent = "Por favor, insira um email válido.";
     return false;
@@ -245,9 +278,11 @@ function validateAdminForm() {
     adminEErro.textContent = "";
   }
 
+  //padrao para senha
   var passwordPattern =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
+    //senha deve seguir um padrao
   if (!passwordPattern.test(adminSenha) && adminSenha != "") {
     adminSErro.innerHTML =
       "A senha deve ter no mínimo:<br>* 8 caracteres<br>* Uma letra maiúscula<br>* Um número<br>* Um caractere especial (@, $, !, %, *, ?, &).";
