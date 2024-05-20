@@ -202,38 +202,38 @@ if (!isset($_SESSION["ID"])) {
                             </div>
                             <div class='inputWrapper'>
                                 <p>Segunda Feira</p>
-                                <input type="text" name="segundaAbre" placeholder="Abre 00:00" value="<?php echo $horario[0] ?>">
-                                <input type="text" name="segundaFecha" placeholder="Fecha 00:00" value="<?php echo $horario[1] ?>">
+                                <input type="text" name="segundaAbre" placeholder="Abre" value="<?php echo $horario[0] ?>" onchange="formatTime(this)">
+                                <input type="text" name="segundaFecha" placeholder="Fecha" value="<?php echo $horario[1] ?>" onchange="formatTime(this)">
                             </div>
                             <div class='inputWrapper'>
                                 <p>Terça Feira</p>
-                                <input type="text" name="tercaAbre" placeholder="Abre 00:00" value="<?php echo $horario[2] ?>">
-                                <input type="text" name="tercaFecha" placeholder="Fecha 00:00" value="<?php echo $horario[3] ?>">
+                                <input type="text" name="tercaAbre" placeholder="Abre" value="<?php echo $horario[2] ?>" onchange="formatTime(this)">
+                                <input type="text" name="tercaFecha" placeholder="Fecha" value="<?php echo $horario[3] ?>" onchange="formatTime(this)">
                             </div>
                             <div class='inputWrapper'>
                                 <p>Quarta Feira</p>
-                                <input type="text" name="quartaAbre" placeholder="Abre 00:00" value="<?php echo $horario[4] ?>">
-                                <input type="text" name="quartaFecha" placeholder="Fecha 00:00" value="<?php echo $horario[5] ?>">
+                                <input type="text" name="quartaAbre" placeholder="Abre" value="<?php echo $horario[4] ?>" onchange="formatTime(this)">
+                                <input type="text" name="quartaFecha" placeholder="Fecha" value="<?php echo $horario[5] ?>" onchange="formatTime(this)">
                             </div>
                             <div class='inputWrapper'>
                                 <p>Quinta Feira</p>
-                                <input type="text" name="quintaAbre" placeholder="Abre 00:00" value="<?php echo $horario[6] ?>">
-                                <input type="text" name="quintaFecha" placeholder="Fecha 00:00" value="<?php echo $horario[7] ?>">
+                                <input type="text" name="quintaAbre" placeholder="Abre" value="<?php echo $horario[6] ?>" onchange="formatTime(this)">
+                                <input type="text" name="quintaFecha" placeholder="Fecha" value="<?php echo $horario[7] ?>" onchange="formatTime(this)">
                             </div>
                             <div class='inputWrapper'>
                                 <p>Sexta Feira</p>
-                                <input type="text" name="sextaAbre" placeholder="Abre 00:00" value="<?php echo $horario[8] ?>">
-                                <input type="text" name="sextaFecha" placeholder="Fecha 00:00" value="<?php echo $horario[9] ?>">
+                                <input type="text" name="sextaAbre" placeholder="Abre" value="<?php echo $horario[8] ?>" onchange="formatTime(this)">
+                                <input type="text" name="sextaFecha" placeholder="Fecha" value="<?php echo $horario[9] ?>" onchange="formatTime(this)">
                             </div>
                             <div class='inputWrapper'>
                                 <p>Sábado</p>
-                                <input type="text" name="sabadoAbre" placeholder="Abre 00:00" value="<?php echo $horario[10] ?>">
-                                <input type="text" name="sabadoFecha" placeholder="Fecha 00:00" value="<?php echo $horario[11] ?>">
+                                <input type="text" name="sabadoAbre" placeholder="Abre" value="<?php echo $horario[10] ?>" onchange="formatTime(this)">
+                                <input type="text" name="sabadoFecha" placeholder="Fecha" value="<?php echo $horario[11] ?>" onchange="formatTime(this)">
                             </div>
                             <div class='inputWrapper'>
                                 <p>Domingo</p>
-                                <input type="text" name="domingoAbre" placeholder="Abre 00:00" value="<?php echo $horario[12] ?>">
-                                <input type="text" name="domingoFecha" placeholder="Fecha 00:00" value="<?php echo $horario[13] ?>">
+                                <input type="text" name="domingoAbre" placeholder="Abre" value="<?php echo $horario[12] ?>" onchange="formatTime(this)">
+                                <input type="text" name="domingoFecha" placeholder="Fecha" value="<?php echo $horario[13] ?>" onchange="formatTime(this)">
                             </div>
                             <div class="formButtons">
                                 <!--Botão de deletar conta, chamando o javascript confirmar exclusão de restaurante-->

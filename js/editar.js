@@ -251,6 +251,18 @@ function validaterestaurantForm() {
   return true;
 }
 
+//função para validar o horario de funcionamento do restaurante
+function formatTime(input) {
+  const timePattern = /^([01]\d|2[0-3]):([0-5]\d)$/;
+  const value = input.value;
+
+  if (!timePattern.test(value)) {
+      alert("Invalid time format. Please use HH:MM format (24-hour clock).");
+      input.value = "";
+      input.focus();
+  }
+}
+
 //função de validação para o admin no editarperfil.php
 function validateAdminForm() {
   var adminNome = document.getElementById("adminN").value.trim();
