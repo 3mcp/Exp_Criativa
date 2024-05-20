@@ -3,19 +3,19 @@
 
 //função para excluir o restaurante
 function confirmarExcluirRestaurante() {
-    Swal.fire({
-        title: "Tem certeza?",
-        text: "Você realmente deseja excluir sua conta?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Sim, exclua!",
-        cancelButtonText: "Cancelar"
-    }).then((result) => {
-      //se for confirmado vai chamar o deletar restaurante php
-        if (result.isConfirmed) {
-          window.location.href = "databaseRestaurante/restauranteDeletar.php";
-        }
-    });
+  Swal.fire({
+    title: "Tem certeza?",
+    text: "Você realmente deseja excluir sua conta?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Sim, exclua!",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    //se for confirmado vai chamar o deletar restaurante php
+    if (result.isConfirmed) {
+      window.location.href = "databaseRestaurante/restauranteDeletar.php";
+    }
+  });
 }
 
 //função para excluir PRA
@@ -26,13 +26,13 @@ function confirmarExcluirPRA() {
     icon: "warning",
     showCancelButton: true,
     confirmButtonText: "Sim, exclua!",
-    cancelButtonText: "Cancelar"
-}).then((result) => {
-  //se for confirmado vai chamar em deletar usuario php
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    //se for confirmado vai chamar em deletar usuario php
     if (result.isConfirmed) {
-        window.location.href = "databasePRA/usuarioDeletar.php";
+      window.location.href = "databasePRA/usuarioDeletar.php";
     }
-});
+  });
 }
 
 //função para a validação de imagens adicionadas pelos usuarios (restaurante e pra) em editar perfil php
@@ -43,7 +43,7 @@ function validaImagem(input) {
   //se o caminho não estiver vazio
   if (caminho) {
     var comecoCaminho =
-    //Esta parte do código identifica o índice do último \ ou / no caminho para extrair o nome do arquivo.
+      //Esta parte do código identifica o índice do último \ ou / no caminho para extrair o nome do arquivo.
       caminho.indexOf("\\") >= 0
         ? caminho.lastIndexOf("\\")
         : caminho.lastIndexOf("/");
@@ -70,7 +70,7 @@ function validaImagem(input) {
         "É preciso selecionar um arquivo de imagem (gif, png, jpg ou jpeg)"
       );
     }
-  //Se o caminho estiver vazio, o campo de entrada é resetado e um alerta é exibido.
+    //Se o caminho estiver vazio, o campo de entrada é resetado e um alerta é exibido.
   } else {
     input.value = "";
     alert("Selecione um caminho de arquivo válido");
@@ -114,7 +114,7 @@ function validateuserForm() {
   var emailuserError = document.getElementById("emailuserError");
   var passworduserError = document.getElementById("passworduserError");
 
-  //nome deve ter no minimo 2 palavras 
+  //nome deve ter no minimo 2 palavras
   if (nameuserValue.split(" ").length < 2) {
     nameuserError.textContent = "Insira seu nome completo";
     return false;
@@ -137,7 +137,7 @@ function validateuserForm() {
   var passwordPattern =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-    //senha deve seguir um padrao
+  //senha deve seguir um padrao
   if (!passwordPattern.test(passwordPRAValue) && passwordPRAValue != "") {
     passworduserError.innerHTML =
       "A senha deve ter no mínimo:<br>* 8 caracteres<br>* Uma letra maiúscula<br>* Um número<br>* Um caractere especial (@, $, !, %, *, ?, &).";
@@ -253,21 +253,40 @@ function validaterestaurantForm() {
 
 //função para validar o horario de funcionamento do restaurante
 function formatTime(input) {
-  // Extract hours and minutes
-  let timeParts = input.value.split(':');
-  let hours = parseInt(timeParts[0]);
-  let minutes = parseInt(timeParts[1]);
+  let value = input.value;
 
-  // Correct hours and minutes if they are out of bounds
-  if (isNaN(hours) || hours < 0 || hours > 23) {
-      hours = 0;
+  // Remove any non-numeric and non-colon characters
+  value = value.replace(/[^0-9:]/g, "");
+
+  // Split value into hours and minutes
+  let timeParts = value.split(":");
+  let hours = timeParts[0] || "";
+  let minutes = timeParts[1] || "";
+
+  // Limit hours and minutes to appropriate lengths
+  if (hours.length > 2) {
+    hours = hours.substring(0, 2);
   }
-  if (isNaN(minutes) || minutes < 0 || minutes > 59) {
-      minutes = 0;
+  if (minutes.length > 2) {
+    minutes = minutes.substring(0, 2);
   }
 
-  // Format hours and minutes to always be two digits
-  input.value = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+  // Correct hours and minutes if they are out of bounds and not empty
+  if (hours !== "" && (isNaN(hours) || hours < 0 || hours > 23)) {
+    hours = "00";
+  }
+  if (minutes !== "" && (isNaN(minutes) || minutes < 0 || minutes > 59)) {
+    minutes = "00";
+  }
+
+  // Recombine formatted time
+  let formattedTime = hours;
+  if (value.includes(":")) {
+    formattedTime += ":" + minutes;
+  }
+
+  // Set the corrected value back to the input element
+  input.value = formattedTime;
 }
 
 //função de validação para o admin no editarperfil.php
@@ -301,7 +320,7 @@ function validateAdminForm() {
   var passwordPattern =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-    //senha deve seguir um padrao
+  //senha deve seguir um padrao
   if (!passwordPattern.test(adminSenha) && adminSenha != "") {
     adminSErro.innerHTML =
       "A senha deve ter no mínimo:<br>* 8 caracteres<br>* Uma letra maiúscula<br>* Um número<br>* Um caractere especial (@, $, !, %, *, ?, &).";
