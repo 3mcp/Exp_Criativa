@@ -148,7 +148,7 @@
                         <div class="comentario-info">
                             <!--Coloca a foto de quem comentou-->
                             <?php if ($comentario['FotoPRA']): ?>
-                                <img src="data:image/jpeg;base64,<?php echo base64_encode($comentario['FotoPRA']); ?>" class='restaurante-imagem'>
+                                <img src="data:image/jpeg;base64,<?php echo base64_encode($comentario['FotoPRA']); ?>" style="width: 70px; height: 70px;" class='restaurante-imagem'>
                             <?php else: ?>
                                 <img src="./img/profilepic.png" class='comentarioProfilePic' alt="">
                             <?php endif; ?>        
