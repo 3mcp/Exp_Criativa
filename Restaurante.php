@@ -47,6 +47,67 @@
             <p><?php echo ($restaurante['RuaRestaurante']); ?>, <?php echo ($restaurante['Numero_Restaurante']); ?></p>
             <!--Site do restaurante-->
             <p><?php echo ($restaurante['SiteRestaurante']); ?></p>
+            <?php
+                            //Pegando o horario do restaurante
+                            if (isset($restaurante["HorarioRestaurante"])) {
+                                $horario = $restaurante["HorarioRestaurante"];
+                            }else{
+                                $horario = ",";
+                            }
+                            //Transformando csv em array
+                            $horario = explode(",", $horario);
+                            //Confirmando se o horario é valido
+                            if (count($horario) != 14) {
+                                $horario = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+                            } ?>
+                            <!-- Exibindo horários de funcionamento: -->
+                            <p>Horário de funcionamento:</p>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Dia</th>
+                                        <th scope="col">Abre</th>
+                                        <th scope="col">Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Segunda</th>
+                                        <td><?php echo $horario[0] ?></td>
+                                        <td><?php echo $horario[1] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Terça</th>
+                                        <td><?php echo $horario[2] ?></td>
+                                        <td><?php echo $horario[3] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Quarta</th>
+                                        <td><?php echo $horario[4] ?></td>
+                                        <td><?php echo $horario[5] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Quinta</th>
+                                        <td><?php echo $horario[6] ?></td>
+                                        <td><?php echo $horario[7] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Sexta</th>
+                                        <td><?php echo $horario[8] ?></td>
+                                        <td><?php echo $horario[9] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Sábado</th>
+                                        <td><?php echo $horario[10] ?></td>
+                                        <td><?php echo $horario[11] ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Domingo</th>
+                                        <td><?php echo $horario[12] ?></td>
+                                        <td><?php echo $horario[13] ?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
         </div>
         <!--Vizualização cardapio do restaurante-->
         <a href="cardapio.php?id=<?php echo $restaurante['IdRestaurante']; ?>">
