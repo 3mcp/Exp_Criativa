@@ -28,6 +28,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <link rel="stylesheet" href="css/meuPerfil.css">
     <link rel="stylesheet" href="css/editarPerfil.css">
     <link rel="stylesheet" href="css/Restaurante.css">
+    <link rel="stylesheet" href="css/star.css">
 </head>
 
 <body>
