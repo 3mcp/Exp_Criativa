@@ -158,7 +158,7 @@
                     <div class='cardapio-info-texto'>
                         <!--Irá aparecer o nome, preço, imagem, descrição-->
                         <h1><?php echo $r["NomePrato"]; ?></h1>
-                        <p><?php echo $r["PrecoPrato"]; ?></p>
+                        <p class='cardapio-info-descricao'><?php echo $r["PrecoPrato"]; ?></p>
                         <img src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?>" alt="" class='imgSaibaMais'>
                     </div>
                     <p class='cardapio-info-descricao'><?php echo $r["DescricaoPrato"]; ?></p>

@@ -16,32 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `prato_categoria`
+-- Table structure for table `pra_categoria`
 --
 
-DROP TABLE IF EXISTS `prato_categoria`;
+DROP TABLE IF EXISTS `pra_categoria`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `prato_categoria` (
-  `IdPratoCategoria` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pra_categoria` (
+  `IdPRACategoria` int NOT NULL AUTO_INCREMENT,
   `fk_Categoria_IdCategoria` int DEFAULT NULL,
-  `fk_Prato_IdPrato` int DEFAULT NULL,
-  PRIMARY KEY (`IdPratoCategoria`),
-  KEY `FK_Prato_Categoria_1` (`fk_Categoria_IdCategoria`),
-  KEY `FK_Prato_Categoria_2` (`fk_Prato_IdPrato`),
-  CONSTRAINT `FK_Prato_Categoria_1` FOREIGN KEY (`fk_Categoria_IdCategoria`) REFERENCES `categoria` (`IdCategoria`) ON DELETE RESTRICT,
-  CONSTRAINT `FK_Prato_Categoria_2` FOREIGN KEY (`fk_Prato_IdPrato`) REFERENCES `prato` (`IdPrato`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `fk_P_R_A__IdPRA` int DEFAULT NULL,
+  PRIMARY KEY (`IdPRACategoria`),
+  KEY `FK_PRA_Categoria_1` (`fk_Categoria_IdCategoria`),
+  KEY `FK_PRA_Categoria_2` (`fk_P_R_A__IdPRA`),
+  CONSTRAINT `FK_PRA_Categoria_1` FOREIGN KEY (`fk_Categoria_IdCategoria`) REFERENCES `categoria` (`IdCategoria`) ON DELETE RESTRICT,
+  CONSTRAINT `FK_PRA_Categoria_2` FOREIGN KEY (`fk_P_R_A__IdPRA`) REFERENCES `p_r_a_` (`IdPRA`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `prato_categoria`
+-- Dumping data for table `pra_categoria`
 --
 
-LOCK TABLES `prato_categoria` WRITE;
-/*!40000 ALTER TABLE `prato_categoria` DISABLE KEYS */;
-INSERT INTO `prato_categoria` VALUES (1,7,NULL),(2,8,NULL),(3,9,NULL),(4,10,NULL),(11,3,NULL),(12,4,NULL),(13,5,NULL),(14,7,NULL),(15,6,NULL),(16,7,NULL),(17,8,NULL),(18,3,19),(19,4,19),(20,7,19),(21,3,20),(22,7,20),(23,4,21),(24,13,21),(25,11,22),(26,14,22);
-/*!40000 ALTER TABLE `prato_categoria` ENABLE KEYS */;
+LOCK TABLES `pra_categoria` WRITE;
+/*!40000 ALTER TABLE `pra_categoria` DISABLE KEYS */;
+INSERT INTO `pra_categoria` VALUES (4,3,46),(5,4,46),(6,5,46);
+/*!40000 ALTER TABLE `pra_categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-15 10:29:51
+-- Dump completed on 2024-05-20  9:14:51
