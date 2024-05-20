@@ -26,7 +26,8 @@ CREATE TABLE Restaurante (
     NomeRestaurante VARCHAR(200) UNIQUE,
     DescricaoRestaurante VARCHAR(400),
     RuaRestaurante VARCHAR(200),
-    CEPRestaurante VARCHAR(15)
+    CEPRestaurante VARCHAR(15),
+    HorarioRestaurante VARCHAR(100)
 );
 
 CREATE TABLE Comentario (
@@ -70,15 +71,6 @@ VALUES
 ('Baixo teor de gordura', 'Pratos com reduzido teor de gordura.'),
 ('Baixo teor de açúcar', 'Pratos com reduzido teor de açúcar.'),
 ('Baixo teor de sódio', 'Pratos com reduzido teor de sódio.');
-
-
-CREATE TABLE Horario (
-    IdHorario INT PRIMARY KEY auto_increment,
-    DiadaSemana VARCHAR(30),
-    AbreTime VARCHAR(10),
-    FechaTime VARCHAR(10),
-    fk_Restaurante_IdRestaurante INT
-);
 
 CREATE TABLE Prato_Categoria (
 	IdPratoCategoria INT PRIMARY KEY auto_increment,
