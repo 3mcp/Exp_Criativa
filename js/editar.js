@@ -253,14 +253,21 @@ function validaterestaurantForm() {
 
 //função para validar o horario de funcionamento do restaurante
 function formatTime(input) {
-  const timePattern = /^([01]\d|2[0-3]):([0-5]\d)$/;
-  const value = input.value;
+  // Extract hours and minutes
+  let timeParts = input.value.split(':');
+  let hours = parseInt(timeParts[0]);
+  let minutes = parseInt(timeParts[1]);
 
-  if (!timePattern.test(value)) {
-      alert("Invalid time format. Please use HH:MM format (24-hour clock).");
-      input.value = "";
-      input.focus();
+  // Correct hours and minutes if they are out of bounds
+  if (isNaN(hours) || hours < 0 || hours > 23) {
+      hours = 0;
   }
+  if (isNaN(minutes) || minutes < 0 || minutes > 59) {
+      minutes = 0;
+  }
+
+  // Format hours and minutes to always be two digits
+  input.value = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
 }
 
 //função de validação para o admin no editarperfil.php
