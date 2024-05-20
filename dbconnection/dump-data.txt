@@ -1,0 +1,11 @@
+Usuários
+joao@teste.com	Teste12@ - comentário denunciado no restaurante Suli
+teste@teste.com	Teste12@ - comentário válido no restaurante suli
+admin@gmail.com Admin123@ - um comentário para avaliar (joaozinho)
+
+
+Restaurantes
+suli@teste.com	Teste12@ - um prato, 2 comentarios
+semculpa@teste.com  Teste12@ - um prato
+funfit@teste.com  Teste12@ - um prato
+zapata@teste.com  Teste12@ - um prato
