@@ -114,8 +114,10 @@
             <button class='restaurante-botao-cardapio'>Visualizar Cardápio</button>
         </a>
 
+        <h2>Comentários</h2>
+        <?php if(isset($_SESSION["TYPE"]))
+                if ($_SESSION["TYPE"] == "P.R.A.") { ?>
         <div class="comentario-container">
-            <h2>Comentários</h2>
             <hr>
             <div class="comentario-box-escreva comentario-box">
                 <h3>Escreva um comentário:</h3>
@@ -136,7 +138,7 @@
                     </div>
                 </form>
             </div>
-
+            <?php } ?>
             <!--gera dinamicamente a interface de exibição dos comentários de um restaurante específico, garantindo que apenas os comentários que não foram denunciados sejam exibidos-->
 
             <?php if ($resultComentarios && mysqli_num_rows($resultComentarios) > 0): ?>
@@ -148,7 +150,7 @@
                         <div class="comentario-info">
                             <!--Coloca a foto de quem comentou-->
                             <?php if ($comentario['FotoPRA']): ?>
-                                <img src="data:image/jpeg;base64,<?php echo base64_encode($comentario['FotoPRA']); ?>" class='restaurante-imagem'>
+                                <img src="data:image/jpeg;base64,<?php echo base64_encode($comentario['FotoPRA']); ?>" style="width: 70px; height: 70px;" class='restaurante-imagem'>
                             <?php else: ?>
                                 <img src="./img/profilepic.png" class='comentarioProfilePic' alt="">
                             <?php endif; ?>        

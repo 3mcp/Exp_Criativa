@@ -35,7 +35,7 @@ CREATE TABLE `comentario` (
   KEY `FK_Comentario_3` (`fk_P_R_A__IdPRA`),
   CONSTRAINT `FK_Comentario_2` FOREIGN KEY (`fk_Restaurante_IdRestaurante`) REFERENCES `restaurante` (`IdRestaurante`) ON DELETE CASCADE,
   CONSTRAINT `FK_Comentario_3` FOREIGN KEY (`fk_P_R_A__IdPRA`) REFERENCES `p_r_a_` (`IdPRA`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `comentario` (
 
 LOCK TABLES `comentario` WRITE;
 /*!40000 ALTER TABLE `comentario` DISABLE KEYS */;
-INSERT INTO `comentario` VALUES (1,'Muito bom o restaurante, comi a torta de frutas vermelhas e estava sensacional!','2024-05-20',0,5,1,46);
+INSERT INTO `comentario` VALUES (1,'Muito bom o restaurante, comi a torta de frutas vermelhas e estava sensacional!','2024-05-20',0,5,1,46),(2,'Muito ruim, odiei, serviço péssimo. Espero que fechem o restaurante em 2 semanas','2024-05-20',1,1,1,95);
 /*!40000 ALTER TABLE `comentario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-20  9:14:54
+-- Dump completed on 2024-05-20  9:29:21
