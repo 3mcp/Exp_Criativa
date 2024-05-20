@@ -49,8 +49,8 @@
             <p><?php echo ($restaurante['SiteRestaurante']); ?></p>
             <?php
                             //Pegando o horario do restaurante
-                            if (isset($usuario["HorarioRestaurante"])) {
-                                $horario = $usuario["HorarioRestaurante"];
+                            if (isset($restaurante["HorarioRestaurante"])) {
+                                $horario = $restaurante["HorarioRestaurante"];
                             }else{
                                 $horario = ",";
                             }
