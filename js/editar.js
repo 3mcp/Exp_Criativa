@@ -256,22 +256,19 @@ function formatTime(input) {
   let value = input.value;
 
   // Remove any non-numeric and non-colon characters
-  value = value.replace(/[^0-9:]/g, "");
+  value = value.replace(/[^0-9]/g, "");
+
+  // Automatically insert colon after the second digit
+  if (value.length > 2) {
+    value = value.slice(0, 2) + ":" + value.slice(2, 4);
+  }
 
   // Split value into hours and minutes
   let timeParts = value.split(":");
   let hours = timeParts[0] || "";
   let minutes = timeParts[1] || "";
 
-  // Limit hours and minutes to appropriate lengths
-  if (hours.length > 2) {
-    hours = hours.substring(0, 2);
-  }
-  if (minutes.length > 2) {
-    minutes = minutes.substring(0, 2);
-  }
-
-  // Correct hours and minutes if they are out of bounds and not empty
+  // Correct hours and minutes if they are out of bounds
   if (hours !== "" && (isNaN(hours) || hours < 0 || hours > 23)) {
     hours = "00";
   }
@@ -279,14 +276,12 @@ function formatTime(input) {
     minutes = "00";
   }
 
-  // Recombine formatted time
-  let formattedTime = hours;
-  if (value.includes(":")) {
-    formattedTime += ":" + minutes;
-  }
+  // Format hours and minutes to ensure two digits
+  hours = hours.padStart(2, "0");
+  minutes = minutes.padStart(2, "0");
 
   // Set the corrected value back to the input element
-  input.value = formattedTime;
+  input.value = hours + (value.length > 2 ? ":" + minutes : "");
 }
 
 //função de validação para o admin no editarperfil.php
