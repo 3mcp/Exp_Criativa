@@ -122,7 +122,7 @@ if (!isset($_SESSION["ID"])) {
                                 <img src="img/profilepic.png" alt="" class='profilePic'>
                             <?php } ?>
                             <div class='container-info-content'>
-                                <!--Coloca comotitulo do perfil o nome do restaurante-->
+                                <!--Coloca como titulo do perfil o nome do restaurante-->
                                 <h1 class='profileTitle'><?php echo $usuario['NomeRestaurante'] ?></h1>
                                 <!--E adiciona a localização do restaurante em baixo-->
                                 <p class='profileLocation'>
