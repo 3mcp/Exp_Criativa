@@ -51,6 +51,8 @@
                             //Pegando o horario do restaurante
                             if (isset($usuario["HorarioRestaurante"])) {
                                 $horario = $usuario["HorarioRestaurante"];
+                            }else{
+                                $horario = ",";
                             }
                             //Transformando csv em array
                             $horario = explode(",", $horario);
