@@ -267,21 +267,17 @@ function formatTime(input) {
   let timeParts = value.split(":");
   let hours = timeParts[0] || "";
   let minutes = timeParts[1] || "";
-
   // Correct hours and minutes if they are out of bounds
-  if (hours !== "" && (isNaN(hours) || hours < 0 || hours > 23)) {
+  if (hours < 0 || hours > 23) {
     hours = "00";
   }
-  if (minutes !== "" && (isNaN(minutes) || minutes < 0 || minutes > 59)) {
+  if (minutes < 0 || minutes > 59) {
     minutes = "00";
   }
 
-  // Format hours and minutes to ensure two digits
-  hours = hours.padStart(2, "0");
-  minutes = minutes.padStart(2, "0");
-
   // Set the corrected value back to the input element
   input.value = hours + (value.length > 2 ? ":" + minutes : "");
+  input.value = input.value.slice(0, 5);
 }
 
 //função de validação para o admin no editarperfil.php
