@@ -55,7 +55,6 @@
                             <img id="imagemSelecionada">
                             <!--accept: indica que apenas imagens podem ser aceitas. oncharge: chama a função de validar imagem-->
                             <input type="file" id="img" class="form-control" name="img" accept="imagem/*" onchange="validaImagem(this);">
-                            <!--serve para limitar o tamanho da imagem selecionada-->
                             <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
                         </div>
                         <!--Outras entradas para o formulario como nome do prato, preço e descrição-->
@@ -75,14 +74,14 @@
                     </div>
                     <div class='inputWrapperCategoria'>
                     <label for="categoriaPrato">Categorias do prato</label>
-                        <div class="categoria-checkboxes">
+                        <div class="categoria-checkboxes row">
                             <?php
                             //executa consultas ao banco de dados para obter todas as categorias disponíveis e, em seguida, itera sobre elas para exibi-las como checkboxes.
                             $categorias = select($conn, "*", "categoria", NULL);
                             if (!empty($categorias)) {
                                 foreach ($categorias as $categoria) {
-                                    echo "<div><input type='checkbox' id='categoria_".$categoria['IdCategoria']."' name='pratoCategorias[]' value='".$categoria['IdCategoria']."'>";
-                                    echo "<label for='categoria_".$categoria['IdCategoria']."'>".$categoria['NomeCategoria']."</label></div>";
+                                    echo "<div class='categoriaContainer'><input class='form-check-input' type='checkbox' id='categoria_".$categoria['IdCategoria']."' name='pratoCategorias[]' value='".$categoria['IdCategoria']."'>";
+                                    echo "<label class='form-check-label' for='categoria_".$categoria['IdCategoria']."'>".$categoria['NomeCategoria']."</label></div>";
                                 } 
                                 //se não encontrar nenhuma categoria exibe uma mensagem
                             } else {
@@ -164,6 +163,7 @@
                     <p class='cardapio-info-descricao'><?php echo $r["DescricaoPrato"]; ?></p>
                     <p class='cardapio-info-categoria'>Categorias: <?php echo implode(", ", $categoriasPrato); ?></p>
                     <button class='fecharBtn' onclick="off('entrecot_<?php echo $pratoID; ?>')">Fechar</button>
+                    
                 </div>
             </div>
         <?php }?>
@@ -177,17 +177,20 @@
                     <!--Inicia um formulario para a edição do prato-->
                     <!--Onde os dados são enviados para pratoEditar.php-->
                     <form action="databasePrato/pratoEditar.php" enctype="multipart/form-data" class='editPratoForm' method="post">
-                        <div>
+                        <div class='infoContainer'>
                         <!--Aqui adiciona a nova imagem utilizando o js de validarImagem-->
                             <div class='inputWrapper'>
                                 <p>Imagem:</p>
                                 <img id="imagemSelecionada">
-                                <input type="file" id="pratoFotoN" class="form-control" name="pratoFotoNovo" accept="imagem/*" style="width: 300ppx; height:300px;" onchange="validaImagem(this);">
+                                <input type="file" id="pratoFotoN" class="form-control" name="pratoFotoNovo" accept="imagem/*" onchange="validaImagem(this);">
                                 <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
                             </div>
+                            <div class="inputWrapper">
+
+                                <label for="nomePrato">Nome do prato</label>
+                                <input type="text" id='pratoNomeN' name="pratoNomeNovo" placeholder='Ex: Macarrão com Salsicha '>
+                            </div>
                         <!--Aqui adiciona o novo nome do prato-->
-                            <label for="nomePrato">Nome do prato</label>
-                            <input type="text" id='pratoNomeN' name="pratoNomeNovo" placeholder='Ex: Macarrão com Salsicha '>
                         <!--Aqui adiciona o novo preço do prato-->
                             <label for="precoPrato">Preço do Prato</label>
                             <input type="text" id='pratoPrecoN' name="pratoPrecoNovo" placeholder='Ex: R$00.00'>
@@ -201,14 +204,14 @@
                         <div class='inputWrapperCategoria'>
                         <!--Aqui serve para editar as categorias dos pratos-->
                             <label for="categoriaPrato">Categorias do prato</label>
-                            <div class="categoria-checkboxes">
+                            <div class="categoria-checkboxes row">
                                 <?php
                                 $categorias = select($conn, "*", "categoria", NULL);
                                 if (!empty($categorias)) {
                                     foreach ($categorias as $categoria) {
                                         //cria um checkbox para cada categoria baseada no seu id, e mais de uma categoria pode ser selecionada
-                                        echo "<div><input type='checkbox' id='categoriaN_".$categoria['IdCategoria']."' name='pratoCategorias[]' value='".$categoria['IdCategoria']."'>";
-                                        echo "<label for='categoriaN_".$categoria['IdCategoria']."'>".$categoria['NomeCategoria']."</label></div>";
+                                        echo "<div class='categoriaContainer'><input class='form-check-input' type='checkbox' id='categoriaN_".$categoria['IdCategoria']."' name='pratoCategorias[]' value='".$categoria['IdCategoria']."'>";
+                                        echo "<label class='form-check-label' for='categoriaN_".$categoria['IdCategoria']."'>".$categoria['NomeCategoria']."</label></div>";
                                     }
                                 } else {
                                     echo "<p>Nenhuma categoria encontrada</p>";

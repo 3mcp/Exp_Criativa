@@ -18,6 +18,16 @@
   text-shadow: 0.1em 0.1em #628888;
 }
 
+.infoContainer {
+  margin-right: 100px;
+  padding-left: 0;
+}
+
+.categoriaContainer {
+  display: flex;
+  gap: 20px;
+}
+
 .restaurante-imagem-container {
   width: 100%;
   margin-top: 1%;
@@ -214,7 +224,7 @@
 }
 
 .editPrato {
-  width: 70%;
+  width: fit-content;
   height: fit-content;
 }
 
@@ -246,7 +256,7 @@
 /* */
 
 .addPrato {
-  width: 70%;
+  width: fit-content;
   height: fit-content;
 }
 
