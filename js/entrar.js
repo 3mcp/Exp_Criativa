@@ -1,3 +1,6 @@
+//obtem a tela
+const entrarForm = document.getElementById("entrarForm");
+
 //obtem botões
 const userBtn = document.getElementById("userButton");
 const restauranteBtn = document.getElementById("restaurantButton");
@@ -37,4 +40,9 @@ const formularioRestaurante = () => {
   userForm.style.display = "none";
   //torna visivel
   restauranteForm.style.display = "flex";
+}
+
+//verifica qual formulario deve estar visivel
+if(entrarForm.getAttribute("aberto") === "restaurante") {
+  formularioRestaurante();
 }

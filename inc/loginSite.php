@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php session_start(); ?>
+<?php session_start(); 
+    if(isset($_SESSION['erroLogin'])){
+        $erroLogin = $_SESSION['erroLogin'];
+        unset($_SESSION['erroLogin']);
+    }else{
+        $erroLogin = "pra";
+    }
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +24,7 @@
             <h2>Dish</h2>
         </div>
     </div>
-    <div class="entrarForm">
+    <div class="entrarForm" id="entrarForm" aberto="<?php echo $erroLogin?>">
         <div class="button-wrapper">
             <button class="typeBtn selectedTypeBtn" type="button" id="userButton">Usuario</button>
             <button class="typeBtn" type="button" id="restaurantButton">Restaurante</button>
