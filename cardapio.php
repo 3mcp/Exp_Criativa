@@ -54,21 +54,21 @@
                             <p class='inputWrapperImagem'>Imagem:</p>
                             <img id="imagemSelecionada">
                             <!--accept: indica que apenas imagens podem ser aceitas. oncharge: chama a função de validar imagem-->
-                            <input type="file" id="img" class="form-control" name="img" accept="imagem/*" onchange="validaImagem(this);">
+                            <input type="file" id="img" class="form-control" name="img" accept="imagem/*" onchange="validaImagem(this);" required>
                             <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
                         </div>
                         <!--Outras entradas para o formulario como nome do prato, preço e descrição-->
                         <div class='inputWrapper'>
                         <label for="nomePrato">Nome do prato</label>
-                        <input type="text" id='nomePrato'name="nomeP" placeholder='Ex: Macarrão com Salsicha '>
+                        <input type="text" id='nomePrato'name="nomeP" placeholder='Ex: Macarrão com Salsicha ' required>
                         </div>
                         <div class='inputWrapper'>
                         <label for="precoPrato">Preço do Prato</label>
-                        <input type="text" id='precoPrato' name="precoP" placeholder='Ex: R$00.00'>
+                        <input type="number" id='precoPrato' name="precoP" placeholder='Ex: R$00.00' required>
                         </div>
                         <div class='inputWrapper'>
                         <label for="descricaoPrato">Descrição do prato</label>
-                        <textarea id='descricaoPrato' name="descricaoP" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
+                        <textarea id='descricaoPrato' name="descricaoP" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..." required></textarea>
                         </div>
                     <!--adicionar categorias para os pratos-->
                     </div>
@@ -147,7 +147,7 @@
                     <button class='saibaMaisBtn' onclick="on('entrecot_<?php echo $pratoID; ?>')">Saiba mais</button>
                     <?php if($donoRestaurante == TRUE) {?>
 
-                    <i class="bi bi-pencil-square" onclick="on('editForm',<?php echo $pratoID; ?>)"></i> <!-- Botão de editar -->
+                    <i class="bi bi-pencil-square text-light" onclick="on('editForm',<?php echo $pratoID; ?>)"></i> <!-- Botão de editar -->
                     <?php } ?>
                 </div>
             </div>
@@ -182,23 +182,23 @@
                             <div class='inputWrapper'>
                                 <p>Imagem:</p>
                                 <img id="imagemSelecionada">
-                                <input type="file" id="pratoFotoN" class="form-control" name="pratoFotoNovo" accept="imagem/*" onchange="validaImagem(this);">
+                                <input type="file" id="pratoFotoN" class="form-control" name="pratoFotoNovo" accept="imagem/*" onchange="validaImagem(this);" required>
                                 <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
                             </div>
                             <div class="inputWrapper">
 
                                 <label for="nomePrato">Nome do prato</label>
-                                <input type="text" id='pratoNomeN' name="pratoNomeNovo" placeholder='Ex: Macarrão com Salsicha '>
+                                <input type="text" id='pratoNomeN' name="pratoNomeNovo" placeholder='Ex: Macarrão com Salsicha ' required>
                             </div>
                         <!--Aqui adiciona o novo nome do prato-->
                         <!--Aqui adiciona o novo preço do prato-->
                             <label for="precoPrato">Preço do Prato</label>
-                            <input type="text" id='pratoPrecoN' name="pratoPrecoNovo" placeholder='Ex: R$00.00'>
+                            <input type="text" id='pratoPrecoN' name="pratoPrecoNovo" placeholder='Ex: R$00.00' required>
                         <!--Aqui adiciona a nova descrição do prato-->
                             <label for="descricaoPrato">Descrição do prato</label>
                             <div class='inputWrapper'>
                             <!--textarea serve para algo com muitas linhas-->
-                                <textarea id='pratoDescricaoN' name="pratoDescricaoNovo" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..."></textarea>
+                                <textarea id='pratoDescricaoN' name="pratoDescricaoNovo" maxlength="400" placeholder="Ex: uma entrada que é uma autêntica explosão de sabores. Combinamos a riqueza da burrata, um queijo italiano..." required></textarea>
                             </div>
                         </div>
                         <div class='inputWrapperCategoria'>

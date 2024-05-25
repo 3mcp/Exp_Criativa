@@ -54,6 +54,7 @@ function confirmarExclusao() {
 function validarFormulario() {
   //cria uma variavies para as categorias do prato
   var checkboxes = document.querySelectorAll('input[name="pratoCategorias[]"]');
+  var precoPrato = document.getElementById("precoPrato");
   var peloMenosUmSelecionado = false;
   checkboxes.forEach(function (checkbox) {
     if (checkbox.checked) {
@@ -61,8 +62,22 @@ function validarFormulario() {
     }
   });
   if (!peloMenosUmSelecionado) {
-    alert("Selecione pelo menos uma categoria para o prato.");
+    Swal.fire({
+      icon: "error",
+      title: "Erro",
+      text: "Selecione pelo menos uma categoria para o prato!"
+    });
     return false; // Impede o envio do formulário
   }
+
+  if (precoPrato.value < 0) {
+    Swal.fire({
+      icon: "error",
+      title: "Erro",
+      text: "O preço do prato não pode ser negativo!"
+    });
+    return false; // Impede o envio do formulário
+  }
+
   return true; // Permite o envio do formulário
 }
