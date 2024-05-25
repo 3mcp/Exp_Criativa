@@ -55,15 +55,17 @@ function filtrarRestaurantes() {
     } else {
       //se a categoria selecionada estiver no array de categorias do restaurante, então aparece no display de bloco
       var mostrar = false;
-      categorias.forEach((categoria) => {
-        //Verifica se a categoria do restaurante está no array de categorias selecionadas
-        if (
-          categoriasSelecionadas.includes(categoria) &&
-          restaurante.style.display != "none"
-        ) {
-          mostrar = true;
+      var incluiTodas = true;
+      //Verifica se as categorias selecionados estão dentro das categorias do restaurante
+      categoriasSelecionadas.forEach((categoria) => {
+        if (!categorias.includes(categoria)) {
+          incluiTodas = false;
         }
       });
+      //Se todas as categorias selecionadas estão dentro das categorias do restaurante, então mostra o restaurante
+      if (incluiTodas && restaurante.style.display != "none") {
+        mostrar = true;
+      }
       //Exibe ou esconde o restaurante
       if (mostrar) {
         restaurante.style.display = "block";
