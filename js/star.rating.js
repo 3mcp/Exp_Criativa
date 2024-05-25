@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const stars = document.querySelectorAll(".star")
+  const nota = document.getElementById("nota")
 
   stars.forEach((star) => {
     star.addEventListener("click", () => {
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
           nextSibling = nextSibling.nextElementSibling
         }
       }
+      nota.value = value
       console.log(`Rating: ${value}`)
     })
 

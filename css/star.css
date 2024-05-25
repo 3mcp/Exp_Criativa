@@ -18,3 +18,14 @@
 .star.selected ~ .star {
   color: gold;
 }
+
+.starComentario {
+  font-size: 2rem;
+  color: lightgray;
+  user-select: none;
+}
+
+.starComentario.selected,
+.starComentario.selected ~ .star {
+  color: gold;
+}
