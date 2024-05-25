@@ -54,7 +54,7 @@
             </div>
             <div class="input-wrapper" id="numeroWrapper">
                 <p id="inputNumeroLabel">Número:</p>
-                <input type="text" id='inputNumero' name="restauranteNumero">
+                <input type="text" id='inputNumero' maxlength='9' name="restauranteNumero">
                 <p id="numeroError" style="color: red;"></p>
             </div>
             <div class="input-wrapper" id="cnpjWrapper">
