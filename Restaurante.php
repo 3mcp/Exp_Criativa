@@ -177,6 +177,10 @@ $resultComentarios = mysqli_query($conn, $queryComentarios);
                                     <input type="hidden" name="idcomentario" value="<?php echo $comentario['IdComentario']; ?>">
                                     <button type="submit" class="denunciar-btn"><i class="bi bi-flag-fill"></i> Denunciar comentário </button>
                                 </form>
+
+                                <?php if ($comentario['DenunciadoComentario'] == 1) : ?>
+                                    <i class="bi bi-exclamation-lg fs-4 text-danger" data-bs-toggle="tooltip" data-bs-title="Esse comentário foi denunciado"></i>
+                                <?php endif; ?>
                         </div>
                         <div class='comentario-content'>
                             <p><?php echo htmlspecialchars($comentario['TextoComentario']); ?></p>
@@ -189,6 +193,7 @@ $resultComentarios = mysqli_query($conn, $queryComentarios);
                 <p>Nenhum comentário disponível.</p>
             <?php endif; ?>
             </div>
+            <script src='js/tooltips.js'></script>
     </div>
 </main>
 
