@@ -269,7 +269,7 @@ if (!isset($_SESSION["ID"])) {
                     FROM Comentario 
                     INNER JOIN P_R_A_ ON Comentario.fk_P_R_A__IdPRA = P_R_A_.IdPRA 
                     INNER JOIN Restaurante ON Comentario.fk_Restaurante_IdRestaurante = Restaurante.IdRestaurante
-                    WHERE Comentario.fk_Restaurante_IdRestaurante = " . $_SESSION["ID"] . " AND Comentario.DenunciadoComentario = 1";
+                    WHERE Comentario.DenunciadoComentario = 1";
 
                     $result = $conn->query($sql);
 
