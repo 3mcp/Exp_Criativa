@@ -157,7 +157,7 @@
                     <div class='cardapio-info-texto'>
                         <!--Irá aparecer o nome, preço, imagem, descrição-->
                         <h1><?php echo $r["NomePrato"]; ?></h1>
-                        <p class='cardapio-info-descricao'><?php echo $r["PrecoPrato"]; ?></p>
+                        <p class='cardapio-info-descricao'>R$<?php echo $r["PrecoPrato"] ?></p>
                         <img src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?>" alt="" class='imgSaibaMais'>
                     </div>
                     <p class='cardapio-info-descricao'><?php echo $r["DescricaoPrato"]; ?></p>
@@ -182,7 +182,7 @@
                             <div class='inputWrapper'>
                                 <p>Imagem:</p>
                                 <img id="imagemSelecionada">
-                                <input type="file" id="pratoFotoN" class="form-control" name="pratoFotoNovo" accept="imagem/*" onchange="validaImagem(this);" required>
+                                <input type="file" id="pratoFotoN" class="form-control" name="pratoFotoNovo" accept="imagem/*" onchange="validaImagem(this);">
                                 <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
                             </div>
                             <div class="inputWrapper">
