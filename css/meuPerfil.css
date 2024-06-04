@@ -81,6 +81,9 @@
 
 .review {
   margin-bottom: 10%;
+  background-color: rgb(125, 147, 121, 0.2);
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .review > div {
