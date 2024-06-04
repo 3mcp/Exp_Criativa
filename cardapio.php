@@ -138,7 +138,7 @@
             <div class="cardapio-item">
 
             <!--Mostra a imagem que foi selecionada, imagem é codificada em base64-->
-            <img  src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?> "style="width: 300px; height: 300px;" />
+            <img  src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?> "style="min-width: 200px; height: 300px;" />
                 <div class='cardapio-info'>
                     <!--Exibe a descrição do prato que é obtida na coluna descricao prato-->
                     <p><?php echo $r["DescricaoPrato"]?></p>
