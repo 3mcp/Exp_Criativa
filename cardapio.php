@@ -141,7 +141,7 @@
             <img  src="data:image/png;base64,<?= base64_encode($r['FotoPrato']) ?> "style="min-width: 200px; height: 300px;" />
                 <div class='cardapio-info'>
                     <!--Exibe a descrição do prato que é obtida na coluna descricao prato-->
-                    <p><?php echo $r["DescricaoPrato"]?></p>
+                    <p><?php echo $r["NomePrato"]?></p>
                 
                     <!--Esse é um botão de saiba mais que mostra mais informações sobre o prato-->
                     <button class='saibaMaisBtn' onclick="on('entrecot_<?php echo $pratoID; ?>')">Saiba mais</button>
